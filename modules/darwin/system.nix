@@ -23,7 +23,7 @@
           # Always show all files
           AppleShowAllFiles = true;
           # Set dark mode based on theme configuration
-          AppleInterfaceStyle = if config.theme.dark then "Dark" else "Light";
+          AppleInterfaceStyle = if config.theme.colorScheme.dark then "Dark" else "Light";
 
           # Disable animations for instant, snappy UI
           # Window animations

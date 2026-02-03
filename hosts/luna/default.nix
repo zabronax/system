@@ -28,9 +28,14 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     ../../modules/shared
     ../../modules/wsl
-    userConfig
     inputs.wsl.nixosModules.wsl
     inputs.home-manager.nixosModules.home-manager
+
+    # Theme configuration
+    ../../themes/gruvbox
+
+    # User configuration
+    userConfig
     {
       # Replace config with our directory, as it's sourced on every launch
       system.activationScripts.configDir.text = ''
@@ -41,10 +46,8 @@ inputs.nixpkgs.lib.nixosSystem {
       # Configuration
       networking.hostName = "luna";
 
-      theme = {
-        colors = (import ../../colorscheme/gruvbox-dark).dark;
-        dark = true;
-      };
+      # Theme variant
+      theme.variant = "dark";
 
       # Integrations
       integrations.cursorIde.enable = true;

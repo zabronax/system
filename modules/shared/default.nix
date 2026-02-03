@@ -23,13 +23,15 @@
     };
 
     theme = {
-      colors = lib.mkOption {
-        type = lib.types.attrs;
-        description = "Base16 color scheme.";
-      };
-      dark = lib.mkOption {
-        type = lib.types.bool;
-        description = "Enable dark mode.";
+      colorScheme = {
+        colors = lib.mkOption {
+          type = lib.types.attrs;
+          description = "Base16 color scheme.";
+        };
+        dark = lib.mkOption {
+          type = lib.types.bool;
+          description = "Enable dark mode.";
+        };
       };
     };
 

@@ -45,6 +45,9 @@ inputs.darwin.lib.darwinSystem {
     # Home Manager
     inputs.home-manager.darwinModules.home-manager
 
+    # Theme configuration
+    ../../themes/gruvbox
+
     # User configuration
     userConfig
 
@@ -58,10 +61,8 @@ inputs.darwin.lib.darwinSystem {
       # https://github.com/nix-darwin/nix-darwin/issues/1452
       system.primaryUser = userConfig.user;
 
-      theme = {
-        colors = (import ../../colorscheme/gruvbox-dark).dark;
-        dark = true;
-      };
+      # Theme variant
+      theme.variant = "dark";
 
       # Applications
       _1password-cli.enable = true;
