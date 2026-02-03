@@ -37,23 +37,13 @@ inputs.nixpkgs.lib.nixosSystem {
         dark = true;
       };
 
-      # WSL specific
-      wsl = {
-        enable = true;
-        defaultUser = globals.user;
-        docker-desktop.enable = true;
-        wslConf.network.generateResolveConf = true; # Turn off if it breaks VPN
-        interop.includePath = false; # Including Windows PATH will slow down other systems, filesystem cross talk
-        # Hack around fish not entered at boot
-        wslConf.boot.command = "fish";
-      };
-
       # Enable the VS Code server for remote work
       # TODO! Figure out how to extract all parts of this into it's own module
       programs.nix-ld.enable = true;
 
       # Applications
       cursor.enable = true;
+      docker-desktop.enable = true;
 
       # Development Toolchains
       toolchain.nix.enable = true;
