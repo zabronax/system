@@ -37,21 +37,16 @@ inputs.nixpkgs.lib.nixosSystem {
         dark = true;
       };
 
-      # Enable the VS Code server for remote work
-      # TODO! Figure out how to extract all parts of this into it's own module
-      programs.nix-ld.enable = true;
-
       # Integrations
       integrations.cursorIde.enable = true;
       integrations.dockerDesktop.enable = true;
+      integrations.vscode = {
+        enable = true;
+        windowsBinPath = "/mnt/c/Users/${windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin";
+      };
 
       # Development Toolchains
       toolchain.nix.enable = true;
-
-      # Add window side VS Code to PATH
-      home-manager.users.${globals.user}.home.sessionPath = [
-        "/mnt/c/Users/${windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin"
-      ];
 
       # This value determines the NixOS release from which the default
       # settings for stateful data, like file locations and database versions
