@@ -52,6 +52,18 @@
           rebase = {
             autosquash = "true";
           };
+        }
+        // lib.optionalAttrs (config.signing.keyId != null && config.signing.service == "gpg-agent") {
+          # Signing configuration (uses signing service - GPG Agent)
+          # Git requests signatures through GPG Agent, key material never exposed
+          commit = {
+            gpgsign = config.signing.signByDefault;
+          };
+          gpg = {
+            format = "openpgp";
+            # Key ID for GPG Agent to use (key material stays in agent)
+            key = config.signing.keyId;
+          };
         };
         ignores = [
           ".direnv/**"

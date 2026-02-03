@@ -67,6 +67,13 @@ inputs.darwin.lib.darwinSystem {
       _1password-cli.enable = true;
       wezterm.enable = true;
 
+      # Generic signing configuration (modules/shared/signing.nix)
+      # Service-based signing - applications request signatures through the service
+      # Key material never leaves the service/agent
+      # signing.service = "gpg-agent";  # "gpg-agent", "pkcs11", "ssh-agent", or "sigstore"
+      # signing.keyId = "...";  # Key identifier (format depends on service type)
+      # signing.signByDefault = true;  # Enable signing by default
+
       # Desktop
       wallpaper = {
         enable = true;

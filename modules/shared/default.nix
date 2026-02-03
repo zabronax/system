@@ -10,6 +10,7 @@
     ./nixpkgs.nix
     ./fonts.nix
     ./wallpaper
+    ./signing.nix
     ./shell
     ./applications
     ./programming
