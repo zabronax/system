@@ -37,12 +37,6 @@ inputs.nixpkgs.lib.nixosSystem {
     # User configuration
     userConfig
     {
-      # Replace config with our directory, as it's sourced on every launch
-      system.activationScripts.configDir.text = ''
-        rm -rf /etc/nixos
-        ln --symbolic --no-dereference --force /home/${userConfig.user}/system /etc/nixos
-      '';
-
       # Configuration
       networking.hostName = "luna";
 

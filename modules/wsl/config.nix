@@ -23,5 +23,11 @@
       # Hack around fish not entered at boot
       wslConf.boot.command = "fish";
     };
+
+    # Replace config with our directory, as it's sourced on every launch
+    system.activationScripts.configDir.text = ''
+      rm -rf /etc/nixos
+      ln --symbolic --no-dereference --force /home/${config.user}/system /etc/nixos
+    '';
   };
 }
