@@ -49,14 +49,6 @@
       # Modifications to the declared inputs
       overlays = [ ];
 
-      # Temporary globals for darwin hosts (until they're refactored)
-      # TODO: Refactor darwin hosts to use host-specific users
-      globals = {
-        user = "zab";
-        gitName = "zabronax";
-        gitEmail = "zabronax@gmail.com";
-      };
-
       # Helpers for generating attribute sets across systems
       supportedSystems = [
         "x86_64-linux"
@@ -75,8 +67,8 @@
 
       # Full macOS builds
       darwinConfigurations = {
-        lupus = import ./hosts/lupus { inherit inputs globals overlays; };
-        minmus = import ./hosts/minmus { inherit inputs globals overlays; };
+        lupus = import ./hosts/lupus { inherit inputs overlays; };
+        minmus = import ./hosts/minmus { inherit inputs overlays; };
       };
 
       # Standalone applications

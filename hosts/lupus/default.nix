@@ -1,11 +1,27 @@
 {
   inputs,
-  globals,
   overlays,
 }:
 
-inputs.darwin.lib.darwinSystem {
+let
   system = "aarch64-darwin";
+
+  # Import abstract identity (the atom)
+  privateIdentity = import ../../identities/private;
+
+  # Translation: Convert abstract identity to concrete user on this host
+  # Direct mapping with host-specific details (homePath format, etc.)
+  globals = {
+    user = privateIdentity.username;
+    gitName = privateIdentity.gitName;
+    gitEmail = privateIdentity.gitEmail;
+    # Host-specific: macOS uses /Users/ prefix
+    homePath = "/Users/${privateIdentity.username}";
+  };
+in
+
+inputs.darwin.lib.darwinSystem {
+  inherit system;
 
   # The modules list is executed in order
   modules = [
@@ -30,12 +46,7 @@ inputs.darwin.lib.darwinSystem {
     inputs.home-manager.darwinModules.home-manager
 
     # Host-Global values
-    (
-      globals
-      // {
-        homePath = "/Users/${globals.user}";
-      }
-    )
+    globals
 
     # Host specific configuration
     {
