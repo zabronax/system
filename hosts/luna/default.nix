@@ -12,11 +12,11 @@ let
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)
   userConfig = {
-    user = privateIdentity.username;
-    gitName = privateIdentity.gitName;
-    gitEmail = privateIdentity.gitEmail;
+    user = privateIdentity.commonName;
+    gitName = privateIdentity.displayName;
+    gitEmail = privateIdentity.email;
     # Host-specific: Linux/WSL uses /home/ prefix
-    homePath = "/home/${privateIdentity.username}";
+    homePath = "/home/${privateIdentity.commonName}";
     # Host-specific: Windows username for WSL integration
     windowsUser = "larsg";
   };

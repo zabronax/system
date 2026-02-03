@@ -12,11 +12,11 @@ let
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)
   userConfig = {
-    user = privateIdentity.username;
-    gitName = privateIdentity.gitName;
-    gitEmail = privateIdentity.gitEmail;
+    user = privateIdentity.commonName;
+    gitName = privateIdentity.displayName;
+    gitEmail = privateIdentity.email;
     # Host-specific: macOS uses /Users/ prefix
-    homePath = "/Users/${privateIdentity.username}";
+    homePath = "/Users/${privateIdentity.commonName}";
   };
 in
 
