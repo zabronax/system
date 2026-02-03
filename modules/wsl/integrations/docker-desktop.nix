@@ -5,15 +5,17 @@
 }:
 {
   options = {
-    docker-desktop = {
-      enable = lib.mkEnableOption {
-        description = "Enable Docker Desktop WSL integration.";
-        default = false;
+    integrations = {
+      dockerDesktop = {
+        enable = lib.mkEnableOption {
+          description = "Enable Docker Desktop WSL integration.";
+          default = false;
+        };
       };
     };
   };
 
-  config = lib.mkIf config.docker-desktop.enable {
+  config = lib.mkIf config.integrations.dockerDesktop.enable {
     wsl.docker-desktop.enable = true;
   };
 }

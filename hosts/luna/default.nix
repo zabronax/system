@@ -41,9 +41,9 @@ inputs.nixpkgs.lib.nixosSystem {
       # TODO! Figure out how to extract all parts of this into it's own module
       programs.nix-ld.enable = true;
 
-      # Applications
-      cursor.enable = true;
-      docker-desktop.enable = true;
+      # Integrations
+      integrations.cursorIde.enable = true;
+      integrations.dockerDesktop.enable = true;
 
       # Development Toolchains
       toolchain.nix.enable = true;
