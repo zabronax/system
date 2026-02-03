@@ -46,15 +46,16 @@
       ...
     }@inputs:
     let
-      # Global configuration sourced by other files
+      # Modifications to the declared inputs
+      overlays = [ ];
+
+      # Temporary globals for darwin hosts (until they're refactored)
+      # TODO: Refactor darwin hosts to use host-specific users
       globals = {
         user = "zab";
         gitName = "zabronax";
         gitEmail = "zabronax@gmail.com";
       };
-
-      # Modifications to the declared inputs
-      overlays = [ ];
 
       # Helpers for generating attribute sets across systems
       supportedSystems = [
@@ -69,7 +70,7 @@
     {
       # Full NixOS builds
       nixosConfigurations = {
-        luna = import ./hosts/luna { inherit inputs globals overlays; };
+        luna = import ./hosts/luna { inherit inputs overlays; };
       };
 
       # Full macOS builds

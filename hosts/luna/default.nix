@@ -1,12 +1,26 @@
 {
   inputs,
-  globals,
   overlays,
 }:
 
 let
   system = "x86_64-linux";
-  windowsUser = "larsg";
+
+  # Import abstract identity (the atom)
+  privateIdentity = import ../../identities/private;
+
+  # Translation: Convert abstract identity to concrete user on this host
+  # Direct mapping with host-specific details (homePath format, etc.)
+  globals = {
+    user = privateIdentity.username;
+    gitName = privateIdentity.gitName;
+    gitEmail = privateIdentity.gitEmail;
+    # Host-specific: Linux/WSL uses /home/ prefix
+    homePath = "/home/${privateIdentity.username}";
+    # Host-specific: Windows username for WSL integration
+    windowsUser = "larsg";
+  };
+
 in
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;
@@ -14,19 +28,14 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     ../../modules/shared
     ../../modules/wsl
-    (
-      globals
-      // {
-        homePath = "/home/${globals.user}";
-      }
-    )
+    globals
     inputs.wsl.nixosModules.wsl
     inputs.home-manager.nixosModules.home-manager
     {
       # Replace config with our directory, as it's sourced on every launch
       system.activationScripts.configDir.text = ''
         rm -rf /etc/nixos
-        ln --symbolic --no-dereference --force /home/zab/system /etc/nixos
+        ln --symbolic --no-dereference --force /home/${globals.user}/system /etc/nixos
       '';
 
       # Configuration
@@ -42,7 +51,7 @@ inputs.nixpkgs.lib.nixosSystem {
       integrations.dockerDesktop.enable = true;
       integrations.vscode = {
         enable = true;
-        windowsBinPath = "/mnt/c/Users/${windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin";
+        windowsBinPath = "/mnt/c/Users/${globals.windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin";
       };
 
       # Development Toolchains

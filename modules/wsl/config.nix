@@ -4,6 +4,14 @@
   ...
 }:
 {
+  options = {
+    windowsUser = lib.mkOption {
+      type = lib.types.str;
+      description = "Windows username for WSL integration (e.g., for VS Code paths).";
+      default = "";
+    };
+  };
+
   config = {
     wsl = {
       enable = true;
