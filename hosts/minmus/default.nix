@@ -11,7 +11,7 @@ let
 
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)
-  globals = {
+  userConfig = {
     user = privateIdentity.username;
     gitName = privateIdentity.gitName;
     gitEmail = privateIdentity.gitEmail;
@@ -45,8 +45,8 @@ inputs.darwin.lib.darwinSystem {
     # Home Manager
     inputs.home-manager.darwinModules.home-manager
 
-    # Host-Global values
-    globals
+    # User configuration
+    userConfig
 
     # Host specific configuration
     {
@@ -56,7 +56,7 @@ inputs.darwin.lib.darwinSystem {
       # Temporary fix for darwin-nix
       # TODO: Remove this once the "The Plan" is implemented (switching to system wide activation)
       # https://github.com/nix-darwin/nix-darwin/issues/1452
-      system.primaryUser = globals.user;
+      system.primaryUser = userConfig.user;
 
       theme = {
         colors = (import ../../colorscheme/gruvbox-dark).dark;

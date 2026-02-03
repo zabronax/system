@@ -11,7 +11,7 @@ let
 
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)
-  globals = {
+  userConfig = {
     user = privateIdentity.username;
     gitName = privateIdentity.gitName;
     gitEmail = privateIdentity.gitEmail;
@@ -28,14 +28,14 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     ../../modules/shared
     ../../modules/wsl
-    globals
+    userConfig
     inputs.wsl.nixosModules.wsl
     inputs.home-manager.nixosModules.home-manager
     {
       # Replace config with our directory, as it's sourced on every launch
       system.activationScripts.configDir.text = ''
         rm -rf /etc/nixos
-        ln --symbolic --no-dereference --force /home/${globals.user}/system /etc/nixos
+        ln --symbolic --no-dereference --force /home/${userConfig.user}/system /etc/nixos
       '';
 
       # Configuration
@@ -51,7 +51,7 @@ inputs.nixpkgs.lib.nixosSystem {
       integrations.dockerDesktop.enable = true;
       integrations.vscode = {
         enable = true;
-        windowsBinPath = "/mnt/c/Users/${globals.windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin";
+        windowsBinPath = "/mnt/c/Users/${userConfig.windowsUser}/AppData/Local/Programs/Microsoft VS Code/bin";
       };
 
       # Development Toolchains
