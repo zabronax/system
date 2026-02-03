@@ -69,5 +69,17 @@ inputs.nixpkgs.lib.nixosSystem {
       # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
       system.stateVersion = "25.05";
     }
+    # Necessary hack for getting Cursor IDE WSL side server install script to work
+    ({ config, ... }: {
+      wsl = {
+        wrapBinSh = true;
+        extraBin = [
+          {
+            name = "bash";
+            src = config.wsl.binShExe;
+          }
+        ];
+      };
+    })
   ];
 }
