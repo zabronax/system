@@ -1,0 +1,50 @@
+name: Reconcile Main
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
+    branches:
+      - development
+
+concurrency:
+  group: reconcile-main
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  reconcile:
+    name: Create PR for validated commits
+    runs-on: ubuntu-latest
+    # Only run if CI passed - this creates the "trailing" effect
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch all branches
+        run: |
+          git fetch origin main:main
+          git fetch origin development:development
+
+      - name: Create or update PR
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: development
+          base: main
+          title: "Auto-merge: Reconcile development to main"
+          body: |
+            Automatically created PR to reconcile passing commits from development to main.
+          labels: |
+            auto-merge
+          delete-branch: false
+          committer: GitHub Actions <noreply@github.com>
+          author: GitHub Actions <noreply@github.com>
