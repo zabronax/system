@@ -22,6 +22,16 @@
       description = "Primary user of the system";
     };
 
+    email = lib.mkOption {
+      type = lib.types.str;
+      description = "Contact email address for the user";
+    };
+
+    displayName = lib.mkOption {
+      type = lib.types.str;
+      description = "Human-readable display name for the user";
+    };
+
     theme = {
       colorScheme = {
         colors = lib.mkOption {

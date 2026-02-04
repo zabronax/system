@@ -42,8 +42,8 @@ privateIdentity = import ../../identities/private;
 
 userConfig = {
   user = privateIdentity.commonName;      # System username
-  gitName = privateIdentity.displayName;  # Git name
-  gitEmail = privateIdentity.email;       # Git email
+  email = privateIdentity.email;          # Contact email
+  displayName = privateIdentity.displayName;  # Human-readable name
   homePath = "/home/${privateIdentity.commonName}";  # Host-specific
 };
 ```

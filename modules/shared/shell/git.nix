@@ -6,17 +6,6 @@
 }:
 
 {
-  options = {
-    gitName = lib.mkOption {
-      type = lib.types.str;
-      description = "Name to use for git commits";
-    };
-    gitEmail = lib.mkOption {
-      type = lib.types.str;
-      description = "Email to use for git commits";
-    };
-  };
-
   config = {
     home-manager.users.root.programs.git = {
       enable = true;
@@ -28,8 +17,8 @@
         enable = true;
         settings = {
           user = {
-            user = config.gitName;
-            email = config.gitEmail;
+            name = config.user;
+            email = config.email;
           };
 
           core.pager = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less -F";

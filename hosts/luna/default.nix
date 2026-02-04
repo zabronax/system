@@ -7,16 +7,16 @@ let
   system = "x86_64-linux";
 
   # Import abstract identity (the atom)
-  privateIdentity = import ../../identities/private;
+  identity = import ../../identities/private;
 
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)
   userConfig = {
-    user = privateIdentity.commonName;
-    gitName = privateIdentity.displayName;
-    gitEmail = privateIdentity.email;
+    user = identity.commonName;
+    email = identity.email;
+    displayName = identity.displayName;
     # Host-specific: Linux/WSL uses /home/ prefix
-    homePath = "/home/${privateIdentity.commonName}";
+    homePath = "/home/${identity.commonName}";
     # Host-specific: Windows username for WSL integration
     windowsUser = "larsg";
   };

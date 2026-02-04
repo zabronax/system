@@ -7,16 +7,16 @@ let
   system = "aarch64-darwin";
 
   # Import abstract identity (the atom)
-  privateIdentity = import ../../identities/private;
+  identity = import ../../identities/private;
 
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)
   userConfig = {
-    user = privateIdentity.commonName;
-    gitName = privateIdentity.displayName;
-    gitEmail = privateIdentity.email;
+    user = identity.commonName;
+    email = identity.email;
+    displayName = identity.displayName;
     # Host-specific: macOS uses /Users/ prefix
-    homePath = "/Users/${privateIdentity.commonName}";
+    homePath = "/Users/${identity.commonName}";
   };
 in
 

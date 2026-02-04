@@ -16,14 +16,14 @@ let
   system = "x86_64-linux";  # or "aarch64-darwin" for macOS
 
   # Import abstract identity (the atom)
-  privateIdentity = import ../../identities/private;
+  identity = import ../../identities/private;
 
   # Translation: Convert abstract identity to concrete user on this host
   userConfig = {
-    user = privateIdentity.commonName;
-    gitName = privateIdentity.displayName;
-    gitEmail = privateIdentity.email;
-    homePath = "/home/${privateIdentity.commonName}";  # or "/Users/..." for macOS
+    user = identity.commonName;
+    email = identity.email;
+    displayName = identity.displayName;
+    homePath = "/home/${identity.commonName}";  # or "/Users/..." for macOS
   };
 in
 
@@ -65,7 +65,7 @@ inputs.nixpkgs.lib.nixosSystem {  # or inputs.darwin.lib.darwinSystem for macOS
       integrations.dockerDesktop.enable = true;
       integrations.vscode = {
         enable = true;
-        windowsBinPath = "/mnt/c/Users/username/AppData/Local/Programs/Microsoft VS Code/bin";
+        windowsBinPath = "/mnt/c/Users/{userConfig.user}/AppData/Local/Programs/Microsoft VS Code/bin";
       };
 
       # Signing (Service-based)
@@ -113,7 +113,8 @@ For detailed option definitions, see the module files:
 
 ## Notes
 
-- User configuration (`user`, `gitName`, `gitEmail`, `homePath`) is set via `userConfig` from identity translation in the host file
+- User configuration (`user`, `email`, `homePath`) is set via `userConfig` from identity translation in the host file
+- Git configuration (name and email) is automatically mapped from the user identity by the git module - no need to specify `gitName` or `gitEmail` in `userConfig`
 - Options are typically enabled/disabled via `.enable` boolean flags
 - Themes are imported as modules (e.g., `../../themes/gruvbox`) and variants are set via `theme.variant`
 - Each theme defines its own available variants (e.g., gruvbox: `["dark" "light"]`, ashes: `["dark"]`)
