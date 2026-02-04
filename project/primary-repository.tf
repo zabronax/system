@@ -2,7 +2,7 @@ resource "github_repository" "primary_repository" {
   name = "system"
 
   # Configuration
-  visibility = "private"
+  visibility = "public"
 
   # Metadata
   description  = "Personal systems configuration"
