@@ -75,7 +75,10 @@
       };
 
       # Standalone applications
-      packages = { };
+      packages = withPkgs (pkgs: {
+        # For formatting the repository (used in CI)
+        nixfmt = pkgs.nixfmt;
+      });
 
       # Development environments
       devShells = withPkgs (pkgs: rec {

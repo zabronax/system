@@ -1,0 +1,54 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: ci/smoke
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v21
+        with:
+          summarize: true
+
+      - name: Verify flake evaluation
+        run: nix flake check --no-build
+
+      - name: Verify IaC validity
+        run: |
+          nix develop .#infrastructure --command tofu -chdir=project/ init -backend=false
+          nix develop .#infrastructure --command tofu -chdir=project/ validate
+
+  formated:
+    name: ci/formatted
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v21
+        with:
+          summarize: true
+
+      - name: Verify formatting
+        run: |
+          # TODO! Figure out a better way to check formatting of Nix files.
+          find . -name "*.nix" -type f -exec nix run .#packages.x86_64-linux.nixfmt -- --check {} \;
+          nix develop .#infrastructure --command tofu fmt -recursive -check .
