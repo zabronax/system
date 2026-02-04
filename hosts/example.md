@@ -9,7 +9,6 @@ Copy this template into your host configuration and trim what you don't need:
 ```nix
 {
   inputs,
-  overlays,
 }:
 
 let

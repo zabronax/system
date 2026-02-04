@@ -46,7 +46,9 @@
       ...
     }@inputs:
     let
-      # Modifications to the declared inputs
+      # Custom overlays for modifying nixpkgs
+      # Add overlays here to patch packages, add custom derivations, etc.
+      # Example: overlays = [ (final: prev: { myPackage = ...; }) ];
       overlays = [ ];
 
       # Helpers for generating attribute sets across systems
@@ -57,18 +59,19 @@
         "aarch64-linux" # TODO! Not verified, but likely to work
       ];
       withSystem = nixpkgs.lib.genAttrs supportedSystems;
-      withPkgs = callback: withSystem (system: callback (import nixpkgs { inherit system; }));
+      # Apply overlays when importing nixpkgs
+      withPkgs = callback: withSystem (system: callback (import nixpkgs { inherit system overlays; }));
     in
     {
       # Full NixOS builds
       nixosConfigurations = {
-        luna = import ./hosts/luna { inherit inputs overlays; };
+        luna = import ./hosts/luna { inherit inputs; };
       };
 
       # Full macOS builds
       darwinConfigurations = {
-        lupus = import ./hosts/lupus { inherit inputs overlays; };
-        minmus = import ./hosts/minmus { inherit inputs overlays; };
+        lupus = import ./hosts/lupus { inherit inputs; };
+        minmus = import ./hosts/minmus { inherit inputs; };
       };
 
       # Standalone applications
