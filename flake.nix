@@ -75,12 +75,25 @@
       packages = { };
 
       # Development environments
-      devShells = withPkgs (pkgs: {
+      devShells = withPkgs (pkgs: rec {
         # For working on this repository
-        default = pkgs.mkShell {
-          packages = [
-            pkgs.git
-            pkgs.vim
+        default = development;
+
+        # For working on this repository
+        development = pkgs.mkShell {
+          packages = with pkgs; [
+            git
+            vim
+          ];
+        };
+
+        # For administering the infrastructure
+        infrastructure = pkgs.mkShell {
+          packages = with pkgs; [
+            git
+            vim
+            opentofu
+            gh
           ];
         };
       });

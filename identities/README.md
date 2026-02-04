@@ -38,13 +38,13 @@ Hosts import identities and translate them to concrete user configurations:
 
 ```nix
 # In host configuration
-privateIdentity = import ../../identities/private;
+identity = import ../../identities/zabronax;
 
 userConfig = {
-  user = privateIdentity.commonName;      # System username
-  email = privateIdentity.email;          # Contact email
-  displayName = privateIdentity.displayName;  # Human-readable name
-  homePath = "/home/${privateIdentity.commonName}";  # Host-specific
+  user = identity.commonName;      # System username
+  email = identity.email;          # Contact email
+  displayName = identity.displayName;  # Human-readable name
+  homePath = "/home/${identity.commonName}";  # Host-specific
 };
 ```
 

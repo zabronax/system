@@ -7,7 +7,7 @@ let
   system = "x86_64-linux";
 
   # Import abstract identity (the atom)
-  identity = import ../../identities/private;
+  identity = import ../../identities/zabronax;
 
   # Translation: Convert abstract identity to concrete user on this host
   # Direct mapping with host-specific details (homePath format, etc.)

@@ -16,7 +16,7 @@ let
   system = "x86_64-linux";  # or "aarch64-darwin" for macOS
 
   # Import abstract identity (the atom)
-  identity = import ../../identities/private;
+  identity = import ../../identities/zabronax;
 
   # Translation: Convert abstract identity to concrete user on this host
   userConfig = {

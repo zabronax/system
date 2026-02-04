@@ -1,0 +1,7 @@
+# Commit the state file for the project infrastructure
+# It contains no sensitive information,
+# though that might change if additional
+# resources are added.
+#
+# And it requires less maintenance than a remote backend.
+!terraform.tfstate
