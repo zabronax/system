@@ -2,7 +2,8 @@ resource "github_repository" "primary_repository" {
   name = "system"
 
   # Configuration
-  visibility = "public"
+  visibility       = "public"
+  allow_auto_merge = true
 
   # Metadata
   description  = "Personal systems configuration"
