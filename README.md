@@ -1,14 +1,20 @@
 <h1 align="center">
+ <!-- Project Logo and Slogan/One-liner  -->
  <img height="160" src="https://brand.nixos.org/logos/nixos-logo-rainbow-gradient-white-regular-horizontal-recommended.svg" />
  <p>Nix System Config for <a href="https://github.com/zabronax">zabronax</a></p>
 </h1>
 
 <p align="center">
+ <!-- Project and Repo information -->
  <a href="https://github.com/zabronax/system/stargazers"><img src="https://img.shields.io/github/stars/zabronax/system?colorA=282828&colorB=fabd2f&style=for-the-badge"></a>
  <a href="https://github.com/zabronax/system/commits"><img src="https://img.shields.io/github/last-commit/zabronax/system?colorA=282828&colorB=d79921&style=for-the-badge"></a>
  <a href="https://github.com/zabronax/system/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zabronax/system?colorA=282828&colorB=83a598&style=for-the-badge"></a>
  <a href="https://wiki.nixos.org/wiki/Flakes" target="_blank">
  <img alt="Nix Flakes Ready" src="https://img.shields.io/static/v1?logo=nixos&logoColor=ebdbb2&label=Nix%20Flakes&labelColor=458588&message=Ready&color=ebdbb2&style=for-the-badge"></a>
+</p>
+<p align="center">
+  <!-- CI and Reconciliation Status -->
+ <a href="https://github.com/zabronax/system/stargazers"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/zabronax/system/reconcile-main.yaml?style=for-the-badge&label=CI"></a>
 </p>
 
 This is my repository for tracking and evolving the machines, nodes, and user environments I use. It contains my declarative configuration for reproducible and versioned systems, allowing me to define, share, and maintain consistent environments across different platforms. By expressing system state as code, I can version control changes, roll back to previous configurations, and ensure that my systems remain reproducible and maintainable over time.
