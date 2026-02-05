@@ -9,7 +9,7 @@ This directory contains GitHub Actions workflows for continuous integration and 
 Runs validation checks on code changes.
 
 **Triggers:**
-- Push to `main` or `development` branches
+- Push to `main` branch
 - Pull requests to `main`
 - Manual dispatch
 
@@ -21,18 +21,17 @@ Runs validation checks on code changes.
 
 ### Reconcile Main (`reconcile-main.yaml`)
 
-Automatically creates and updates pull requests from `development` to `main` when commits pass CI.
+Automatically creates and updates pull requests from `development` to `main`.
 
 **Triggers:**
-- When Continuous Integration workflow completes successfully on `development`
+- Push to `development` branch
 
 **Behavior:**
 - Creates a PR from `development` to `main` if one doesn't exist
 - Updates existing PR if one already exists
-- Only runs when CI passes (creates "trailing" effect)
 - Uses concurrency control to prevent duplicate PRs
 
-**Purpose:** Automates the reconciliation of validated commits from `development` to `main`.
+**Purpose:** Automates the reconciliation of commits from `development` to `main`. Branch protection enforces validation checks on the PR.
 
 ## Two-Stage Branch Workflow
 
@@ -43,7 +42,7 @@ This repository uses a two-stage branch workflow:
 - **`development`**: Working branch where you push directly
   - No required CI checks (allows direct pushes)
   - Protected: no deletions, linear history required
-  - CI runs on every push for validation
+  - PRs created automatically on push
 
 - **`main`**: Production branch that only accepts validated commits
   - Required CI checks (configured in branch protection)
@@ -55,37 +54,25 @@ This repository uses a two-stage branch workflow:
 ```
 1. Push to development
    ↓
-2. CI runs (all validation checks)
+2. Reconciliation workflow creates/updates PR
    ↓
-3. If CI passes:
-   → Reconciliation workflow creates/updates PR
-   → PR runs its own CI (required by branch protection)
-   → PR can be merged when all checks pass
+3. PR runs CI (required by branch protection)
+   ↓
+4. If CI passes:
+   → PR can be merged
    
-4. If CI fails:
-   → Reconciliation workflow doesn't run
+5. If CI fails:
+   → PR blocked by branch protection
    → Commits stay in development
-   → PR doesn't advance
 ```
 
 ### Benefits
 
-- **Trailing validation**: PR only advances when commits pass CI
 - **No ceremony**: Push directly to `development`, automation handles the rest
 - **Quality gate**: Branch protection ensures only validated code reaches `main`
-- **Fast feedback**: CI runs immediately on `development` pushes
+- **Single enforcement point**: CI runs once on PRs, enforced by branch protection
 - **Stable main**: `main` only contains commits that have passed all checks
-
-### Example Scenario
-
-```
-Push commit A → CI runs → Passes → PR updates to include A
-Push commit B → CI runs → Passes → PR updates to include B  
-Push commit C → CI runs → Fails → PR stays at B (C not included)
-Push commit D → CI runs → Passes → PR updates to include D
-```
-
-The PR "trails" `development`, only including commits that have been validated. This ensures `main` only contains code that has passed all validation checks.
+- **Fast PR creation**: PRs created immediately on push, validation happens on PR
 
 ## Branch Protection
 
