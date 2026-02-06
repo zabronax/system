@@ -66,6 +66,7 @@
       # Full NixOS builds
       nixosConfigurations = {
         luna = import ./hosts/luna { inherit inputs; };
+        mani = import ./hosts/mani { inherit inputs; };
       };
 
       # Full macOS builds
