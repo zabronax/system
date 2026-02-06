@@ -30,7 +30,7 @@
   services.xserver.enable = true;
 
   # NVIDIA configurations (RTX 3080 Mobile)
-  services .xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
