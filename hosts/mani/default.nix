@@ -22,6 +22,31 @@ inputs.nixpkgs.lib.nixosSystem {
   inherit system;
 
   modules = [
+    # Identity configuration
+    userConfig
+
+    # Bootstrap configuration
     ./configuration.nix
+
+    # Host specific configuration
+    ({ config, pkgs, ... }: {
+      # Configuration
+      networking.hostName = "mani";
+
+      # Define a user account. Don't forget to set a password with ‘passwd’.
+      users.users.${config.user} = {
+        isNormalUser = true;
+        description = config.displayName;
+        extraGroups = [ "networkmanager" "wheel" ];
+        packages = with pkgs; [
+          git
+          vim
+          wget
+          mesa-demos # GPU Utilities
+          code-cursor-fhs
+          #  thunderbird
+        ];
+      };
+    })
   ];
 }
