@@ -25,6 +25,9 @@ inputs.nixpkgs.lib.nixosSystem {
     # Shared modules
     ../../modules/shared
 
+    # Linux-specific modules
+    ../../modules/linux
+
     # Home Manager
     inputs.home-manager.nixosModules.home-manager
 
@@ -70,6 +73,12 @@ inputs.nixpkgs.lib.nixosSystem {
         enable = true;
         source = inputs.walls;
         path = "aerial/aerial_view_of_a_city_at_night.jpg";
+      };
+
+      # Graphical Environment
+      graphical = {
+        enable = true;
+        environment = "gnome";
       };
     })
 
