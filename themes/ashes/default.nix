@@ -8,6 +8,8 @@ let
   colorscheme = import ./colorscheme.nix;
 in
 {
+  imports = [ ../wallpaper ];
+
   options = {
     theme.variant = lib.mkOption {
       type = lib.types.enum [ "dark" ];
