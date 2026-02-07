@@ -8,7 +8,6 @@
 {
   imports = [
     ./nixpkgs.nix
-    ./wallpaper
     ./signing.nix
     ./shell
     ./applications
