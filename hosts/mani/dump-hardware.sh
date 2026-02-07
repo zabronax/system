@@ -9,7 +9,8 @@ get_header() {
     local timestamp="$1"
     local hostname="$2"
     local kernel="$3"
-    cat <<EOF
+    if [ -n "$timestamp" ]; then
+        cat <<EOF
 ==========================================
 Hardware Information Dump
 Generated: $timestamp
@@ -18,6 +19,16 @@ Kernel: $kernel
 ==========================================
 
 EOF
+    else
+        cat <<EOF
+==========================================
+Hardware Information Dump
+Hostname: $hostname
+Kernel: $kernel
+==========================================
+
+EOF
+    fi
 }
 
 # Pure function: returns CPU information
@@ -493,11 +504,31 @@ EOF
 
 # Main entrypoint: aggregates all information and writes to stdout
 main() {
-    local timestamp
+    local timestamp=""
     local hostname
     local kernel
+    local impure=false
     
-    timestamp=$(date -Iseconds)
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --impure)
+                impure=true
+                shift
+                ;;
+            *)
+                echo "Unknown option: $1" >&2
+                echo "Usage: $0 [--impure]" >&2
+                exit 1
+                ;;
+        esac
+    done
+    
+    # Only generate timestamp if --impure flag is passed
+    if [ "$impure" = true ]; then
+        timestamp=$(date -Iseconds)
+    fi
+    
     hostname=$(hostname)
     kernel=$(uname -r)
     
@@ -522,4 +553,4 @@ main() {
 }
 
 # Execute main function
-main
+main "$@"
