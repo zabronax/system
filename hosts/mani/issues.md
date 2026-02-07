@@ -58,12 +58,40 @@ Multiple applications experience frequent unexpected crashes during normal opera
 **Crash Patterns Observed:**
 
 **Cursor (Electron App):**
-- **Most common:** `SIGTRAP` (signal 5) - Breakpoint/trap exceptions
-- **Frequent:** `SIGSEGV` (signal 11) - Segmentation faults
-- **Occasional:** `SIGILL` (signal 4) - Illegal instruction exceptions
+- **Packaging:** Cursor is installed as `code-cursor-fhs`, wrapped in an FHS (Filesystem Hierarchy Standard) environment using bubblewrap (`bwrap`)
+
+- **FHS Wrapping Context:**
+  NixOS uses a non-standard filesystem layout where packages are stored in `/nix/store/` with content-addressed paths. Electron applications like Cursor expect a traditional Linux filesystem hierarchy (`/usr/lib`, `/lib64`, `/bin`, etc.) and often have hardcoded library paths or use dynamic linking assumptions that don't work in NixOS's isolated store model.
+  
+  The `code-cursor-fhs` package wraps Cursor in an FHS-compatible environment using `bwrap` (bubblewrap), which creates a lightweight namespace-based sandbox. This wrapper:
+  - Mounts an FHS rootfs containing standard Linux directory structure
+  - Provides bind mounts for `/usr`, `/lib`, `/lib64`, `/bin`, `/etc`, etc. from the FHS environment
+  - Allows Cursor's Electron runtime and native Node.js modules to find expected libraries and paths
+  - Maintains isolation while providing compatibility with traditional Linux application expectations
+  
+  This is a common pattern in NixOS for proprietary or binary-only applications that cannot be easily patched to work with Nix's store model.
+
+- **Crash Signals:**
+  - **Most common:** `SIGTRAP` (signal 5) - Breakpoint/trap exceptions
+  - **Frequent:** `SIGSEGV` (signal 11) - Segmentation faults
+  - **Occasional:** `SIGILL` (signal 4) - Illegal instruction exceptions
+
 - Crash frequency: Multiple crashes per hour during active use
 - Core dumps show crashes in native modules (`file_service.linux-x64-gnu.node`) and main process
 - Recent example: 10+ crashes within 5 minutes (Feb 7, 23:45-23:50)
+
+- **FHS Wrapping Implications:**
+  The FHS wrapper adds an additional layer of complexity and potential failure points:
+  - **Library binding issues:** Native modules may link against libraries in the FHS environment that have version mismatches or incompatibilities with the actual system libraries
+  - **System call interposition:** The `bwrap` sandbox intercepts and filters system calls, which could affect low-level operations in native code
+  - **Path resolution complexity:** Multiple layers of path resolution (Nix store → FHS mount → actual filesystem) could introduce edge cases
+  - **Graphics/GPU access:** The wrapper must properly expose GPU devices and graphics libraries, which may be complicated by dual GPU configuration (NVIDIA + AMD)
+  
+  While the FHS wrapper itself shouldn't directly cause crashes, any instability in the underlying system (memory corruption, GPU driver issues, CPU microcode problems) could be exacerbated by the additional abstraction layer. The crashes in native Node.js modules (`file_service.linux-x64-gnu.node`) suggest issues with native code execution, which could be affected by:
+  - Library version mismatches between FHS environment and system
+  - Graphics driver interactions through the wrapper
+  - System call filtering or sandbox restrictions
+  - Memory access patterns that interact poorly with the namespace isolation
 
 **Mozilla Firefox:**
 - Crashes in `WebKitWebProcess` child processes
