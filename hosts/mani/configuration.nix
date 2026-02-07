@@ -36,6 +36,14 @@
     open = false;
     powerManagement.enable = true;
     powerManagement.finegrained = false;
+    # PRIME configuration: Use NVIDIA as primary GPU
+    # NVIDIA RTX 3080: PCI:1:0:0 (0000:01:00.0)
+    # AMD Radeon (integrated): PCI:6:0:0 (0000:06:00.0)
+    prime = {
+      sync.enable = true;
+      nvidiaBusId = "PCI:1:0:0";
+      amdgpuBusId = "PCI:6:0:0";
+    };
   };
   boot.kernelParams = [
     "nvidia-drm.modeset=1"

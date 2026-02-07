@@ -164,10 +164,13 @@ All documented issues appear to stem from underlying hardware or firmware proble
    - Frequent short boot cycles suggest hardware-level failures
    - Memory testing completed prior to NixOS migration: no errors or warnings detected
 
-3. **Dual GPU Configuration:**
-   - NVIDIA RTX 3080 Laptop GPU + AMD Radeon Graphics
+3. **Dual GPU Configuration:** ⚠️ **TOP PRIORITY**
+   - NVIDIA RTX 3080 Laptop GPU + AMD Radeon Graphics (integrated)
+   - **Current state:** System running on Wayland with display driven by integrated AMD GPU
+   - **Issue:** dGPU (NVIDIA) is loaded and available for offloading but not used as primary display GPU
    - Graphics driver initialization conflicts may contribute to crashes and boot instability
    - Power management complexity with dual GPUs may affect sleep/resume
+   - **Impact:** Performance degradation, potential instability from GPU switching, power management issues
 
 **Recommended Investigation Steps:**
 
@@ -191,9 +194,97 @@ All documented issues appear to stem from underlying hardware or firmware proble
    - Review system temperatures during crashes
    - Test with minimal hardware configuration
 
+## GPU Configuration Issue ⚠️ **TOP PRIORITY**
+
+**Severity:** High  
+**Impact:** Performance degradation, potential instability, incorrect GPU usage
+
+**Current State:**
+- System running on Wayland (GNOME Shell)
+- Display driven by integrated AMD Radeon GPU
+- NVIDIA RTX 3080 dGPU is loaded and available but not used as primary display GPU
+- NVIDIA GPU shows activity (GNOME Shell using 283MiB) but likely via offloading, not direct display
+- Previously system was running exclusively on dGPU
+
+**Investigation Findings:**
+- `nvidia-smi` shows NVIDIA GPU is active and being used
+- `glxinfo` shows NVIDIA RTX 3080 as OpenGL renderer (with PRIME offload)
+- Both `nvidia-drm` and `amdgpu` drivers are loaded
+- Wayland session type detected
+- ACPI shows vga_switcheroo detected: `amdgpu: vga_switcheroo: detected switching method \_SB_.PCI0.GP17.VGA_.ATPX handle`
+
+**Configuration Needed:**
+- Configure NVIDIA as primary display GPU (or disable AMD iGPU)
+- Set up proper PRIME configuration for Wayland
+- Ensure dGPU is used exclusively for display output
+- May require switching to X11 if Wayland doesn't support dGPU-only mode well
+
+**Potential Impact on Other Issues:**
+- GPU switching/power management may contribute to sleep/resume failures
+- Dual GPU initialization conflicts may cause boot instability
+- Incorrect GPU usage may affect application crashes (graphics driver issues)
+
 ## Recommended First Investigation Path
 
-**Priority: ACPI Workarounds (Kernel Parameters)**
+**Priority: GPU Configuration (dGPU Primary)** ⚠️ **UPDATED PRIORITY**
+
+**Rationale:**
+Observation indicates system is now running on integrated GPU instead of dGPU, which was previously working exclusively. This is likely contributing to:
+- Performance issues
+- Potential instability from GPU switching
+- Sleep/resume problems (dual GPU power management)
+- Application crashes (graphics driver conflicts)
+
+Fixing GPU configuration should be prioritized as it may resolve multiple issues simultaneously.
+
+**Step 1: Investigate Current GPU State** ✅ **IN PROGRESS**
+
+**Findings:**
+- NVIDIA GPU is loaded and active (`nvidia-smi` shows usage)
+- Display appears to be driven by AMD iGPU
+- Wayland session with both drivers loaded
+- PRIME offloading available but not configured for primary use
+
+**Step 2: Configure NVIDIA as Primary GPU** 🔄 **IN PROGRESS**
+
+**GPU Bus IDs Identified:**
+- NVIDIA RTX 3080: `PCI:1:0:0` (0000:01:00.0)
+- AMD Radeon (integrated): `PCI:6:0:0` (0000:06:00.0)
+
+**Configuration Options:**
+
+**Option A: PRIME Sync (NVIDIA as primary)**
+- Enable `hardware.nvidia.prime.sync.enable = true`
+- Set `hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0"`
+- Set `hardware.nvidia.prime.amdgpuBusId = "PCI:6:0:0"`
+- **Note:** PRIME sync works better with X11 than Wayland
+
+**Option B: Disable AMD iGPU**
+- Add kernel parameter to disable AMD GPU: `amdgpu.blacklist=1` or similar
+- May require BIOS setting to disable iGPU
+- Forces NVIDIA-only mode
+
+**Option C: Switch to X11**
+- Better NVIDIA support and PRIME sync compatibility
+- Can configure NVIDIA as exclusive display GPU
+- May improve stability
+
+**Option D: Keep Wayland with PRIME Offloading**
+- Current setup (display on iGPU, render on dGPU)
+- Configure environment variables for better dGPU usage
+- Less ideal but may work if other options fail
+
+**Action Plan:**
+1. ✅ Identify GPU bus IDs
+2. ✅ Configure PRIME sync with NVIDIA as primary (Option A)
+   - Added `hardware.nvidia.prime.sync.enable = true`
+   - Set `nvidiaBusId = "PCI:1:0:0"` (NVIDIA RTX 3080)
+   - Set `amdgpuBusId = "PCI:6:0:0"` (AMD Radeon integrated)
+3. ⏳ **Next:** Rebuild system and test
+4. ⚠️ **Note:** PRIME sync works better with X11 than Wayland. If Wayland issues persist, may need to switch to X11 (Option C)
+5. Monitor for stability improvements and GPU usage
+
+**Previous Priority: ACPI Workarounds (Kernel Parameters)**
 
 **Rationale:**
 ACPI BIOS bugs are the root cause affecting multiple issues (sleep/hibernation, boot errors, early boot instability). Kernel parameter workarounds are:
