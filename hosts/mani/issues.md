@@ -181,3 +181,55 @@ All documented issues appear to stem from underlying hardware or firmware proble
    - Check CPU microcode version and updates
    - Review system temperatures during crashes
    - Test with minimal hardware configuration
+
+## Recommended First Investigation Path
+
+**Priority: ACPI Workarounds (Kernel Parameters)**
+
+**Rationale:**
+ACPI BIOS bugs are the root cause affecting multiple issues (sleep/hibernation, boot errors, early boot instability). Kernel parameter workarounds are:
+- **Low risk:** Easy to test and revert
+- **Quick to implement:** Can be tested immediately
+- **High potential impact:** May address multiple issues simultaneously
+- **Non-invasive:** No hardware changes or BIOS flashing required
+
+**Step 1: Test Alternative Sleep Mode**
+
+Current configuration uses `mem_sleep_default=deep`, which may be incompatible with the ACPI thermal zone bugs. Test `s2idle` (modern standby) mode instead:
+
+**Action:** Modify `boot.kernelParams` in `hosts/mani/configuration.nix`:
+- Change `mem_sleep_default=deep` → `mem_sleep_default=s2idle`
+- Rebuild and test sleep/resume functionality
+- Monitor for ACPI errors during suspend/resume
+
+**Expected outcomes:**
+- If successful: Sleep/resume works reliably
+- If unsuccessful: System still fails to resume (confirms deeper ACPI issues)
+
+**Step 2: Add ACPI Error Suppression/Workarounds**
+
+If sleep mode change doesn't help, add kernel parameters to work around specific ACPI bugs:
+
+**Potential parameters to test:**
+- `acpi=noirq` - Disable ACPI IRQ routing (may help with initialization issues)
+- `acpi=off` - Disable ACPI entirely (not recommended, breaks power management)
+- `acpi=strict` - Use strict ACPI compliance (may expose more issues)
+- `acpi_osi=Linux` - Override OS identification (may help with vendor-specific bugs)
+- `acpi_osi=!Windows` - Tell BIOS we're not Windows (may improve compatibility)
+
+**Step 3: Monitor and Document**
+
+After each change:
+- Monitor boot logs for ACPI error reduction
+- Test sleep/resume functionality
+- Track application crash frequency
+- Document any improvements or regressions
+
+**Success Criteria:**
+- Reduction in ACPI boot errors
+- Improved sleep/resume reliability
+- Reduced application crash frequency
+- More stable early boot behavior
+
+**If ACPI workarounds don't help:**
+Proceed to **Graphics Driver Configuration** testing (single GPU mode) as the next investigation path, as dual GPU configuration may be contributing to instability.
