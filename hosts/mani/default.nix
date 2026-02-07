@@ -52,9 +52,9 @@ inputs.nixpkgs.lib.nixosSystem {
       toolchain.nix.enable = true;
 
       # Define a user account. Don't forget to set a password with ‘passwd’.
-      users.users.${userConfig.user} = {
+      users.users.${config.user} = {
         isNormalUser = true;
-        description = userConfig.displayName;
+        description = config.displayName;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [
           git
