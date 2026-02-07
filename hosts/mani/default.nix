@@ -28,6 +28,9 @@ inputs.nixpkgs.lib.nixosSystem {
     # Home Manager
     inputs.home-manager.nixosModules.home-manager
 
+    # Theme configuration
+    ../../themes/ashes
+
     # Identity configuration
     userConfig
 
@@ -38,6 +41,15 @@ inputs.nixpkgs.lib.nixosSystem {
     ({ config, pkgs, ... }: {
       # Configuration
       networking.hostName = "mani";
+
+      # Theme variant
+      theme.variant = "dark";
+
+      # Applications
+      wezterm.enable = true;
+
+      # Programming Toolchains
+      toolchain.nix.enable = true;
 
       # Define a user account. Don't forget to set a password with ‘passwd’.
       users.users.${userConfig.user} = {
