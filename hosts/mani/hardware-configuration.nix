@@ -13,6 +13,10 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  # Explicit MAC address configuration for network interfaces
+  networking.interfaces.eno1.macAddress = "58:11:22:40:62:1a";
+  networking.interfaces.wlp3s0.macAddress = "b4:8c:9d:5d:5c:8d";
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/5b624167-e3f7-4ced-9a9f-e5a8c8c101b3";
       fsType = "ext4";
