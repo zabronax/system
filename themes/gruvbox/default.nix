@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -25,5 +26,25 @@ in
         dark = config.theme.variant == "dark";
       };
     };
+
+    home-manager.users.${config.user} = {
+      fonts.fontconfig = {
+        defaultFonts = {
+          monospace = [ "Monaspace Argon, Symbols Nerd Font" ];
+        };
+        enable = true;
+      };
+    };
+
+    fonts.packages = with pkgs; [
+      b612
+      material-icons
+      material-design-icons
+      noto-fonts-color-emoji
+      noto-fonts-monochrome-emoji
+      cascadia-code
+      monaspace
+      nerd-fonts.symbols-only
+    ];
   };
 }
