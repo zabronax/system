@@ -40,7 +40,7 @@
   boot.kernelParams = [
     "nvidia-drm.modeset=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-    "mem_sleep_default=deep"
+    "mem_sleep_default=s2idle"
   ];
 
   # Configure keymap in X11
