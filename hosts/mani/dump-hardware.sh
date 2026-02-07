@@ -102,7 +102,8 @@ get_block_info() {
 
 EOF
     if command -v lsblk &> /dev/null; then
-        lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,FSTYPE,UUID,MODEL,VENDOR,SERIAL,STATE 2>/dev/null || lsblk 2>/dev/null || echo "lsblk not available"
+        # Filter out SERIAL column to avoid exposing device serial numbers
+        lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,FSTYPE,UUID,MODEL,VENDOR,STATE 2>/dev/null || lsblk 2>/dev/null || echo "lsblk not available"
     else
         echo "lsblk not available"
     fi
@@ -402,10 +403,7 @@ EOF
                     model=$(cat "$block/device/model" 2>/dev/null | tr -d ' ' || echo 'N/A')
                     echo "  Model: $model"
                 fi
-                if [ -f "$block/device/serial" ]; then
-                    serial=$(cat "$block/device/serial" 2>/dev/null | tr -d ' ' || echo 'N/A')
-                    echo "  Serial: $serial"
-                fi
+                # Serial numbers filtered out for privacy (hardware-level identifiers)
                 if [ -f "$block/queue/rotational" ]; then
                     rotational=$(cat "$block/queue/rotational" 2>/dev/null || echo 'N/A')
                     if [ "$rotational" = "0" ]; then
