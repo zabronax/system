@@ -14,7 +14,7 @@ let
     user = identity.commonName;
     email = identity.email;
     displayName = identity.displayName;
-    # Host-specific: macOS uses /Users/ prefix
+    # Host-specific: Linux uses /home/ prefix
     homePath = "/home/${identity.commonName}";
   };
 in
@@ -23,7 +23,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
   modules = [
     # Identity configuration
-    userConfig
+    # userConfig
 
     # Bootstrap configuration
     ./configuration.nix
@@ -34,9 +34,9 @@ inputs.nixpkgs.lib.nixosSystem {
       networking.hostName = "mani";
 
       # Define a user account. Don't forget to set a password with ‘passwd’.
-      users.users.${config.user} = {
+      users.users.${userConfig.user} = {
         isNormalUser = true;
-        description = config.displayName;
+        description = userConfig.displayName;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [
           git
@@ -44,7 +44,6 @@ inputs.nixpkgs.lib.nixosSystem {
           wget
           mesa-demos # GPU Utilities
           code-cursor-fhs
-          #  thunderbird
         ];
       };
     })
