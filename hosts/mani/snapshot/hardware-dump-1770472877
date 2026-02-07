@@ -1,0 +1,3357 @@
+==========================================
+Hardware Information Dump
+Generated: 2026-02-07T15:01:17+01:00
+Hostname: mani
+Kernel: 6.12.67
+==========================================
+
+=== CPU INFORMATION ===
+
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 8
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 8
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 8
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 8
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 4
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 8
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 5
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 8
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 6
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 8
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 7
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 8
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 8
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 8
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 9
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 8
+apicid		: 9
+initial apicid	: 9
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 10
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 5
+cpu cores	: 8
+apicid		: 10
+initial apicid	: 10
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 11
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 5
+cpu cores	: 8
+apicid		: 11
+initial apicid	: 11
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 12
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 6
+cpu cores	: 8
+apicid		: 12
+initial apicid	: 12
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 13
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 6
+cpu cores	: 8
+apicid		: 13
+initial apicid	: 13
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 14
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 7
+cpu cores	: 8
+apicid		: 14
+initial apicid	: 14
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+processor	: 15
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 68
+model name	: AMD Ryzen 9 6900HS with Radeon Graphics
+stepping	: 1
+microcode	: 0xa404108
+cache size	: 512 KB
+physical id	: 0
+siblings	: 16
+core id		: 7
+cpu cores	: 8
+apicid		: 15
+initial apicid	: 15
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
+bogomips	: 6587.65
+TLB size	: 2560 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
+
+
+=== MEMORY INFORMATION ===
+
+MemTotal:       32076820 kB
+SwapTotal:       9227464 kB
+Hugepagesize:       2048 kB
+
+=== PCI DEVICES ===
+
+lspci not available
+
+=== USB DEVICES ===
+
+lsusb not available
+
+=== BLOCK DEVICES ===
+
+NAME          SIZE TYPE MOUNTPOINT FSTYPE UUID                                 MODEL                         VENDOR SERIAL       STATE
+nvme0n1     953.9G disk                                                        WD PC SN735 SDBPNHH-1T00-1002        22049Z460908 live
+├─nvme0n1p1     1G part /boot      vfat   EEB3-1B0F                                                                              
+├─nvme0n1p2 944.1G part /etc/nixos ext4   5b624167-e3f7-4ced-9a9f-e5a8c8c101b3                                                   
+└─nvme0n1p3   8.8G part [SWAP]     swap   fab8cf70-03d0-4b36-90ba-edbeee98dbac                                                   
+
+=== KERNEL MODULES ===
+
+--- Loaded modules ---
+qrtr 57344 2 - Live 0x0000000000000000
+rfcomm 102400 4 - Live 0x0000000000000000
+snd_seq_dummy 12288 0 - Live 0x0000000000000000
+snd_hrtimer 12288 1 - Live 0x0000000000000000
+snd_seq 114688 7 snd_seq_dummy, Live 0x0000000000000000
+snd_seq_device 16384 1 snd_seq, Live 0x0000000000000000
+ccm 20480 9 - Live 0x0000000000000000
+af_packet 69632 6 - Live 0x0000000000000000
+cmac 12288 4 - Live 0x0000000000000000
+algif_hash 12288 1 - Live 0x0000000000000000
+algif_skcipher 12288 1 - Live 0x0000000000000000
+af_alg 32768 6 algif_hash,algif_skcipher, Live 0x0000000000000000
+xt_conntrack 12288 2 - Live 0x0000000000000000
+bnep 28672 2 - Live 0x0000000000000000
+nf_conntrack 208896 1 xt_conntrack, Live 0x0000000000000000
+nf_defrag_ipv6 24576 1 nf_conntrack, Live 0x0000000000000000
+nf_defrag_ipv4 12288 1 nf_conntrack, Live 0x0000000000000000
+ip6t_rpfilter 12288 1 - Live 0x0000000000000000
+ipt_rpfilter 12288 1 - Live 0x0000000000000000
+xt_pkttype 12288 2 - Live 0x0000000000000000
+xt_LOG 16384 2 - Live 0x0000000000000000
+nf_log_syslog 24576 2 - Live 0x0000000000000000
+xt_tcpudp 16384 3 - Live 0x0000000000000000
+nft_compat 24576 11 - Live 0x0000000000000000
+x_tables 53248 7 xt_conntrack,ip6t_rpfilter,ipt_rpfilter,xt_pkttype,xt_LOG,xt_tcpudp,nft_compat, Live 0x0000000000000000
+nf_tables 393216 113 nft_compat, Live 0x0000000000000000
+libcrc32c 12288 2 nf_conntrack,nf_tables, Live 0x0000000000000000
+sch_fq_codel 20480 2 - Live 0x0000000000000000
+joydev 28672 0 - Live 0x0000000000000000
+mousedev 24576 0 - Live 0x0000000000000000
+snd_soc_dmic 12288 0 - Live 0x0000000000000000
+snd_soc_acp6x_mach 40960 0 - Live 0x0000000000000000
+snd_acp6x_pdm_dma 16384 0 - Live 0x0000000000000000
+snd_sof_amd_acp70 16384 0 - Live 0x0000000000000000
+nvidia_drm 143360 38 - Live 0x0000000000000000 (PO)
+snd_sof_amd_acp63 16384 0 - Live 0x0000000000000000
+snd_soc_acpi_amd_match 8192 1 snd_sof_amd_acp63, Live 0x0000000000000000
+snd_sof_amd_vangogh 16384 0 - Live 0x0000000000000000
+snd_sof_amd_rembrandt 16384 0 - Live 0x0000000000000000
+snd_sof_amd_renoir 16384 0 - Live 0x0000000000000000
+amdgpu 15753216 2 - Live 0x0000000000000000
+snd_sof_amd_acp 69632 5 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir, Live 0x0000000000000000
+snd_sof_pci 24576 5 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir, Live 0x0000000000000000
+mt7921e 24576 0 - Live 0x0000000000000000
+snd_sof_xtensa_dsp 16384 1 snd_sof_amd_acp, Live 0x0000000000000000
+nvidia_modeset 1937408 14 nvidia_drm, Live 0x0000000000000000 (PO)
+mt7921_common 98304 1 mt7921e, Live 0x0000000000000000
+snd_sof 479232 2 snd_sof_amd_acp,snd_sof_pci, Live 0x0000000000000000
+nls_iso8859_1 12288 1 - Live 0x0000000000000000
+mt792x_lib 65536 2 mt7921e,mt7921_common, Live 0x0000000000000000
+nls_cp437 16384 1 - Live 0x0000000000000000
+mt76_connac_lib 94208 3 mt7921e,mt7921_common,mt792x_lib, Live 0x0000000000000000
+vfat 24576 1 - Live 0x0000000000000000
+snd_sof_utils 16384 1 snd_sof, Live 0x0000000000000000
+snd_hda_codec_realtek 221184 1 - Live 0x0000000000000000
+fat 110592 1 vfat, Live 0x0000000000000000
+snd_pci_ps 28672 0 - Live 0x0000000000000000
+snd_amd_sdw_acpi 16384 2 snd_sof_amd_acp,snd_pci_ps, Live 0x0000000000000000
+mt76 139264 4 mt7921e,mt7921_common,mt792x_lib,mt76_connac_lib, Live 0x0000000000000000
+snd_hda_codec_generic 114688 1 snd_hda_codec_realtek, Live 0x0000000000000000
+soundwire_amd 45056 2 snd_sof_amd_acp,snd_pci_ps, Live 0x0000000000000000
+nvidia_uvm 3878912 0 - Live 0x0000000000000000 (PO)
+soundwire_generic_allocation 12288 1 soundwire_amd, Live 0x0000000000000000
+soundwire_bus 147456 2 soundwire_amd,soundwire_generic_allocation, Live 0x0000000000000000
+snd_hda_scodec_component 20480 1 snd_hda_codec_realtek, Live 0x0000000000000000
+intel_rapl_msr 20480 0 - Live 0x0000000000000000
+snd_soc_core 462848 5 snd_soc_dmic,snd_soc_acp6x_mach,snd_acp6x_pdm_dma,snd_sof,soundwire_amd, Live 0x0000000000000000
+snd_hda_codec_hdmi 98304 2 - Live 0x0000000000000000
+mac80211 1662976 4 mt7921_common,mt792x_lib,mt76_connac_lib,mt76, Live 0x0000000000000000
+edac_mce_amd 40960 0 - Live 0x0000000000000000
+edac_core 114688 0 - Live 0x0000000000000000
+snd_compress 32768 1 snd_soc_core, Live 0x0000000000000000
+snd_hda_intel 69632 3 - Live 0x0000000000000000
+amd_atl 57344 1 - Live 0x0000000000000000
+snd_intel_dspcfg 40960 2 snd_sof,snd_hda_intel, Live 0x0000000000000000
+btusb 81920 0 - Live 0x0000000000000000
+ac97_bus 12288 1 snd_soc_core, Live 0x0000000000000000
+snd_intel_sdw_acpi 16384 1 snd_intel_dspcfg, Live 0x0000000000000000
+snd_pcm_dmaengine 16384 1 snd_soc_core, Live 0x0000000000000000
+amdxcp 12288 1 amdgpu, Live 0x0000000000000000
+intel_rapl_common 53248 1 intel_rapl_msr, Live 0x0000000000000000
+drm_exec 12288 1 amdgpu, Live 0x0000000000000000
+uvcvideo 188416 2 - Live 0x0000000000000000
+btrtl 32768 1 btusb, Live 0x0000000000000000
+gpu_sched 65536 1 amdgpu, Live 0x0000000000000000
+crct10dif_pclmul 12288 1 - Live 0x0000000000000000
+snd_rpl_pci_acp6x 16384 0 - Live 0x0000000000000000
+videobuf2_vmalloc 20480 1 uvcvideo, Live 0x0000000000000000
+snd_hda_codec 221184 4 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel, Live 0x0000000000000000
+btintel 69632 1 btusb, Live 0x0000000000000000
+uvc 12288 1 uvcvideo, Live 0x0000000000000000
+crc32_pclmul 12288 0 - Live 0x0000000000000000
+snd_acp_pci 12288 0 - Live 0x0000000000000000
+drm_buddy 28672 1 amdgpu, Live 0x0000000000000000
+videobuf2_memops 16384 1 videobuf2_vmalloc, Live 0x0000000000000000
+polyval_clmulni 12288 0 - Live 0x0000000000000000
+btbcm 24576 1 btusb, Live 0x0000000000000000
+spd5118 12288 0 - Live 0x0000000000000000
+hid_multitouch 36864 0 - Live 0x0000000000000000
+asus_nb_wmi 32768 0 - Live 0x0000000000000000
+wmi_bmof 12288 0 - Live 0x0000000000000000
+snd_acp_legacy_common 16384 1 snd_acp_pci, Live 0x0000000000000000
+btmtk 36864 1 btusb, Live 0x0000000000000000
+drm_suballoc_helper 12288 1 amdgpu, Live 0x0000000000000000
+videobuf2_v4l2 40960 1 uvcvideo, Live 0x0000000000000000
+polyval_generic 12288 1 polyval_clmulni, Live 0x0000000000000000
+snd_hda_core 143360 5 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec, Live 0x0000000000000000
+r8169 131072 0 - Live 0x0000000000000000
+ghash_clmulni_intel 16384 0 - Live 0x0000000000000000
+videobuf2_common 98304 4 uvcvideo,videobuf2_vmalloc,videobuf2_memops,videobuf2_v4l2, Live 0x0000000000000000
+snd_pci_acp6x 20480 0 - Live 0x0000000000000000
+snd_hwdep 20480 1 snd_hda_codec, Live 0x0000000000000000
+sha512_ssse3 53248 0 - Live 0x0000000000000000
+drm_display_helper 294912 1 amdgpu, Live 0x0000000000000000
+hid_asus 45056 0 - Live 0x0000000000000000
+cfg80211 1413120 4 mt7921_common,mt76_connac_lib,mt76,mac80211, Live 0x0000000000000000
+bluetooth 1089536 34 rfcomm,bnep,btusb,btrtl,btintel,btbcm,btmtk, Live 0x0000000000000000
+snd_pci_acp5x 20480 0 - Live 0x0000000000000000
+sp5100_tco 20480 0 - Live 0x0000000000000000
+sha256_ssse3 36864 0 - Live 0x0000000000000000
+realtek 45056 1 - Live 0x0000000000000000
+sha1_ssse3 32768 0 - Live 0x0000000000000000
+watchdog 49152 1 sp5100_tco, Live 0x0000000000000000
+asus_wmi 110592 2 asus_nb_wmi,hid_asus, Live 0x0000000000000000
+amd_pmf 77824 0 - Live 0x0000000000000000
+snd_pcm 188416 14 snd_acp6x_pdm_dma,snd_sof_amd_acp,snd_sof,snd_sof_utils,snd_pci_ps,soundwire_amd,snd_soc_core,snd_hda_codec_hdmi,snd_compress,snd_hda_intel,snd_pcm_dmaengine,snd_hda_codec,snd_hda_core,snd_pci_acp6x, Live 0x0000000000000000
+videodev 397312 2 uvcvideo,videobuf2_v4l2, Live 0x0000000000000000
+drm_ttm_helper 16384 3 nvidia_drm,amdgpu, Live 0x0000000000000000
+cec 77824 1 drm_display_helper, Live 0x0000000000000000
+aesni_intel 122880 11 - Live 0x0000000000000000
+snd_rn_pci_acp3x 24576 0 - Live 0x0000000000000000
+mdio_devres 12288 1 r8169, Live 0x0000000000000000
+gf128mul 16384 2 polyval_generic,aesni_intel, Live 0x0000000000000000
+snd_acp_config 20480 10 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir,snd_pci_ps,snd_acp_pci,snd_pci_acp6x,snd_pci_acp5x,snd_rn_pci_acp3x, Live 0x0000000000000000
+sparse_keymap 12288 1 asus_wmi, Live 0x0000000000000000
+ucsi_acpi 12288 0 - Live 0x0000000000000000
+amdtee 36864 0 - Live 0x0000000000000000
+crypto_simd 16384 1 aesni_intel, Live 0x0000000000000000
+snd_timer 53248 3 snd_hrtimer,snd_seq,snd_pcm, Live 0x0000000000000000
+ecdh_generic 16384 2 bluetooth, Live 0x0000000000000000
+of_mdio 24576 1 mdio_devres, Live 0x0000000000000000
+ttm 106496 2 amdgpu,drm_ttm_helper, Live 0x0000000000000000
+i2c_algo_bit 24576 1 amdgpu, Live 0x0000000000000000
+typec_ucsi 77824 1 ucsi_acpi, Live 0x0000000000000000
+snd_soc_acpi 16384 3 snd_sof_amd_acp,snd_pci_ps,snd_acp_config, Live 0x0000000000000000
+cryptd 28672 3 ghash_clmulni_intel,crypto_simd, Live 0x0000000000000000
+rfkill 40960 8 cfg80211,bluetooth,asus_wmi, Live 0x0000000000000000
+fixed_phy 16384 1 of_mdio, Live 0x0000000000000000
+i2c_piix4 36864 0 - Live 0x0000000000000000
+amd_sfh 53248 1 amd_pmf, Live 0x0000000000000000
+evdev 28672 31 - Live 0x0000000000000000
+platform_profile 12288 2 asus_wmi,amd_pmf, Live 0x0000000000000000
+tiny_power_button 12288 0 - Live 0x0000000000000000
+fwnode_mdio 16384 1 of_mdio, Live 0x0000000000000000
+ecc 49152 1 ecdh_generic, Live 0x0000000000000000
+mc 90112 6 uvcvideo,videobuf2_v4l2,videobuf2_common,videodev, Live 0x0000000000000000
+rapl 20480 0 - Live 0x0000000000000000
+roles 16384 1 typec_ucsi, Live 0x0000000000000000
+tpm_crb 28672 0 - Live 0x0000000000000000
+i2c_smbus 20480 1 i2c_piix4, Live 0x0000000000000000
+video 81920 4 amdgpu,nvidia_modeset,asus_nb_wmi,asus_wmi, Live 0x0000000000000000
+snd 155648 21 snd_seq,snd_seq_device,snd_sof,snd_hda_codec_realtek,snd_hda_codec_generic,snd_soc_core,snd_hda_codec_hdmi,snd_compress,snd_hda_intel,snd_hda_codec,snd_hwdep,snd_pcm,snd_timer, Live 0x0000000000000000
+libarc4 12288 1 mac80211, Live 0x0000000000000000
+k10temp 16384 0 - Live 0x0000000000000000
+snd_pci_acp3x 20480 0 - Live 0x0000000000000000
+rtc_cmos 28672 1 - Live 0x0000000000000000
+libphy 233472 6 r8169,realtek,mdio_devres,of_mdio,fixed_phy,fwnode_mdio, Live 0x0000000000000000
+soundcore 16384 1 snd, Live 0x0000000000000000
+wmi 28672 3 wmi_bmof,asus_wmi,video, Live 0x0000000000000000
+input_leds 12288 0 - Live 0x0000000000000000
+thermal 28672 0 - Live 0x0000000000000000
+fan 28672 0 - Live 0x0000000000000000
+i2c_hid_acpi 12288 0 - Live 0x0000000000000000
+typec 118784 1 typec_ucsi, Live 0x0000000000000000
+battery 28672 1 asus_wmi, Live 0x0000000000000000
+button 28672 1 amd_pmf, Live 0x0000000000000000
+i2c_hid 45056 1 i2c_hid_acpi, Live 0x0000000000000000
+tpm_tis 16384 0 - Live 0x0000000000000000
+tee 49152 2 amd_pmf,amdtee, Live 0x0000000000000000
+mac_hid 12288 0 - Live 0x0000000000000000
+ac 16384 0 - Live 0x0000000000000000
+tpm_tis_core 36864 1 tpm_tis, Live 0x0000000000000000
+amd_pmc 61440 0 - Live 0x0000000000000000
+serio_raw 20480 0 - Live 0x0000000000000000
+nvidia 111611904 305 nvidia_modeset,nvidia_uvm, Live 0x0000000000000000 (PO)
+loop 45056 0 - Live 0x0000000000000000
+kvm_amd 245760 0 - Live 0x0000000000000000
+ccp 180224 2 amdtee,kvm_amd, Live 0x0000000000000000
+kvm 1368064 1 kvm_amd, Live 0x0000000000000000
+irqbypass 12288 1 kvm, Live 0x0000000000000000
+fuse 229376 5 - Live 0x0000000000000000
+efi_pstore 12288 0 - Live 0x0000000000000000
+configfs 69632 1 - Live 0x0000000000000000
+nfnetlink 20480 3 nft_compat,nf_tables, Live 0x0000000000000000
+efivarfs 32768 1 - Live 0x0000000000000000
+tpm 122880 3 tpm_crb,tpm_tis,tpm_tis_core, Live 0x0000000000000000
+rng_core 20480 2 ccp,tpm, Live 0x0000000000000000
+dmi_sysfs 28672 0 - Live 0x0000000000000000
+autofs4 65536 0 - Live 0x0000000000000000
+ext4 1155072 1 - Live 0x0000000000000000
+crc32c_generic 12288 0 - Live 0x0000000000000000
+crc16 12288 3 amdgpu,bluetooth,ext4, Live 0x0000000000000000
+mbcache 16384 1 ext4, Live 0x0000000000000000
+jbd2 208896 1 ext4, Live 0x0000000000000000
+hid_generic 12288 0 - Live 0x0000000000000000
+usbhid 90112 1 hid_asus, Live 0x0000000000000000
+hid 270336 6 hid_multitouch,hid_asus,amd_sfh,i2c_hid,hid_generic,usbhid, Live 0x0000000000000000
+sdhci_pci 106496 0 - Live 0x0000000000000000
+atkbd 40960 0 - Live 0x0000000000000000
+cqhci 36864 1 sdhci_pci, Live 0x0000000000000000
+libps2 20480 1 atkbd, Live 0x0000000000000000
+vivaldi_fmap 12288 1 atkbd, Live 0x0000000000000000
+sdhci 98304 1 sdhci_pci, Live 0x0000000000000000
+xhci_pci 24576 0 - Live 0x0000000000000000
+nvme 69632 3 - Live 0x0000000000000000
+led_class 20480 9 mt76,snd_hda_codec_generic,r8169,hid_asus,asus_wmi,videodev,libphy,input_leds,sdhci, Live 0x0000000000000000
+crc32c_intel 16384 3 - Live 0x0000000000000000
+i8042 57344 1 asus_wmi, Live 0x0000000000000000
+xhci_hcd 401408 1 xhci_pci, Live 0x0000000000000000
+nvme_core 249856 4 nvme, Live 0x0000000000000000
+mmc_core 282624 3 sdhci_pci,cqhci,sdhci, Live 0x0000000000000000
+serio 28672 5 amd_pmc,serio_raw,atkbd,i8042, Live 0x0000000000000000
+nvme_auth 24576 1 nvme_core, Live 0x0000000000000000
+dm_mod 225280 0 - Live 0x0000000000000000
+dax 53248 1 dm_mod, Live 0x0000000000000000
+
+--- Module metadata from /sys/module ---
+Module: 8250
+  Parameters:
+    nr_uarts = 4
+    probe_rsa = 
+    share_irqs = 1
+    skip_txen_test = 0
+
+Module: 8250_core
+  Parameters:
+    nr_uarts = 4
+    probe_rsa = 
+    share_irqs = 1
+    skip_txen_test = 0
+
+Module: ac
+  Reference Count: 0
+
+Module: ac97_bus
+  Reference Count: 1
+
+Module: acpi
+  Parameters:
+    acpica_version = 20240827
+    aml_debug_output = 0
+    debug_layer = Description              	Hex        SET
+ACPI_UTILITIES           	0x00000001 [ ]
+ACPI_HARDWARE            	0x00000002 [ ]
+ACPI_EVENTS              	0x00000004 [ ]
+ACPI_TABLES              	0x00000008 [ ]
+ACPI_NAMESPACE           	0x00000010 [ ]
+ACPI_PARSER              	0x00000020 [ ]
+ACPI_DISPATCHER          	0x00000040 [ ]
+ACPI_EXECUTER            	0x00000080 [ ]
+ACPI_RESOURCES           	0x00000100 [ ]
+ACPI_CA_DEBUGGER         	0x00000200 [ ]
+ACPI_OS_SERVICES         	0x00000400 [ ]
+ACPI_CA_DISASSEMBLER     	0x00000800 [ ]
+ACPI_COMPILER            	0x00001000 [ ]
+ACPI_TOOLS               	0x00002000 [ ]
+ACPI_ALL_DRIVERS         	0xFFFF0000 [ ]
+--
+debug_layer = 0x00000000 ( * = enabled)
+    debug_level = Description              	Hex        SET
+ACPI_LV_INIT             	0x00000001 [ ]
+ACPI_LV_DEBUG_OBJECT     	0x00000002 [ ]
+ACPI_LV_INFO             	0x00000004 [*]
+ACPI_LV_REPAIR           	0x00000008 [*]
+ACPI_LV_TRACE_POINT      	0x00000010 [ ]
+ACPI_LV_INIT_NAMES       	0x00000020 [ ]
+ACPI_LV_PARSE            	0x00000040 [ ]
+ACPI_LV_LOAD             	0x00000080 [ ]
+ACPI_LV_DISPATCH         	0x00000100 [ ]
+ACPI_LV_EXEC             	0x00000200 [ ]
+ACPI_LV_NAMES            	0x00000400 [ ]
+ACPI_LV_OPREGION         	0x00000800 [ ]
+ACPI_LV_BFIELD           	0x00001000 [ ]
+ACPI_LV_TABLES           	0x00002000 [ ]
+ACPI_LV_VALUES           	0x00004000 [ ]
+ACPI_LV_OBJECTS          	0x00008000 [ ]
+ACPI_LV_RESOURCES        	0x00010000 [ ]
+ACPI_LV_USER_REQUESTS    	0x00020000 [ ]
+ACPI_LV_PACKAGE          	0x00040000 [ ]
+ACPI_LV_ALLOCATIONS      	0x00100000 [ ]
+ACPI_LV_FUNCTIONS        	0x00200000 [ ]
+ACPI_LV_OPTIMIZATIONS    	0x00400000 [ ]
+ACPI_LV_MUTEX            	0x01000000 [ ]
+ACPI_LV_THREADS          	0x02000000 [ ]
+ACPI_LV_IO               	0x04000000 [ ]
+ACPI_LV_INTERRUPTS       	0x08000000 [ ]
+ACPI_LV_AML_DISASSEMBLE  	0x10000000 [ ]
+ACPI_LV_VERBOSE_INFO     	0x20000000 [ ]
+ACPI_LV_FULL_TABLES      	0x40000000 [ ]
+ACPI_LV_EVENTS           	0x80000000 [ ]
+--
+debug_level = 0x0000000C (* = enabled)
+    ec_busy_polling = N
+    ec_delay = 500
+    ec_event_clearing = query
+    ec_freeze_events = N
+    ec_max_queries = 16
+    ec_no_wakeup = N
+    ec_polling_guard = 550
+    ec_storm_threshold = 8
+    immediate_undock = Y
+    trace_debug_layer = 128
+    trace_debug_level = 16
+    trace_method_name = (null)
+    trace_state = disable
+
+Module: acpiphp
+  Parameters:
+    disable = N
+
+Module: acpi_x86
+  Parameters:
+    sleep_no_lps0 = N
+
+Module: aesni_intel
+  Reference Count: 11
+
+Module: af_alg
+  Reference Count: 6
+
+Module: af_packet
+  Reference Count: 6
+
+Module: algif_hash
+  Reference Count: 1
+
+Module: algif_skcipher
+  Reference Count: 1
+
+Module: amd_atl
+  Reference Count: 1
+
+Module: amdgpu
+  Reference Count: 2
+  Parameters:
+    abmlevel = -1
+    agp = -1
+    aspm = 0
+    async_gfx_ring = 1
+    audio = -1
+    backlight = -1
+    bad_page_threshold = -1
+    bapm = -1
+    cg_mask = 18446744073709551615
+    cik_support = 0
+    compute_multipipe = -1
+    cwsr_enable = 1
+    damageclips = -1
+    dc = -1
+    dcdebugmask = 0
+    dcfeaturemask = 2
+    debug_evictions = N
+    debug_mask = 0
+    deep_color = 0
+    disable_cu = (null)
+    discovery = -1
+    disp_priority = 0
+    dpm = -1
+    emu_mode = 0
+    enforce_isolation = N
+    exp_hw_support = 0
+    force_asic_type = -1
+    forcelongtraining = 0
+    freesync_video = 0
+    fw_load_type = -1
+    gartsize = N/A
+    gpu_recovery = -1
+    gttsize = N/A
+    halt_if_hws_hang = 0
+    hw_i2c = 0
+    hws_gws_support = N
+    hws_max_conc_proc = -1
+    ip_block_mask = 4294967295
+    lbpw = -1
+    lockup_timeout = 
+    max_num_of_queues_per_device = 4096
+    mcbp = -1
+    mes = 0
+    mes_kiq = 0
+    mes_log_enable = 0
+    modeset = -1
+    moverate = N/A
+    msi = -1
+    mtype_local = 0
+    no_queue_eviction_on_vm_fault = 0
+    noretry = -1
+    no_system_mem_limit = N
+    num_kcq = -1
+    pcie_gen2 = -1
+    pcie_gen_cap = 0
+    pcie_lane_cap = 0
+    pcie_p2p = Y
+    pg_mask = 4294967295
+    ppfeaturemask = 0xfff7bfff
+    queue_preemption_timeout_ms = 9000
+    ras_enable = -1
+    ras_mask = 4294967295
+    reset_method = -1
+    runpm = -1
+    sched_hw_submission = 2
+    sched_jobs = 32
+    sched_policy = 0
+    sdma_phase_quantum = 32
+    seamless = -1
+    send_sigterm = 0
+    sg_display = -1
+    si_support = 0
+    smu_memory_pool_size = 0
+    smu_pptable_id = -1
+    svm_default_granularity = 9
+    timeout_fatal_disable = N
+    timeout_period = 0
+    tmz = -1
+    umsch_mm = 0
+    umsch_mm_fwlog = 0
+    uni_mes = 1
+    user_partt_mode = 4294967294
+    use_xgmi_p2p = 1
+    vcnfw_log = 0
+    virtual_display = (null)
+    visualconfirm = 0
+    vis_vramlimit = 0
+    vm_block_size = -1
+    vm_fault_stop = 0
+    vm_fragment_size = -1
+    vm_size = -1
+    vm_update_mode = -1
+    vramlimit = N/A
+    wbrf = -1
+
+Module: amd_pmc
+  Reference Count: 0
+  Parameters:
+    disable_workarounds = N
+    dump_custom_stb = N
+    enable_stb = N
+
+Module: amd_pmf
+  Reference Count: 0
+  Parameters:
+    force_load = N
+    metrics_table_loop_ms = 1000
+
+Module: amd_sfh
+  Reference Count: 1
+  Parameters:
+    sensor_mask = -1
+
+Module: amdtee
+  Version: 1.0
+  Source Version: 443327DD127A8DE197F6467
+  Reference Count: 0
+
+Module: amdxcp
+  Reference Count: 1
+
+Module: apparmor
+  Parameters:
+    audit = N/A
+    audit_header = N/A
+    debug = N/A
+    enabled = N
+    export_binary = N/A
+    hash_policy = N/A
+    lock_policy = N/A
+    logsyscall = N/A
+    mode = N/A
+    paranoid_load = N/A
+    path_max = N/A
+    rawdata_compression_level = N/A
+
+Module: asus_nb_wmi
+  Reference Count: 0
+  Parameters:
+    tablet_mode_sw = 4294967295
+    wapf = 0
+
+Module: asus_wmi
+  Reference Count: 2
+  Parameters:
+    fnlock_default = Y
+
+Module: atkbd
+  Reference Count: 0
+
+Module: autofs4
+  Reference Count: 0
+
+Module: battery
+  Reference Count: 1
+  Parameters:
+    cache_time = 1000
+
+Module: binder
+  Parameters:
+    debug_mask = 7
+    devices = binder,hwbinder,vndbinder
+    stop_on_user_error = 0
+
+Module: binder_alloc
+  Parameters:
+    debug_mask = 1
+
+Module: blk_cgroup
+  Parameters:
+    blkcg_debug_stats = N
+
+Module: blk_crypto
+  Parameters:
+    num_prealloc_crypt_ctxs = 128
+
+Module: block
+  Parameters:
+    events_dfl_poll_msecs = 2000
+
+Module: bluetooth
+  Version: 2.22
+  Source Version: 82AF5BC895C56A96FB3DFAD
+  Reference Count: 34
+  Parameters:
+    disable_ertm = N
+    disable_esco = N
+    enable_ecred = Y
+
+Module: bnep
+  Version: 1.3
+  Source Version: FFEAE97CCF96D10C4EF4196
+  Reference Count: 2
+  Parameters:
+    compress_dst = Y
+    compress_src = Y
+
+Module: btbcm
+  Version: 0.1
+  Source Version: 55B7BA6CE917BE84A5F235E
+  Reference Count: 1
+
+Module: btintel
+  Version: 0.1
+  Source Version: 7440064C2337291D9EDAF11
+  Reference Count: 1
+
+Module: btmtk
+  Version: 0.1
+  Source Version: 3FBB445873F92B59A0135EB
+  Reference Count: 1
+
+Module: btrtl
+  Version: 0.1
+  Source Version: 9CA7D818ACE5B54C90946C8
+  Reference Count: 1
+
+Module: btusb
+  Version: 0.8
+  Source Version: CE95C3B371AFC20557EAB35
+  Reference Count: 0
+  Parameters:
+    disable_scofix = N
+    enable_autosuspend = Y
+    force_scofix = N
+    reset = Y
+
+Module: button
+  Reference Count: 1
+  Parameters:
+    lid_init_state = ignore open [method] disabled
+    lid_report_interval = 500
+
+Module: ccm
+  Reference Count: 9
+
+Module: ccp
+  Version: 1.1.0
+  Source Version: 7C58C0948A34CFA3805CA28
+  Reference Count: 2
+  Parameters:
+    dma_chan_attr = 0
+    dmaengine = 1
+    init_ex_path = (null)
+    max_devs = 32
+    nqueues = 0
+    psp_cmd_timeout = 100
+    psp_init_on_probe = Y
+    psp_probe_timeout = 5
+
+Module: cec
+  Reference Count: 1
+  Parameters:
+    debug = 0
+    debug_phys_addr = N
+
+Module: cfg80211
+  Reference Count: 4
+  Parameters:
+    bss_entries_limit = 1000
+    cfg80211_disable_40mhz_24ghz = N
+    ieee80211_regdom = 00
+
+Module: clocksource
+  Parameters:
+    verify_n_cpus = 8
+
+Module: cmac
+  Reference Count: 4
+
+Module: configfs
+  Version: 0.0.2
+  Source Version: 465F173EE686A565206D511
+  Reference Count: 1
+
+Module: cpufreq
+  Parameters:
+    default_governor = schedutil
+    off = 0
+
+Module: cpuidle
+  Parameters:
+    governor = 
+    off = 0
+
+Module: cqhci
+  Reference Count: 1
+
+Module: crc16
+  Reference Count: 3
+
+Module: crc32c_generic
+  Reference Count: 0
+
+Module: crc32c_intel
+  Reference Count: 3
+
+Module: crc32_pclmul
+  Reference Count: 0
+
+Module: crc64_rocksoft
+  Parameters:
+    transform = crc64-rocksoft-generic
+
+Module: crc_t10dif
+  Parameters:
+    transform = crct10dif-pclmul
+
+Module: crct10dif_pclmul
+  Reference Count: 1
+
+Module: cryptd
+  Reference Count: 3
+
+Module: cryptomgr
+  Parameters:
+    notests = N
+    panic_on_fail = N
+
+Module: crypto_simd
+  Reference Count: 1
+
+Module: damon_lru_sort
+  Parameters:
+    aggr_interval = N/A
+    bytes_lru_sorted_cold_regions = N/A
+    bytes_lru_sorted_hot_regions = N/A
+    bytes_lru_sort_tried_cold_regions = N/A
+    bytes_lru_sort_tried_hot_regions = N/A
+    cold_min_age = N/A
+    commit_inputs = N/A
+    enabled = N/A
+    hot_thres_access_freq = N/A
+    kdamond_pid = N/A
+    max_nr_regions = N/A
+    min_nr_regions = N/A
+    monitor_region_end = N/A
+    monitor_region_start = N/A
+    nr_cold_quota_exceeds = N/A
+    nr_hot_quota_exceeds = N/A
+    nr_lru_sorted_cold_regions = N/A
+    nr_lru_sorted_hot_regions = N/A
+    nr_lru_sort_tried_cold_regions = N/A
+    nr_lru_sort_tried_hot_regions = N/A
+    quota_ms = N/A
+    quota_reset_interval_ms = N/A
+    sample_interval = N/A
+    wmarks_high = N/A
+    wmarks_interval = N/A
+    wmarks_low = N/A
+    wmarks_mid = N/A
+
+Module: damon_reclaim
+  Parameters:
+    aggr_interval = N/A
+    bytes_reclaimed_regions = N/A
+    bytes_reclaim_tried_regions = N/A
+    commit_inputs = N/A
+    enabled = N/A
+    kdamond_pid = N/A
+    max_nr_regions = N/A
+    min_age = N/A
+    min_nr_regions = N/A
+    monitor_region_end = N/A
+    monitor_region_start = N/A
+    nr_quota_exceeds = N/A
+    nr_reclaimed_regions = N/A
+    nr_reclaim_tried_regions = N/A
+    quota_autotune_feedback = N/A
+    quota_mem_pressure_us = N/A
+    quota_ms = N/A
+    quota_reset_interval_ms = N/A
+    quota_sz = N/A
+    sample_interval = N/A
+    skip_anon = N/A
+    wmarks_high = N/A
+    wmarks_interval = N/A
+    wmarks_low = N/A
+    wmarks_mid = N/A
+
+Module: dax
+  Reference Count: 1
+
+Module: device_hmem
+  Parameters:
+    disable = N
+
+Module: dmi_sysfs
+  Reference Count: 0
+
+Module: dm_mod
+  Reference Count: 0
+  Parameters:
+    dm_mq_nr_hw_queues = 1
+    dm_mq_queue_depth = 2048
+    dm_numa_node = -1
+    kcopyd_subjob_size_kb = 512
+    reserved_bio_based_ios = 16
+    reserved_rq_based_ios = 256
+    stats_current_allocated_bytes = 0
+    swap_bios = 2048
+    use_blk_mq = Y
+
+Module: drm
+  Parameters:
+    debug = N/A
+    edid_firmware = 
+    edid_fixup = N/A
+    panic_qr_version = 40
+    panic_screen = kmsg
+    timestamp_precision_usec = N/A
+    vblankoffdelay = N/A
+
+Module: drm_buddy
+  Reference Count: 1
+
+Module: drm_display_helper
+  Reference Count: 1
+  Parameters:
+    dp_aux_i2c_speed_khz = 10
+    dp_aux_i2c_transfer_size = 16
+    drm_dp_cec_unregister_delay = N/A
+
+Module: drm_exec
+  Reference Count: 1
+
+Module: drm_kms_helper
+  Parameters:
+    drm_fbdev_overalloc = 100
+    fbdev_emulation = N/A
+    poll = N/A
+
+Module: drm_suballoc_helper
+  Reference Count: 1
+
+Module: drm_ttm_helper
+  Reference Count: 3
+
+Module: dynamic_debug
+  Parameters:
+    verbose = 0
+
+Module: ecc
+  Reference Count: 1
+
+Module: ecdh_generic
+  Reference Count: 2
+
+Module: edac_core
+  Reference Count: 0
+  Parameters:
+    check_pci_errors = 0
+    edac_mc_log_ce = 1
+    edac_mc_log_ue = 1
+    edac_mc_panic_on_ue = 0
+    edac_mc_poll_msec = 1000
+    edac_pci_panic_on_pe = 0
+
+Module: edac_mce_amd
+  Reference Count: 0
+
+Module: efi_pstore
+  Reference Count: 0
+  Parameters:
+    pstore_disable = N
+    record_size = 1024
+
+Module: efivarfs
+  Reference Count: 1
+
+Module: evdev
+  Reference Count: 31
+
+Module: ext4
+  Reference Count: 1
+
+Module: fan
+  Reference Count: 0
+
+Module: fat
+  Reference Count: 1
+
+Module: fb
+  Parameters:
+    lockless_register_fb = N/A
+
+Module: firmware_class
+  Parameters:
+    path = /nix/store/vgvm08981n6qm79sbhf4q65za9crjmp6-firmware/lib/firmware
+
+Module: fixed_phy
+  Reference Count: 1
+
+Module: fscrypto
+  Parameters:
+    num_prealloc_crypto_pages = 32
+
+Module: fuse
+  Reference Count: 5
+  Parameters:
+    allow_sys_admin_access = N
+    max_user_bgreq = 10228
+    max_user_congthresh = 10228
+
+Module: fwnode_mdio
+  Reference Count: 1
+
+Module: gf128mul
+  Reference Count: 2
+
+Module: ghash_clmulni_intel
+  Reference Count: 0
+
+Module: gpiolib_acpi
+  Parameters:
+    ignore_interrupt = (null)
+    ignore_wake = (null)
+    run_edge_events_on_boot = 1
+
+Module: gpu_sched
+  Reference Count: 1
+  Parameters:
+    sched_policy = 1
+
+Module: grant_table
+  Parameters:
+    free_per_iteration = N/A
+
+Module: haltpoll
+  Parameters:
+    guest_halt_poll_allow_shrink = Y
+    guest_halt_poll_grow = 2
+    guest_halt_poll_grow_start = 50000
+    guest_halt_poll_ns = 200000
+    guest_halt_poll_shrink = 2
+
+Module: hibernate
+  Parameters:
+    compressor = lzo
+
+Module: hid
+  Reference Count: 6
+  Parameters:
+    ignore_special_drivers = N/A
+
+Module: hid_asus
+  Reference Count: 0
+
+Module: hid_generic
+  Reference Count: 0
+
+Module: hid_multitouch
+  Reference Count: 0
+
+Module: i2c_algo_bit
+  Reference Count: 1
+  Parameters:
+    bit_test = 0
+
+Module: i2c_hid
+  Reference Count: 1
+
+Module: i2c_hid_acpi
+  Reference Count: 0
+
+Module: i2c_piix4
+  Reference Count: 0
+
+Module: i2c_smbus
+  Reference Count: 1
+
+Module: i8042
+  Reference Count: 1
+  Parameters:
+    debug = N/A
+    unmask_kbd_data = N/A
+
+Module: input_leds
+  Reference Count: 0
+
+Module: intel_idle
+  Parameters:
+    force_irq_on = N
+    ibrs_off = N
+    max_cstate = 9
+    no_acpi = N
+    preferred_cstates = 0
+    states_off = 0
+    use_acpi = N
+
+Module: intel_rapl_common
+  Reference Count: 1
+
+Module: intel_rapl_msr
+  Reference Count: 0
+
+Module: iosf_mbi
+
+Module: ip6t_rpfilter
+  Reference Count: 1
+
+Module: ipe
+  Parameters:
+    enforce = N/A
+    success_audit = N/A
+
+Module: ipt_rpfilter
+  Reference Count: 1
+
+Module: ipv6
+  Parameters:
+    autoconf = 1
+    disable = 0
+    disable_ipv6 = 0
+
+Module: irqbypass
+  Reference Count: 1
+
+Module: jbd2
+  Reference Count: 1
+
+Module: joydev
+  Reference Count: 0
+
+Module: k10temp
+  Reference Count: 0
+  Parameters:
+    force = N
+
+Module: kernel
+  Parameters:
+    consoleblank = 0
+    crash_kexec_post_notifiers = N
+    ignore_rlimit_data = N
+    initcall_debug = N
+    module_blacklist = N/A
+    panic = 0
+    panic_on_warn = 0
+    panic_print = 0
+    pause_on_oops = 0
+
+Module: keyboard
+  Parameters:
+    brl_nbchords = 1
+    brl_timeout = 300
+
+Module: kfence
+  Parameters:
+    burst = 0
+    check_on_panic = N
+    deferrable = N
+    sample_interval = N/A
+    skip_covered_thresh = 75
+
+Module: kvm
+  Reference Count: 1
+  Parameters:
+    eager_page_split = Y
+    enable_pmu = Y
+    enable_virt_at_load = Y
+    enable_vmware_backdoor = N
+    flush_on_reuse = N
+    force_emulation_prefix = 0
+    halt_poll_ns = 200000
+    halt_poll_ns_grow = 2
+    halt_poll_ns_grow_start = 10000
+    halt_poll_ns_shrink = 2
+    ignore_msrs = N
+    kvmclock_periodic_sync = Y
+    lapic_timer_advance = Y
+    min_timer_period_us = 200
+    mitigate_smt_rsb = N
+    mmio_caching = Y
+    nx_huge_pages = N
+    nx_huge_pages_recovery_period_ms = 0
+    nx_huge_pages_recovery_ratio = 60
+    pi_inject_timer = 0
+    report_ignored_msrs = Y
+    tdp_mmu = Y
+    tsc_tolerance_ppm = 250
+    vector_hashing = Y
+
+Module: kvm_amd
+  Reference Count: 0
+  Parameters:
+    avic = N
+    debug_swap = N
+    dump_invalid_vmcb = N
+    force_avic = N
+    intercept_smi = Y
+    lbrv = 1
+    nested = 1
+    npt = Y
+    nrips = 1
+    pause_filter_count = 3000
+    pause_filter_count_grow = 2
+    pause_filter_count_max = 65535
+    pause_filter_count_shrink = 0
+    pause_filter_thresh = 128
+    sev = N
+    sev_es = N
+    sev_snp = N
+    tsc_scaling = 1
+    vgif = 1
+    vls = 1
+    vnmi = N
+
+Module: led_class
+  Reference Count: 9
+
+Module: libarc4
+  Reference Count: 1
+
+Module: libcrc32c
+  Reference Count: 2
+
+Module: libphy
+  Reference Count: 6
+
+Module: libps2
+  Reference Count: 1
+
+Module: loop
+  Reference Count: 0
+  Parameters:
+    hw_queue_depth = 128
+    max_loop = 8
+    max_part = 0
+
+Module: mac80211
+  Reference Count: 4
+  Parameters:
+    beacon_loss_count = 7
+    ieee80211_default_rc_algo = minstrel_ht
+    max_nullfunc_tries = 2
+    max_probe_tries = 5
+    minstrel_vht_only = Y
+    probe_wait_ms = 500
+
+Module: mac_hid
+  Reference Count: 0
+
+Module: mbcache
+  Reference Count: 1
+
+Module: mc
+  Reference Count: 6
+
+Module: mdio_devres
+  Reference Count: 1
+
+Module: memory_hotplug
+  Parameters:
+    auto_movable_numa_aware = Y
+    auto_movable_ratio = 301
+    memmap_on_memory = N
+    online_policy = contig-zones
+
+Module: microcode
+  Parameters:
+    force_minrev = N/A
+
+Module: mmc_core
+  Reference Count: 3
+
+Module: module
+  Parameters:
+    async_probe = N
+
+Module: mousedev
+  Reference Count: 0
+  Parameters:
+    tap_time = 200
+    xres = 1024
+    yres = 768
+
+Module: mt76
+  Reference Count: 4
+
+Module: mt76_connac_lib
+  Reference Count: 3
+
+Module: mt7921_common
+  Reference Count: 1
+  Parameters:
+    disable_clc = N
+
+Module: mt7921e
+  Reference Count: 0
+  Parameters:
+    disable_aspm = N
+
+Module: mt792x_lib
+  Reference Count: 2
+
+Module: netpoll
+  Parameters:
+    carrier_timeout = 4
+
+Module: nf_conntrack
+  Reference Count: 1
+  Parameters:
+    acct = N
+    expect_hashsize = N/A
+    hashsize = N/A
+    tstamp = N
+
+Module: nf_defrag_ipv4
+  Reference Count: 1
+
+Module: nf_defrag_ipv6
+  Reference Count: 1
+
+Module: nf_log_syslog
+  Reference Count: 2
+
+Module: nfnetlink
+  Reference Count: 3
+
+Module: nf_tables
+  Reference Count: 113
+
+Module: nft_compat
+  Reference Count: 11
+
+Module: nls_cp437
+  Reference Count: 1
+
+Module: nls_iso8859_1
+  Reference Count: 1
+
+Module: nmi_backtrace
+  Parameters:
+    backtrace_idle = N
+
+Module: nvidia
+  Version: 580.126.09
+  Source Version: 43FAF8DACC4A0232A53DCEB
+  Reference Count: 305
+  Taint: PO
+
+Module: nvidia_drm
+  Version: 580.126.09
+  Source Version: 3A61DB0A40DC97FB4531BFF
+  Reference Count: 38
+  Taint: PO
+  Parameters:
+    fbdev = N/A
+    modeset = N/A
+
+Module: nvidia_modeset
+  Version: 580.126.09
+  Source Version: 721710E18A318C762C067EB
+  Reference Count: 14
+  Taint: PO
+  Parameters:
+    conceal_vrr_caps = N/A
+    config_file = N/A
+    debug = N/A
+    debug_force_color_space = N/A
+    disable_hdmi_frl = N/A
+    disable_vrr_memclk_switch = N/A
+    enable_overlay_layers = N/A
+    fail_alloc_core_channel = N/A
+    fail_malloc = N/A
+    hdmi_deepcolor = N/A
+    malloc_verbose = N/A
+    opportunistic_display_sync = N/A
+    output_rounding_fix = N/A
+    vblank_sem_control = N/A
+
+Module: nvidia_uvm
+  Version: 580.126.09
+  Source Version: E90CCB1CCECF642CAF55FBF
+  Reference Count: 0
+  Taint: PO
+  Parameters:
+    uvm_ats_mode = 1
+    uvm_block_cpu_to_cpu_copy_with_ce = 0
+    uvm_channel_gpfifo_loc = auto
+    uvm_channel_gpput_loc = auto
+    uvm_channel_num_gpfifo_entries = 1024
+    uvm_channel_pushbuffer_loc = auto
+    uvm_conf_computing_channel_iv_rotation_limit = 2147483648
+    uvm_cpu_chunk_allocation_sizes = 2166784
+    uvm_debug_enable_push_acquire_info = 0
+    uvm_debug_enable_push_desc = 0
+    uvm_debug_prints = 0
+    uvm_disable_hmm = N
+    uvm_downgrade_force_membar_sys = 1
+    uvm_enable_builtin_tests = 0
+    uvm_enable_debug_procfs = 0
+    uvm_enable_va_space_mm = 1
+    uvm_exp_gpu_cache_peermem = 0
+    uvm_exp_gpu_cache_sysmem = 0
+    uvm_fault_force_sysmem = 0
+    uvm_force_prefetch_fault_support = 0
+    uvm_global_oversubscription = 1
+    uvm_leak_checker = 0
+    uvm_page_table_location = (null)
+    uvm_peer_copy = phys
+    uvm_perf_access_counter_batch_count = 256
+    uvm_perf_access_counter_migration_enable = -1
+    uvm_perf_access_counter_threshold = 256
+    uvm_perf_fault_batch_count = 256
+    uvm_perf_fault_coalesce = 1
+    uvm_perf_fault_max_batches_per_service = 20
+    uvm_perf_fault_max_throttle_per_service = 5
+    uvm_perf_fault_replay_policy = 2
+    uvm_perf_fault_replay_update_put_ratio = 50
+    uvm_perf_map_remote_on_eviction = 1
+    uvm_perf_map_remote_on_native_atomics_fault = 0
+    uvm_perf_migrate_cpu_preunmap_block_order = 2
+    uvm_perf_migrate_cpu_preunmap_enable = 1
+    uvm_perf_pma_batch_nonpinned_order = 6
+    uvm_perf_prefetch_enable = 1
+    uvm_perf_prefetch_min_faults = 1
+    uvm_perf_prefetch_threshold = 51
+    uvm_perf_reenable_prefetch_faults_lapse_msec = 1000
+    uvm_perf_thrashing_enable = 1
+    uvm_perf_thrashing_epoch = 2000
+    uvm_perf_thrashing_lapse_usec = 500
+    uvm_perf_thrashing_max_resets = 4
+    uvm_perf_thrashing_nap = 1
+    uvm_perf_thrashing_pin = 300
+    uvm_perf_thrashing_pin_threshold = 10
+    uvm_perf_thrashing_threshold = 3
+    uvm_release_asserts = 1
+    uvm_release_asserts_dump_stack = 0
+    uvm_release_asserts_set_global_error = 0
+
+Module: nvme
+  Version: 1.0
+  Source Version: CB1A153F862EAEB35475894
+  Reference Count: 3
+  Parameters:
+    io_queue_depth = 1024
+    max_host_mem_size_mb = 128
+    noacpi = N
+    poll_queues = 0
+    sgl_threshold = 32768
+    use_cmb_sqes = Y
+    use_threaded_interrupts = 0
+    write_queues = 0
+
+Module: nvme_auth
+  Reference Count: 1
+
+Module: nvme_core
+  Version: 1.0
+  Source Version: 47431DE01A4E9CCCA5E1FE1
+  Reference Count: 4
+  Parameters:
+    admin_timeout = 60
+    apst_primary_latency_tol_us = 15000
+    apst_primary_timeout_ms = 100
+    apst_secondary_latency_tol_us = 100000
+    apst_secondary_timeout_ms = 2000
+    default_ps_max_latency_us = 100000
+    disable_pi_offsets = N
+    force_apst = N
+    iopolicy = numa
+    io_timeout = 30
+    max_retries = 5
+    multipath = Y
+    shutdown_timeout = 5
+
+Module: of_mdio
+  Reference Count: 1
+
+Module: page_alloc
+  Parameters:
+    shuffle = N/A
+
+Module: page_reporting
+  Parameters:
+    page_reporting_order = -1
+
+Module: pcie_aspm
+  Parameters:
+    policy = [default] performance powersave powersupersave 
+
+Module: pciehp
+  Parameters:
+    pciehp_poll_mode = N
+    pciehp_poll_time = 0
+
+Module: pcieportdrv
+
+Module: pci_hotplug
+  Parameters:
+    debug = N
+    debug_acpi = N
+
+Module: platform_pci
+
+Module: platform_profile
+  Reference Count: 2
+
+Module: pnp
+  Parameters:
+    debug = 0
+
+Module: polyval_clmulni
+  Reference Count: 0
+
+Module: polyval_generic
+  Reference Count: 1
+
+Module: printk
+  Parameters:
+    always_kmsg_dump = N
+    console_no_auto_verbose = N
+    console_suspend = Y
+    ignore_loglevel = N
+    time = Y
+
+Module: processor
+  Parameters:
+    bm_check_disable = N/A
+    ignore_ppc = 0
+    ignore_tpc = 0
+    latency_factor = 2
+    max_cstate = N/A
+    nocst = N/A
+
+Module: pstore
+  Parameters:
+    backend = efi_pstore
+    compress = deflate
+    kmsg_bytes = 10240
+    update_ms = N/A
+
+Module: qrtr
+  Reference Count: 2
+
+Module: r8169
+  Reference Count: 0
+
+Module: random
+  Parameters:
+    ratelimit_disable = 0
+
+Module: rapl
+  Reference Count: 0
+
+Module: rcupdate
+  Parameters:
+    rcu_cpu_stall_cputime = 0
+    rcu_cpu_stall_ftrace_dump = 0
+    rcu_cpu_stall_suppress = 0
+    rcu_cpu_stall_suppress_at_boot = 0
+    rcu_cpu_stall_timeout = 21
+    rcu_exp_cpu_stall_timeout = 0
+    rcu_expedited = 0
+    rcu_exp_stall_task_details = N
+    rcu_normal = 0
+    rcu_normal_after_boot = 0
+    rcu_task_collapse_lim = 10
+    rcu_task_contend_lim = 100
+    rcu_task_enqueue_lim = 1
+    rcu_task_ipi_delay = 0
+    rcu_task_lazy_lim = 32
+    rcu_tasks_lazy_ms = -1
+    rcu_task_stall_info = 10000
+    rcu_task_stall_info_mult = 3
+    rcu_task_stall_timeout = 600000
+    rcu_tasks_trace_lazy_ms = -1
+
+Module: rcutree
+  Parameters:
+    blimit = 10
+    csd_lock_suppress_rcu_stall = N
+    do_rcu_barrier = 0
+    dump_tree = N
+    enable_rcu_lazy = Y
+    gp_cleanup_delay = 0
+    gp_init_delay = 0
+    gp_preinit_delay = 0
+    jiffies_till_first_fqs = 3
+    jiffies_till_next_fqs = 3
+    jiffies_till_sched_qs = 18446744073709551615
+    jiffies_to_sched_qs = 100
+    kthread_prio = 0
+    nohz_full_patience_delay = 0
+    qhimark = 10000
+    qlowmark = 100
+    qovld = 20000
+    rcu_delay_page_cache_fill_msec = 5000
+    rcu_divisor = 7
+    rcu_fanout_exact = N
+    rcu_fanout_leaf = 16
+    rcu_kick_kthreads = N
+    rcu_min_cached_objs = 5
+    rcu_nocb_gp_stride = -1
+    rcu_normal_wake_from_gp = 0
+    rcu_resched_ns = 3000000
+    sysrq_rcu = N
+    use_softirq = Y
+
+Module: realtek
+  Reference Count: 1
+
+Module: rfcomm
+  Version: 1.11
+  Source Version: A202FCFFBCF61484DD012F1
+  Reference Count: 4
+  Parameters:
+    channel_mtu = -1
+    disable_cfc = N
+    l2cap_ertm = N
+
+Module: rfkill
+  Reference Count: 8
+  Parameters:
+    default_state = 1
+
+Module: rng_core
+  Reference Count: 2
+  Parameters:
+    current_quality = 0
+    default_quality = 1024
+
+Module: roles
+  Reference Count: 1
+
+Module: rtc_cmos
+  Reference Count: 1
+  Parameters:
+    use_acpi_alarm = N
+
+Module: sch_fq_codel
+  Reference Count: 2
+
+Module: sdhci
+  Reference Count: 1
+  Parameters:
+    debug_quirks = 0
+    debug_quirks2 = 0
+
+Module: sdhci_pci
+  Reference Count: 0
+
+Module: secretmem
+  Parameters:
+    enable = N/A
+
+Module: serio
+  Reference Count: 5
+
+Module: serio_raw
+  Reference Count: 0
+
+Module: sha1_ssse3
+  Reference Count: 0
+
+Module: sha256_ssse3
+  Reference Count: 0
+
+Module: sha512_ssse3
+  Reference Count: 0
+
+Module: snd
+  Reference Count: 21
+  Parameters:
+    cards_limit = 1
+    major = 116
+    max_user_ctl_alloc_size = 8388608
+    slots = (null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null)
+
+Module: snd_acp6x_pdm_dma
+  Reference Count: 0
+  Parameters:
+    pdm_gain = 3
+
+Module: snd_acp_config
+  Reference Count: 10
+
+Module: snd_acp_legacy_common
+  Reference Count: 1
+
+Module: snd_acp_pci
+  Reference Count: 0
+
+Module: snd_amd_sdw_acpi
+  Reference Count: 2
+
+Module: snd_compress
+  Reference Count: 1
+
+Module: snd_hda_codec
+  Reference Count: 4
+  Parameters:
+    dump_coef = -1
+
+Module: snd_hda_codec_generic
+  Reference Count: 1
+
+Module: snd_hda_codec_hdmi
+  Reference Count: 2
+  Parameters:
+    enable_acomp = Y
+    enable_all_pins = N
+    enable_silent_stream = N
+    static_hdmi_pcm = N
+
+Module: snd_hda_codec_realtek
+  Reference Count: 1
+
+Module: snd_hda_core
+  Reference Count: 5
+  Parameters:
+    gpu_bind = -1
+
+Module: snd_hda_intel
+  Reference Count: 3
+  Parameters:
+    align_buffer_size = -1
+    bdl_pos_adj = -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+    beep_mode = Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y
+    ctl_dev_id = N
+    dmic_detect = Y
+    enable = Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y
+    enable_msi = -1
+    id = (null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null)
+    index = -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+    jackpoll_ms = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    model = (null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null)
+    patch = (null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null),(null)
+    pm_blacklist = -1
+    position_fix = -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+    power_save = 10
+    power_save_controller = Y
+    probe_mask = -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+    probe_only = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    single_cmd = -1
+    snoop = -1
+
+Module: snd_hda_scodec_component
+  Reference Count: 1
+
+Module: snd_hrtimer
+  Reference Count: 1
+
+Module: snd_hwdep
+  Reference Count: 1
+
+Module: snd_intel_dspcfg
+  Reference Count: 2
+  Parameters:
+    dsp_driver = 0
+
+Module: snd_intel_sdw_acpi
+  Reference Count: 1
+  Parameters:
+    sdw_ctrl_addr = 1073741824
+    sdw_link_mask = 0
+
+Module: snd_pci_acp3x
+  Reference Count: 0
+
+Module: snd_pci_acp5x
+  Reference Count: 0
+
+Module: snd_pci_acp6x
+  Reference Count: 0
+
+Module: snd_pci_ps
+  Reference Count: 0
+
+Module: snd_pcm
+  Reference Count: 14
+  Parameters:
+    max_alloc_per_card = 33554432
+    maximum_substreams = 4
+    preallocate_dma = 1
+
+Module: snd_pcm_dmaengine
+  Reference Count: 1
+
+Module: snd_rn_pci_acp3x
+  Reference Count: 0
+  Parameters:
+    acp_power_gating = 0
+    dmic_acpi_check = -1
+
+Module: snd_rpl_pci_acp6x
+  Reference Count: 0
+
+Module: snd_seq
+  Reference Count: 7
+  Parameters:
+    seq_client_load = 14,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+    seq_default_timer_card = -1
+    seq_default_timer_class = 1
+    seq_default_timer_device = 3
+    seq_default_timer_resolution = 0
+    seq_default_timer_sclass = 0
+    seq_default_timer_subdevice = 0
+
+Module: snd_seq_device
+  Reference Count: 1
+
+Module: snd_seq_dummy
+  Reference Count: 0
+  Parameters:
+    duplex = N
+    ports = 1
+
+Module: snd_soc_acp6x_mach
+  Reference Count: 0
+
+Module: snd_soc_acpi
+  Reference Count: 3
+
+Module: snd_soc_acpi_amd_match
+  Reference Count: 1
+
+Module: snd_soc_core
+  Reference Count: 5
+  Parameters:
+    prealloc_buffer_size_kbytes = 512
+
+Module: snd_soc_dmic
+  Reference Count: 0
+  Parameters:
+    modeswitch_delay = 0
+    wakeup_delay = 0
+
+Module: snd_sof
+  Reference Count: 2
+  Parameters:
+    ipc4_ignore_cpc = N
+    sof_debug = 0
+
+Module: snd_sof_amd_acp
+  Reference Count: 5
+  Parameters:
+    enable_fw_debug = N
+
+Module: snd_sof_amd_acp63
+  Reference Count: 0
+
+Module: snd_sof_amd_acp70
+  Reference Count: 0
+
+Module: snd_sof_amd_rembrandt
+  Reference Count: 0
+
+Module: snd_sof_amd_renoir
+  Reference Count: 0
+
+Module: snd_sof_amd_vangogh
+  Reference Count: 0
+
+Module: snd_sof_pci
+  Reference Count: 5
+  Parameters:
+    fw_filename = (null)
+    fw_path = (null)
+    ipc_type = -1
+    lib_path = (null)
+    sof_pci_debug = 0
+    tplg_filename = (null)
+    tplg_path = (null)
+
+Module: snd_sof_utils
+  Reference Count: 1
+
+Module: snd_sof_xtensa_dsp
+  Reference Count: 1
+
+Module: snd_timer
+  Reference Count: 3
+  Parameters:
+    timer_limit = 4
+    timer_tstamp_monotonic = 1
+
+Module: soundcore
+  Reference Count: 1
+  Parameters:
+    preclaim_oss = 1
+
+Module: soundwire_amd
+  Reference Count: 2
+
+Module: soundwire_bus
+  Reference Count: 2
+
+Module: soundwire_generic_allocation
+  Reference Count: 1
+
+Module: sp5100_tco
+  Reference Count: 0
+
+Module: sparse_keymap
+  Reference Count: 1
+
+Module: spd5118
+  Reference Count: 0
+
+Module: spurious
+  Parameters:
+    irqfixup = 0
+    noirqdebug = N
+
+Module: srcutree
+  Parameters:
+    big_cpu_lim = 128
+    convert_to_big = 16
+    counter_wrap_check = 4611686018427387903
+    exp_holdoff = 25000
+    small_contention_lim = 100
+    srcu_max_nodelay = 400
+    srcu_max_nodelay_phase = 400
+    srcu_retry_check_delay = 5
+
+Module: suspend
+  Parameters:
+    pm_test_delay = 5
+
+Module: sysrq
+  Parameters:
+    reset_seq = 
+    sysrq_downtime_ms = 0
+
+Module: tcp_cubic
+  Version: 2.3
+  Parameters:
+    beta = 717
+    bic_scale = 41
+    fast_convergence = 1
+    hystart = 1
+    hystart_ack_delta_us = 2000
+    hystart_detect = 3
+    hystart_low_window = 16
+    initial_ssthresh = 0
+    tcp_friendliness = 1
+
+Module: tee
+  Version: 1.0
+  Source Version: 99EB80984BA5B29010F3D68
+  Reference Count: 2
+
+Module: thermal
+  Reference Count: 0
+  Parameters:
+    act = 0
+    crt = 0
+    psv = 0
+    tzp = 0
+
+Module: tiny_power_button
+  Reference Count: 0
+  Parameters:
+    power_signal = 38
+
+Module: tpm
+  Version: 2.0
+  Source Version: 85637B29979B41379888819
+  Reference Count: 3
+  Parameters:
+    disable_pcr_integrity = N
+    suspend_pcr = 0
+
+Module: tpm_crb
+  Version: 0.1
+  Source Version: 5058BFC530C20AA94D45B28
+  Reference Count: 0
+
+Module: tpm_tis
+  Version: 2.0
+  Source Version: 524B49A2E37711DCFE843CD
+  Reference Count: 0
+  Parameters:
+    force = N
+    hid = 
+    interrupts = N
+    itpm = N
+
+Module: tpm_tis_core
+  Version: 2.0
+  Source Version: 27724BFFC63E092529F71AC
+  Reference Count: 1
+
+Module: ttm
+  Reference Count: 2
+  Parameters:
+    dma32_pages_limit = 524288
+    page_pool_size = 4009602
+    pages_limit = 4009602
+
+Module: typec
+  Reference Count: 1
+
+Module: typec_ucsi
+  Reference Count: 1
+
+Module: ucsi_acpi
+  Reference Count: 0
+
+Module: udmabuf
+  Parameters:
+    list_limit = 1024
+    size_limit_mb = 64
+
+Module: usbcore
+  Parameters:
+    authorized_default = 1
+    autosuspend = 2
+    blinkenlights = N
+    initial_descriptor_timeout = 5000
+    nousb = N
+    old_scheme_first = N
+    quirks = 
+    usbfs_memory_mb = 16
+    usbfs_snoop = N
+    usbfs_snoop_max = 65536
+    use_both_schemes = Y
+
+Module: usbhid
+  Reference Count: 1
+  Parameters:
+    ignoreled = 0
+    jspoll = 0
+    kbpoll = 0
+    mousepoll = 0
+    quirks = (null),(null),(null),(null)
+
+Module: usbserial
+
+Module: uvc
+  Reference Count: 1
+
+Module: uvcvideo
+  Version: 1.1.1
+  Source Version: E61C573821F6F070665E660
+  Reference Count: 2
+  Parameters:
+    clock = CLOCK_MONOTONIC
+    hwtimestamps = 0
+    nodrop = 0
+    quirks = 4294967295
+    timeout = 5000
+    trace = 0
+
+Module: vfat
+  Reference Count: 1
+
+Module: video
+  Reference Count: 4
+  Parameters:
+    allow_duplicates = N
+    brightness_switch_enabled = Y
+    device_id_scheme = N
+    hw_changes_brightness = -1
+    only_lcd = 0
+    report_key_events = -1
+
+Module: videobuf2_common
+  Reference Count: 4
+  Parameters:
+    debug = 0
+
+Module: videobuf2_memops
+  Reference Count: 1
+
+Module: videobuf2_v4l2
+  Reference Count: 1
+  Parameters:
+    debug = 0
+
+Module: videobuf2_vmalloc
+  Reference Count: 1
+
+Module: videodev
+  Reference Count: 2
+
+Module: vivaldi_fmap
+  Reference Count: 1
+
+Module: vt
+  Parameters:
+    color = 7
+    cur_default = 2
+    default_blu = 0,0,0,0,170,170,170,170,85,85,85,85,255,255,255,255
+    default_grn = 0,0,170,85,0,0,170,170,85,85,255,255,85,85,255,255
+    default_red = 0,170,0,170,0,170,0,170,85,255,85,255,85,255,85,255
+    default_utf8 = 1
+    global_cursor_default = 1
+    italic = 2
+    underline = 3
+
+Module: watchdog
+  Reference Count: 1
+  Parameters:
+    handle_boot_enabled = Y
+    open_timeout = 0
+    stop_on_reboot = -1
+
+Module: wmi
+  Reference Count: 3
+
+Module: wmi_bmof
+  Reference Count: 0
+
+Module: workqueue
+  Parameters:
+    cpu_intensive_thresh_us = 10000
+    debug_force_rr_cpu = N
+    default_affinity_scope = cache
+    power_efficient = Y
+
+Module: xen
+  Parameters:
+    balloon_boot_timeout = 180
+    event_eoi_delay = 10
+    event_loop_timeout = 2
+
+Module: xhci_hcd
+  Reference Count: 1
+  Parameters:
+    link_quirk = 0
+    quirks = 0
+
+Module: xhci_pci
+  Reference Count: 0
+
+Module: x_tables
+  Reference Count: 7
+
+Module: xt_conntrack
+  Reference Count: 2
+
+Module: xt_LOG
+  Reference Count: 2
+
+Module: xt_pkttype
+  Reference Count: 2
+
+Module: xt_tcpudp
+  Reference Count: 3
+
+Module: xz_dec
+  Version: 1.2
+
+Module: zswap
+  Parameters:
+    accept_threshold_percent = 90
+    compressor = zstd
+    enabled = N
+    max_pool_percent = 20
+    shrinker_enabled = N
+    zpool = zsmalloc
+
+
+=== DMI/SMBIOS INFORMATION ===
+
+dmidecode not available
+
+=== SYSFS HARDWARE INFORMATION ===
+
+--- Hardware classes ---
+Class: accel
+  Device count: 0
+
+Class: backlight
+  Device count: 0
+    Device: nvidia_0
+      uevent: 
+
+Class: bdi
+  Device count: 0
+    Device: 0:73
+      uevent: 
+
+Class: block
+  Device count: 0
+    Device: loop0
+      uevent: MAJOR=7
+MINOR=0
+DEVNAME=loop0
+
+Class: bluetooth
+  Device count: 0
+    Device: hci0
+      uevent: DEVTYPE=host
+
+Class: bsg
+  Device count: 0
+
+Class: devcoredump
+  Device count: 0
+
+Class: devfreq
+  Device count: 0
+
+Class: devlink
+  Device count: 0
+    Device: pci:0000:01:00.0--pci:0000:01:00.1
+      uevent: 
+
+Class: dma
+  Device count: 0
+
+Class: dmi
+  Device count: 0
+    Device: id
+      uevent: MODALIAS=dmi:bvnAmericanMegatrendsInternational,LLC.:bvrGA503RS.317:bd02/27/2024:br5.24:efr3.12:svnASUSTeKCOMPUTERINC.:pnROGZephyrusG15GA503RS_GA503RS:pvr1.0:rvnASUSTeKCOMPUTERINC.:rnGA503RS:rvr1.0:cvnASUSTeKCOMPUTERINC.:ct10:cvr1.0:sku:
+
+Class: drm
+  Device count: 0
+    Device: card0
+      uevent: MAJOR=226
+MINOR=0
+DEVNAME=dri/card0
+
+Class: drm_dp_aux_dev
+  Device count: 0
+    Device: drm_dp_aux0
+      name: AMDGPU DM aux hw bus 0
+      uevent: MAJOR=236
+MINOR=0
+DEVNAME=drm_dp_aux0
+
+Class: extcon
+  Device count: 0
+
+Class: firmware
+  Device count: 0
+
+Class: framer
+  Device count: 0
+
+Class: graphics
+  Device count: 0
+    Device: fb0
+      name: nvidia-drmdrmfb
+      uevent: MAJOR=29
+MINOR=0
+DEVNAME=fb0
+
+Class: hidraw
+  Device count: 0
+    Device: hidraw0
+      uevent: MAJOR=246
+MINOR=0
+DEVNAME=hidraw0
+
+Class: hwmon
+  Device count: 0
+    Device: hwmon0
+      name: nvme
+      uevent: 
+
+Class: ieee80211
+  Device count: 0
+    Device: phy0
+      name: phy0
+      uevent: 
+
+Class: input
+  Device count: 0
+    Device: event0
+      uevent: MAJOR=13
+MINOR=64
+DEVNAME=input/event0
+
+Class: intel_scu_ipc
+  Device count: 0
+
+Class: iommu
+  Device count: 0
+    Device: ivhd0
+      uevent: 
+
+Class: kfd
+  Device count: 0
+    Device: kfd
+      uevent: MAJOR=234
+MINOR=0
+DEVNAME=kfd
+
+Class: leds
+  Device count: 0
+    Device: asus::kbd_backlight
+      uevent: 
+
+Class: lirc
+  Device count: 0
+
+Class: mdio_bus
+  Device count: 0
+    Device: fixed-0
+      uevent: 
+
+Class: mem
+  Device count: 0
+    Device: full
+      uevent: MAJOR=1
+MINOR=7
+DEVNAME=full
+
+Class: misc
+  Device count: 0
+    Device: autofs
+      uevent: MAJOR=10
+MINOR=235
+DEVNAME=autofs
+
+Class: mmc_host
+  Device count: 0
+    Device: mmc0
+      uevent: 
+
+Class: net
+  Device count: 0
+    Device: eno1
+      uevent: INTERFACE=eno1
+IFINDEX=2
+
+Class: nvme
+  Device count: 0
+    Device: nvme0
+      model: WD PC SN735 SDBPNHH-1T00-1002           
+      uevent: MAJOR=248
+MINOR=0
+DEVNAME=nvme0
+
+Class: nvme-generic
+  Device count: 0
+    Device: ng0n1
+      uevent: MAJOR=247
+MINOR=0
+DEVNAME=ng0n1
+
+Class: nvme-subsystem
+  Device count: 0
+    Device: nvme-subsys0
+      model: WD PC SN735 SDBPNHH-1T00-1002           
+      uevent: 
+
+Class: pci_bus
+  Device count: 0
+    Device: 0000:00
+      uevent: 
+
+Class: phy
+  Device count: 0
+
+Class: powercap
+  Device count: 0
+    Device: intel-rapl
+      uevent: 
+
+Class: power_supply
+  Device count: 0
+    Device: ACAD
+      uevent: DEVTYPE=power_supply
+POWER_SUPPLY_NAME=ACAD
+POWER_SUPPLY_TYPE=Mains
+
+Class: pwm
+  Device count: 0
+
+Class: rc
+  Device count: 0
+
+Class: regulator
+  Device count: 0
+    Device: regulator.0
+      name: regulator-dummy
+      uevent: 
+
+Class: retimer
+  Device count: 0
+
+Class: rfkill
+  Device count: 0
+    Device: rfkill0
+      name: hci0
+      uevent: RFKILL_NAME=hci0
+RFKILL_TYPE=bluetooth
+RFKILL_STATE=1
+
+Class: rtc
+  Device count: 0
+    Device: rtc0
+      name: rtc_cmos 00:01
+      uevent: MAJOR=253
+MINOR=0
+DEVNAME=rtc0
+
+Class: sound
+  Device count: 0
+    Device: card0
+      uevent: 
+
+Class: spi_master
+  Device count: 0
+
+Class: tee
+  Device count: 0
+    Device: tee0
+      uevent: MAJOR=244
+MINOR=0
+DEVNAME=tee0
+
+Class: thermal
+  Device count: 0
+    Device: cooling_device0
+      uevent: 
+
+Class: tpm
+  Device count: 0
+    Device: tpm0
+      uevent: MAJOR=10
+MINOR=224
+DEVNAME=tpm0
+
+Class: tpmrm
+  Device count: 0
+    Device: tpmrm0
+      uevent: MAJOR=245
+MINOR=65536
+DEVNAME=tpmrm0
+
+Class: tty
+  Device count: 0
+    Device: console
+      uevent: MAJOR=5
+MINOR=1
+DEVNAME=console
+
+Class: typec
+  Device count: 0
+    Device: port0
+      uevent: DEVTYPE=typec_port
+TYPEC_PORT=port0
+
+Class: typec_mux
+  Device count: 0
+
+Class: usbmisc
+  Device count: 0
+    Device: hiddev0
+      uevent: MAJOR=180
+MINOR=96
+DEVNAME=usb/hiddev0
+
+Class: usb_power_delivery
+  Device count: 0
+    Device: pd0
+      uevent: DEVTYPE=usb_power_delivery
+
+Class: usb_role
+  Device count: 0
+
+Class: vc
+  Device count: 0
+    Device: vcs
+      uevent: MAJOR=7
+MINOR=0
+DEVNAME=vcs
+
+Class: video4linux
+  Device count: 0
+    Device: video0
+      name: USB2.0 HD UVC WebCam: USB2.0 HD
+      uevent: MAJOR=81
+MINOR=0
+DEVNAME=video0
+
+Class: vtconsole
+  Device count: 0
+    Device: vtcon0
+      name: (S) dummy device
+      uevent: 
+
+Class: wakeup
+  Device count: 0
+    Device: wakeup0
+      name: device:01
+      uevent: 
+
+Class: watchdog
+  Device count: 0
+    Device: watchdog0
+      uevent: MAJOR=237
+MINOR=0
+DEVNAME=watchdog0
+
+Class: wmi_bus
+  Device count: 0
+    Device: wmi_bus-PNP0C14:00
+      uevent: 
+
+
+=== NETWORK INTERFACES ===
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 promiscuity 0 allmulti 0 minmtu 0 maxmtu 0 addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 524280 tso_max_segs 65535 gro_max_size 65536 gso_ipv4_max_size 65536 gro_ipv4_max_size 65536 
+2: eno1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 58:11:22:40:62:1a brd ff:ff:ff:ff:ff:ff promiscuity 0 allmulti 0 minmtu 68 maxmtu 9194 addrgenmode none numtxqueues 1 numrxqueues 1 gso_max_size 64000 gso_max_segs 64 tso_max_size 64000 tso_max_segs 64 gro_max_size 65536 gso_ipv4_max_size 64000 gro_ipv4_max_size 65536 parentbus pci parentdev 0000:02:00.0 
+    altname enp2s0
+    altname enx58112240621a
+3: wlp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
+    link/ether b4:8c:9d:5d:5c:8d brd ff:ff:ff:ff:ff:ff promiscuity 0 allmulti 0 minmtu 256 maxmtu 2304 addrgenmode none numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 gso_ipv4_max_size 65536 gro_ipv4_max_size 65536 parentbus pci parentdev 0000:03:00.0 
+    altname wlxb48c9d5d5c8d
+
+--- Network interface details from /sys/class/net ---
+Interface: eno1
+  MAC Address: 58:11:22:40:62:1a
+  Type: 1
+  State: down
+  Speed: -1
+  Device: /sys/devices/pci0000:00/0000:00:02.1/0000:02:00.0
+
+Interface: lo
+  MAC Address: 00:00:00:00:00:00
+  Type: 772
+  State: unknown
+  Speed: N/A
+
+Interface: wlp3s0
+  MAC Address: b4:8c:9d:5d:5c:8d
+  Type: 1
+  State: up
+  Speed: N/A
+  Device: /sys/devices/pci0000:00/0000:00:02.2/0000:03:00.0
+
+
+=== GRAPHICS DEVICES ===
+
+--- DRM devices ---
+Card: card0
+  Vendor: 0x0x1002
+  Device: 0x0x1681
+  Subsystem Vendor: 0x0x1043
+  Subsystem Device: 0x0x13dd
+  Connector card0-DP-2: disconnected
+  Connector card0-DP-3: disconnected
+  Connector card0-DP-4: disconnected
+  Connector card0-DP-5: disconnected
+  Connector card0-DP-6: disconnected
+  Connector card0-DP-7: disconnected
+  Connector card0-DP-8: disconnected
+  Connector card0-DP-9: disconnected
+  Connector card0-eDP-2: disconnected
+  Connector card0-Writeback-1: unknown
+
+Card: card0-DP-2
+
+Card: card0-DP-3
+
+Card: card0-DP-4
+
+Card: card0-DP-5
+
+Card: card0-DP-6
+
+Card: card0-DP-7
+
+Card: card0-DP-8
+
+Card: card0-DP-9
+
+Card: card0-eDP-2
+
+Card: card0-Writeback-1
+
+Card: card1
+  Vendor: 0x0x10de
+  Device: 0x0x249c
+  Subsystem Vendor: 0x0x1043
+  Subsystem Device: 0x0x13dd
+  Connector card1-DP-1: disconnected
+  Connector card1-eDP-1: connected
+  Connector card1-HDMI-A-1: disconnected
+
+Card: card1-DP-1
+
+Card: card1-eDP-1
+
+Card: card1-HDMI-A-1
+
+--- OpenGL information ---
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 8192 MB
+    Total available memory: 8192 MB
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce RTX 3080 Laptop GPU/PCIe/SSE2
+OpenGL core profile version string: 4.6.0 NVIDIA 580.126.09
+OpenGL core profile shading language version string: 4.60 NVIDIA
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+
+OpenGL version string: 4.6.0 NVIDIA 580.126.09
+OpenGL shading language version string: 4.60 NVIDIA
+OpenGL context flags: (none)
+OpenGL profile mask: (none)
+
+OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 580.126.09
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+
+=== AUDIO DEVICES ===
+
+--- Sound cards ---
+Card: card0
+  ID: NVidia
+  Vendor: 0x0x10de
+  Device: 0x0x228b
+
+Card: card1
+  ID: Generic
+  Vendor: 0x0x1002
+  Device: 0x0x1640
+
+Card: card2
+  ID: Generic_1
+  Vendor: 0x0x1022
+  Device: 0x0x15e3
+
+
+=== INPUT DEVICES ===
+
+Input: input0
+  Name: AT Translated Set 2 keyboard
+  Physical: isa0060/serio0/input0
+  UEvent:
+    PRODUCT=11/1/1/ab83
+    NAME="AT Translated Set 2 keyboard"
+    PHYS="isa0060/serio0/input0"
+    PROP=0
+    EV=120013
+    KEY=402000002 3803078f800d001 feffffdfffefffff fffffffffffffffe
+    MSC=10
+    LED=7
+    MODALIAS=input:b0011v0001p0001eAB83-e0,1,4,11,14,k71,72,73,74,75,76,77,79,7A,7B,7C,7D,7E,7F,80,8C,8E,8F,9B,9C,9D,9E,9F,A3,A4,A5,A6,AC,AD,B7,B8,B9,C1,D9,E2,ram4,l0,1,2,sfw
+
+Input: input12
+  Name: Lid Switch
+  Physical: PNP0C0D/button/input0
+  UEvent:
+    PRODUCT=19/0/5/0
+    NAME="Lid Switch"
+    PHYS="PNP0C0D/button/input0"
+    PROP=0
+    EV=21
+    SW=1
+    MODALIAS=input:b0019v0000p0005e0000-e0,5,kramlsfw0,
+
+Input: input13
+  Name: Video Bus
+  Physical: LNXVIDEO/video/input0
+  UEvent:
+    PRODUCT=19/0/6/0
+    NAME="Video Bus"
+    PHYS="LNXVIDEO/video/input0"
+    PROP=0
+    EV=3
+    KEY=3e000b00000000 0 0 0
+    MODALIAS=input:b0019v0000p0006e0000-e0,1,kE0,E1,E3,F1,F2,F3,F4,F5,ramlsfw
+
+Input: input14
+  Name: Video Bus
+  Physical: LNXVIDEO/video/input0
+  UEvent:
+    PRODUCT=19/0/6/0
+    NAME="Video Bus"
+    PHYS="LNXVIDEO/video/input0"
+    PROP=0
+    EV=3
+    KEY=3e000b00000000 0 0 0
+    MODALIAS=input:b0019v0000p0006e0000-e0,1,kE0,E1,E3,F1,F2,F3,F4,F5,ramlsfw
+
+Input: input15
+  Name: Asus WMI hotkeys
+  Physical: asus-nb-wmi/input0
+  UEvent:
+    PRODUCT=19/0/0/0
+    NAME="Asus WMI hotkeys"
+    PHYS="asus-nb-wmi/input0"
+    PROP=0
+    EV=100013
+    KEY=400000000000000 10000000c0000 400000 0 0 0 181606f00900c00 280027801701000 e000000000000 0
+    MSC=10
+    MODALIAS=input:b0019v0000p0000e0000-e0,1,4,14,k71,72,73,8C,94,95,96,98,A3,A4,A5,A6,A9,B7,B9,CA,CB,D4,D7,E0,E1,E2,E3,E5,E6,ED,EE,F0,F7,F8,1D6,212,213,230,27A,ram4,lsfw
+
+Input: input16
+  Name: HDA NVidia HDMI/DP,pcm=3
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=3"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input17
+  Name: HDA NVidia HDMI/DP,pcm=7
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=7"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input18
+  Name: HDA NVidia HDMI/DP,pcm=8
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=8"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input19
+  Name: HDA NVidia HDMI/DP,pcm=9
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=9"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input20
+  Name: HD-Audio Generic HDMI/DP,pcm=3
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HD-Audio Generic HDMI/DP,pcm=3"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input21
+  Name: ASUE120D:00 04F3:31FB Mouse
+  Physical: i2c-ASUE120D:00
+  UEvent:
+    PRODUCT=18/4f3/31fb/100
+    NAME="ASUE120D:00 04F3:31FB Mouse"
+    PHYS="i2c-ASUE120D:00"
+    UNIQ=""
+    PROP=0
+    EV=17
+    KEY=30000 0 0 0 0
+    REL=1943
+    MSC=10
+    MODALIAS=input:b0018v04F3p31FBe0100-e0,1,2,4,k110,111,r0,1,6,8,B,C,am4,lsfw
+
+Input: input22
+  Name: ASUE120D:00 04F3:31FB Touchpad
+  Physical: i2c-ASUE120D:00
+  UEvent:
+    PRODUCT=18/4f3/31fb/100
+    NAME="ASUE120D:00 04F3:31FB Touchpad"
+    PHYS="i2c-ASUE120D:00"
+    UNIQ=""
+    PROP=5
+    EV=1b
+    KEY=e520 10000 0 0 0 0
+    ABS=2e0800000000003
+    MSC=20
+    MODALIAS=input:b0018v04F3p31FBe0100-e0,1,3,4,k110,145,148,14A,14D,14E,14F,ra0,1,2F,35,36,37,39,m5,lsfw
+
+Input: input23
+  Name: Asus Keyboard
+  Physical: usb-0000:06:00.3-3/input0
+  UEvent:
+    PRODUCT=3/b05/19b6/110
+    NAME="Asus Keyboard"
+    PHYS="usb-0000:06:00.3-3/input0"
+    UNIQ=""
+    PROP=0
+    EV=12001f
+    KEY=33eff 0 20000 483ffff17aff32d bfd4444600000000 1f0001 1b30c730b17cc07 ffbf7bfad971dfff febeffdfffefffff fffffffffffffffe
+    REL=1943
+    ABS=10100000000
+    MSC=10
+    LED=1f
+    MODALIAS=input:b0003v0B05p19B6e0110-e0,1,2,3,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8B,8C,8E,8F,90,94,95,96,98,9B,9C,9E,9F,A1,A3,A4,A5,A6,A7,A8,A9,AB,AC,AD,AE,B0,B1,B2,B3,B4,B5,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,CA,CB,CE,CF,D0,D1,D2,D4,D8,D9,DB,E0,E1,E4,E5,E6,EA,EB,F0,F1,F4,F5,F7,F8,100,110,111,112,113,114,161,162,166,16A,16E,172,174,176,177,178,179,17A,17B,17C,17D,17F,180,182,183,185,188,189,18C,18D,18E,18F,190,191,192,193,195,197,198,199,19A,19C,1A0,1A1,1A2,1A3,1A4,1A5,1A6,1A7,1A8,1A9,1AA,1AB,1AC,1AD,1AE,1AF,1B0,1B1,1B7,1BA,1D1,240,241,242,243,244,245,246,247,249,24A,24B,24C,24D,250,251,r0,1,6,8,B,C,a20,28,m4,l0,1,2,3,4,sfw
+
+Input: input24
+  Name: HD-Audio Generic Mic
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HD-Audio Generic Mic"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=10
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw4,
+
+Input: input25
+  Name: HD-Audio Generic Headphone
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HD-Audio Generic Headphone"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=4
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw2,
+
+Input: input8
+  Name: Power Button
+  Physical: PNP0C0C/button/input0
+  UEvent:
+    PRODUCT=19/0/1/0
+    NAME="Power Button"
+    PHYS="PNP0C0C/button/input0"
+    PROP=0
+    EV=3
+    KEY=8000 10000000000000 0
+    MODALIAS=input:b0019v0000p0001e0000-e0,1,k74,8F,ramlsfw
+
+Input: input9
+  Name: Sleep Button
+  Physical: PNP0C0E/button/input0
+  UEvent:
+    PRODUCT=19/0/3/0
+    NAME="Sleep Button"
+    PHYS="PNP0C0E/button/input0"
+    PROP=0
+    EV=3
+    KEY=4000 0 0
+    MODALIAS=input:b0019v0000p0003e0000-e0,1,k8E,ramlsfw
+
+
+=== STORAGE DEVICES ===
+
+Block device: loop0
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop1
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop2
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop3
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop4
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop5
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop6
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: loop7
+  Size: 0GB (0 sectors)
+  Type: SSD
+
+Block device: nvme0n1
+  Size: 953GB (2000409264 sectors)
+  Model: WDPCSN735SDBPNHH-1T00-1002
+  Serial: 22049Z460908
+  Type: SSD
+
+
+=== FIRMWARE INFORMATION ===
+
+--- Firmware directories ---
+File: /sys/firmware/devicetree/base/name
+  Content: (binary or unreadable)
+File: /sys/firmware/memmap/17/end
+  Content: 0x100ffffff
+File: /sys/firmware/memmap/17/type
+  Content: Reserved
+File: /sys/firmware/memmap/17/start
+  Content: 0xfd000000
+File: /sys/firmware/memmap/7/end
+  Content: 0x73ce8fff
+File: /sys/firmware/memmap/7/type
+  Content: Reserved
+File: /sys/firmware/memmap/7/start
+  Content: 0x71190000
+File: /sys/firmware/memmap/25/end
+  Content: 0x5000fffff
+File: /sys/firmware/memmap/25/type
+  Content: Reserved
+File: /sys/firmware/memmap/25/start
+  Content: 0x500000000
+File: /sys/firmware/memmap/15/end
+  Content: 0x7fffffff
+File: /sys/firmware/memmap/15/type
+  Content: Reserved
+File: /sys/firmware/memmap/15/start
+  Content: 0x7d800000
+File: /sys/firmware/memmap/5/end
+  Content: 0xa213fff
+File: /sys/firmware/memmap/5/type
+  Content: ACPI Non-volatile Storage
+File: /sys/firmware/memmap/5/start
+  Content: 0xa200000
+File: /sys/firmware/memmap/23/end
+  Content: 0x4000fffff
+File: /sys/firmware/memmap/23/type
+  Content: Reserved
+File: /sys/firmware/memmap/23/start
+  Content: 0x400000000
+File: /sys/firmware/memmap/13/end
+  Content: 0x7bffcfff
+File: /sys/firmware/memmap/13/type
+  Content: System RAM
+File: /sys/firmware/memmap/13/start
+  Content: 0x7a400000
+File: /sys/firmware/memmap/3/end
+  Content: 0x9ffffff
+File: /sys/firmware/memmap/3/type
+  Content: Reserved
+File: /sys/firmware/memmap/3/start
+  Content: 0x9aff000
+File: /sys/firmware/memmap/21/end
+  Content: 0x3000fffff
+File: /sys/firmware/memmap/21/type
+  Content: Reserved
+File: /sys/firmware/memmap/21/start
+  Content: 0x300000000
+File: /sys/firmware/memmap/11/end
+  Content: 0x7a3fefff
+File: /sys/firmware/memmap/11/type
+  Content: System RAM
+File: /sys/firmware/memmap/11/start
+  Content: 0x7a3fe000
+File: /sys/firmware/memmap/1/end
+  Content: 0xfffff
+File: /sys/firmware/memmap/1/type
+  Content: Reserved
+File: /sys/firmware/memmap/1/start
+  Content: 0xa0000
+File: /sys/firmware/memmap/28/end
+  Content: 0x85e2fffff
+File: /sys/firmware/memmap/28/type
+  Content: System RAM
+File: /sys/firmware/memmap/28/start
+  Content: 0x600100000
+File: /sys/firmware/memmap/18/end
+  Content: 0x1ffffffff
+File: /sys/firmware/memmap/18/type
+  Content: System RAM
+File: /sys/firmware/memmap/18/start
+  Content: 0x101000000
+File: /sys/firmware/memmap/8/end
+  Content: 0x73d5cfff
+File: /sys/firmware/memmap/8/type
+  Content: ACPI Tables
+File: /sys/firmware/memmap/8/start
+  Content: 0x73ce9000
+File: /sys/firmware/memmap/26/end
+  Content: 0x5ffffffff
+File: /sys/firmware/memmap/26/type
+  Content: System RAM
+File: /sys/firmware/memmap/26/start
+  Content: 0x500100000
+File: /sys/firmware/memmap/16/end
+  Content: 0xefffffff
+File: /sys/firmware/memmap/16/type
+  Content: Reserved
+File: /sys/firmware/memmap/16/start
+  Content: 0xe0000000
+File: /sys/firmware/memmap/6/end
+  Content: 0x7118ffff
+
+=== ACPI INFORMATION ===
+
+--- ACPI tables ---
+total 0
+drwxr-xr-x 4 nobody nogroup     0 Feb  7 14:38 .
+drwxr-xr-x 7 nobody nogroup     0 Feb  7 14:38 ..
+-r-------- 1 nobody nogroup   222 Feb  7 14:38 APIC
+-r-------- 1 nobody nogroup    56 Feb  7 14:38 BGRT
+-r-------- 1 nobody nogroup    41 Feb  7 14:38 CDIT
+-r-------- 1 nobody nogroup  3816 Feb  7 14:38 CRAT
+drwxr-xr-x 2 nobody nogroup     0 Feb  7 14:38 data
+-r-------- 1 nobody nogroup 49801 Feb  7 14:38 DSDT
+drwxr-xr-x 2 nobody nogroup     0 Feb  7 14:38 dynamic
+-r-------- 1 nobody nogroup   276 Feb  7 14:38 FACP
+-r-------- 1 nobody nogroup    64 Feb  7 14:38 FACS
+-r-------- 1 nobody nogroup   156 Feb  7 14:38 FIDT
+-r-------- 1 nobody nogroup    68 Feb  7 14:38 FPDT
+-r-------- 1 nobody nogroup   420 Feb  7 14:38 IVRS
+-r-------- 1 nobody nogroup    60 Feb  7 14:38 MCFG
+-r-------- 1 nobody nogroup    85 Feb  7 14:38 MSDM
+-r-------- 1 nobody nogroup   460 Feb  7 14:38 SSDT1
+-r-------- 1 nobody nogroup  1866 Feb  7 14:38 SSDT10
+-r-------- 1 nobody nogroup  4438 Feb  7 14:38 SSDT11
+-r-------- 1 nobody nogroup 27835 Feb  7 14:38 SSDT12
+-r-------- 1 nobody nogroup 18416 Feb  7 14:38 SSDT13
+-r-------- 1 nobody nogroup  3071 Feb  7 14:38 SSDT14
+-r-------- 1 nobody nogroup   141 Feb  7 14:38 SSDT15
+-r-------- 1 nobody nogroup  2888 Feb  7 14:38 SSDT16
+-r-------- 1 nobody nogroup  1810 Feb  7 14:38 SSDT17
+-r-------- 1 nobody nogroup  1871 Feb  7 14:38 SSDT18
+-r-------- 1 nobody nogroup    87 Feb  7 14:38 SSDT19
+-r-------- 1 nobody nogroup 32237 Feb  7 14:38 SSDT2
+-r-------- 1 nobody nogroup  2863 Feb  7 14:38 SSDT20
+-r-------- 1 nobody nogroup 21332 Feb  7 14:38 SSDT3
+-r-------- 1 nobody nogroup 13327 Feb  7 14:38 SSDT4
+-r-------- 1 nobody nogroup  3902 Feb  7 14:38 SSDT5
+-r-------- 1 nobody nogroup  5380 Feb  7 14:38 SSDT6
+-r-------- 1 nobody nogroup  5485 Feb  7 14:38 SSDT7
+-r-------- 1 nobody nogroup   139 Feb  7 14:38 SSDT8
+-r-------- 1 nobody nogroup 31043 Feb  7 14:38 SSDT9
+-r-------- 1 nobody nogroup    76 Feb  7 14:38 TPM2
+-r-------- 1 nobody nogroup 44676 Feb  7 14:38 VFCT
+-r-------- 1 nobody nogroup    40 Feb  7 14:38 WSMT
+
+=== ADDITIONAL TOOLS (if available) ===
+
+==========================================
+End of hardware dump
+==========================================
+
+Note: This output is impure and contains dynamic data that may change
+between runs (e.g., CPU frequencies, memory usage, device states).
