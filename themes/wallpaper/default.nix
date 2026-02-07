@@ -172,11 +172,31 @@ in
         ]
       ))
 
-      # Linux-specific wallpaper configuration
-      (lib.mkIf pkgs.stdenv.isLinux {
-        # TODO: Add Linux wallpaper support when needed
-        # This could use feh, nitrogen, or other tools depending on the desktop environment
-      })
+      # Linux-specific wallpaper configuration (GNOME via gsettings)
+      # Use XDG autostart so the script runs when the GNOME session starts (reliable); systemd user
+      # units tied to graphical-session.target can fail to trigger depending on session ordering.
+      (lib.mkIf pkgs.stdenv.isLinux (
+        let
+          gnomeWallpaperScript = pkgs.writeShellScriptBin "gnome-set-wallpaper" (
+            builtins.readFile ./gnome-set-wallpaper.sh
+          );
+          staticWallpaperPath = "${sourceToPath config.wallpaper.source}/${config.wallpaper.path}";
+          desktopEntry = ''
+            [Desktop Entry]
+            Type=Application
+            Name=Set wallpaper
+            Exec=${gnomeWallpaperScript}/bin/gnome-set-wallpaper exact ${staticWallpaperPath}
+            X-GNOME-Autostart-enabled=true
+          '';
+        in
+        lib.mkIf (config.wallpaper.path != null) {
+          home-manager.users.${config.user} = {
+            xdg.configFile."autostart/set-wallpaper.desktop" = {
+              text = desktopEntry;
+            };
+          };
+        }
+      ))
     ]
   );
 }
