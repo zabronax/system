@@ -38,7 +38,8 @@ get_cpu_info() {
 
 EOF
     if [ -f /proc/cpuinfo ]; then
-        cat /proc/cpuinfo
+        # Filter out dynamic cpu MHz values, keep static specification data
+        grep -v "^cpu MHz" /proc/cpuinfo || cat /proc/cpuinfo
     fi
     echo ""
 }
@@ -50,7 +51,8 @@ get_memory_info() {
 
 EOF
     if [ -f /proc/meminfo ]; then
-        cat /proc/meminfo
+        # Filter out dynamic runtime values, keep only static specification values (totals)
+        grep -E "^(MemTotal|SwapTotal|Hugepagesize)" /proc/meminfo || cat /proc/meminfo
     fi
     echo ""
 }
@@ -306,7 +308,8 @@ EOF
     if command -v glxinfo &> /dev/null; then
         echo "--- OpenGL information ---"
         set +o pipefail
-        glxinfo -B 2>/dev/null | head -20 || echo "glxinfo not available or failed"
+        # Filter out dynamic "Currently available" memory, keep static specification values
+        glxinfo -B 2>/dev/null | grep -v "Currently available dedicated video memory" | head -20 || echo "glxinfo not available or failed"
         set -o pipefail
     fi
     echo ""
