@@ -64,6 +64,14 @@ inputs.nixpkgs.lib.nixosSystem {
           code-cursor-fhs
         ];
       };
+
+      # Desktop (plain attrset, closes over inputs like lupus)
+      wallpaper = {
+        enable = true;
+        source = inputs.walls;
+        path = "aerial/aerial_view_of_a_city_at_night.jpg";
+      };
     })
+
   ];
 }
