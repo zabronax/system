@@ -22,8 +22,14 @@ inputs.nixpkgs.lib.nixosSystem {
   inherit system;
 
   modules = [
+    # Shared modules
+    ../../modules/shared
+
+    # Home Manager
+    inputs.home-manager.nixosModules.home-manager
+
     # Identity configuration
-    # userConfig
+    userConfig
 
     # Bootstrap configuration
     ./configuration.nix
