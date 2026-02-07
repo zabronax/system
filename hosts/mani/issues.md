@@ -10,19 +10,28 @@ Known issues and instability experienced on the Mani host system. These issues h
 The system frequently fails to resume properly from sleep or hibernation states. When attempting to wake the machine, it often remains unresponsive and requires a hard power cycle to recover. This issue was present on the original Windows installation, suggesting a hardware-level or firmware-level problem rather than an OS-specific configuration issue.
 
 **Configuration Observed:**
-- Kernel command line includes `mem_sleep_default=deep` (deep sleep mode)
+- Kernel command line was configured with `mem_sleep_default=deep` (deep sleep/S3 mode)
 - Systemd-logind is configured to watch sleep button (`/dev/input/event10`)
 - Hibernate storage info clearing skipped (EFI variable not present)
 - NVMe device has platform quirk: `setting simple suspend`
 
+**Sleep Mode Support Analysis:**
+Investigation revealed that deep sleep (S3 suspend-to-RAM) is **not supported** by the ACPI/BIOS:
+- ACPI reports: `ACPI: PM: (supports S0 S4 S5)` - only S0 (working), S4 (hibernate), and S5 (shutdown) are supported
+- S3 (suspend-to-RAM/deep sleep) is missing from supported states
+- `/sys/power/mem_sleep` shows only `s2idle` is available
+- Despite kernel parameter requesting `deep`, the system was falling back to `s2idle` (modern standby)
+- Configuration updated to `mem_sleep_default=s2idle` to align with actual capabilities
+
 **ACPI Issues Related to Sleep:**
-The boot-time ACPI errors include thermal zone problems (`\_TZ.THRM._SCP.CTYP` not found) which directly affect power management. The ACPI BIOS bugs observed during boot likely also affect suspend/resume operations.
+The boot-time ACPI errors include thermal zone problems (`\_TZ.THRM._SCP.CTYP` not found) which directly affect power management. The ACPI BIOS bugs observed during boot likely also affect suspend/resume operations. The lack of S3 support combined with ACPI bugs suggests the sleep issues are occurring with `s2idle` mode, which may be more sensitive to ACPI problems.
 
 **Potential causes:**
 - **BIOS/UEFI firmware bug:** ACPI table errors suggest firmware-level bugs affecting power management
 - **ACPI thermal zone failure:** Missing thermal control type prevents proper power state transitions
-- **Dual GPU power management:** NVIDIA + AMD GPU combination may cause resume failures
-- **NVMe suspend quirks:** Platform-specific suspend handling may be incompatible with deep sleep
+- **Missing S3 support:** BIOS doesn't support traditional suspend-to-RAM, forcing use of s2idle
+- **Dual GPU power management:** NVIDIA + AMD GPU combination may cause resume failures with s2idle
+- **NVMe suspend quirks:** Platform-specific suspend handling may be incompatible with s2idle mode
 
 ## Boot-Time Errors
 
@@ -193,18 +202,19 @@ ACPI BIOS bugs are the root cause affecting multiple issues (sleep/hibernation, 
 - **High potential impact:** May address multiple issues simultaneously
 - **Non-invasive:** No hardware changes or BIOS flashing required
 
-**Step 1: Test Alternative Sleep Mode**
+**Step 1: Align Sleep Mode Configuration** ✅ **COMPLETED**
 
-Current configuration uses `mem_sleep_default=deep`, which may be incompatible with the ACPI thermal zone bugs. Test `s2idle` (modern standby) mode instead:
+Investigation revealed that deep sleep (S3) is not supported by ACPI/BIOS - only `s2idle` is available. The kernel was requesting `deep` but falling back to `s2idle` anyway.
 
-**Action:** Modify `boot.kernelParams` in `hosts/mani/configuration.nix`:
-- Change `mem_sleep_default=deep` → `mem_sleep_default=s2idle`
-- Rebuild and test sleep/resume functionality
+**Action Taken:** Modified `boot.kernelParams` in `hosts/mani/configuration.nix`:
+- Changed `mem_sleep_default=deep` → `mem_sleep_default=s2idle`
+- Aligns configuration with actual system capabilities
+- Prevents kernel from attempting unsupported sleep mode
+
+**Next Steps:**
+- Rebuild system and test sleep/resume functionality
 - Monitor for ACPI errors during suspend/resume
-
-**Expected outcomes:**
-- If successful: Sleep/resume works reliably
-- If unsuccessful: System still fails to resume (confirms deeper ACPI issues)
+- If sleep still fails, proceed to Step 2 (ACPI workaround parameters)
 
 **Step 2: Add ACPI Error Suppression/Workarounds**
 
