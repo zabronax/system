@@ -285,16 +285,25 @@ Fixing GPU configuration should be prioritized as it may resolve multiple issues
 5. ✅ **Stability Improvement:** Significant improvement observed
 
 **Results:**
-- ✅ **Application Crashes:** 100% reduction (53 crashes → 0 crashes)
-  - Cursor: 31 crashes → 0 crashes
+- ✅ **Application Crashes:** Significant reduction (53 crashes → 1 crash in ~10 min)
+  - Cursor: 31 crashes → 1 crash (SIGILL) after GPU fix
   - Firefox: 6 crashes → 0 crashes
   - GNOME Shell: 16 crashes → 0 crashes
-- ✅ **System Stability:** No crashes in current boot session
+- ⚠️ **Crash Frequency:** Dramatically reduced but not eliminated
+  - Before GPU fix: Multiple crashes per hour
+  - After GPU fix: 1 crash in ~10 minutes of uptime
+  - Crash type: SIGILL (illegal instruction) - suggests CPU-level issues
 - ✅ **GPU Status:** NVIDIA RTX 3080 active and primary, all applications using dGPU correctly
 - ⚠️ **ACPI Errors:** Still present (16 errors, expected - BIOS bugs, not GPU-related)
 
 **Conclusion:**
-GPU configuration fix has successfully resolved application crash issues. System stability has dramatically improved. The root cause appears to have been GPU driver conflicts from incorrect hybrid GPU setup. PRIME sync configuration with NVIDIA as primary has eliminated the crashes.
+GPU configuration fix has significantly reduced crash frequency but not completely eliminated crashes. The remaining crash (SIGILL - illegal instruction) suggests additional underlying issues:
+- CPU microcode or instruction execution problems
+- FHS wrapper/library binding issues
+- Possible memory corruption
+- Application-specific bugs
+
+The GPU fix resolved the majority of crashes (especially SIGTRAP and SIGSEGV), but SIGILL crashes persist, indicating CPU-level or instruction execution problems that require further investigation.
 
 **Previous Priority: ACPI Workarounds (Kernel Parameters)**
 
