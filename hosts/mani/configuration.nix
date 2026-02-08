@@ -19,9 +19,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # NVIDIA configurations (RTX 3080 Mobile)
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
@@ -44,12 +41,6 @@
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "mem_sleep_default=s2idle"
   ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "no";
-    variant = "nodeadkeys";
-  };
 
   # Sync virtual console keymap with X11 keymap to avoid redundancy
   console.useXkbConfig = true;
