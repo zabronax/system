@@ -9,6 +9,7 @@
   imports = [
     ./nixpkgs.nix
     ./signing.nix
+    ./time.nix
     ./shell
     ./applications
     ./programming
