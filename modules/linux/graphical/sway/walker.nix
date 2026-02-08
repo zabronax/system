@@ -58,6 +58,8 @@ in
           terminal = terminalCmd;
           # Use custom Ashes theme
           theme = "ashes";
+          # Close walker when clicking outside the main content area
+          click_to_close = true;
         };
       };
 
