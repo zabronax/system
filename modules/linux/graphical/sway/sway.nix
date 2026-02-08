@@ -37,9 +37,12 @@
   }
   
   # Essential keybindings
-  # Launch terminal (Mod+Enter)
-  bindsym $mod+Return exec $term
-  
-  # Launch application launcher (Mod+D)
-  bindsym $mod+d exec wofi --show drun
+  bindsym {
+      # Launch terminal (Mod+Enter)
+      $mod+Return exec $term
+      # Launch application launcher (Mod+D)
+      $mod+d exec wofi --show drun
+      # Close focused window (Mod+Shift+Q)
+      $mod+Shift+q kill
+  }
 ''
