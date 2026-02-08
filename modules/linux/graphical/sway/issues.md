@@ -88,56 +88,6 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 - Non-fatal, functionality continues
 - May be related to missing status bar configuration (waybar not yet configured)
 
-## Input Configuration Issues
-
-### Keyboard Layout Not Applied
-
-**Severity:** High  
-**Impact:** Keyboard layout is incorrect (not Norwegian), affects typing
-
-**Observed:** 2026-02-08 (after Sway transition)
-
-**Details:**
-- Expected layout: Norwegian (`no`) with `nodeadkeys` variant
-- Actual behavior: Keyboard layout is not Norwegian
-- Configuration: `graphical.xkb.layout = "no"` and `graphical.xkb.variant = "nodeadkeys"` set in host config
-- Issue: Sway configuration does not apply X11 keyboard settings
-
-**Analysis:**
-- Sway uses Wayland input handling, not X11's `services.xserver.xkb`
-- Keyboard layout must be configured in Sway config file, not via X11 options
-- Current Sway config does not include keyboard layout configuration
-- Need to add `input * xkb_layout` and `input * xkb_variant` to Sway config
-
-**Next Steps:**
-- Add keyboard layout configuration to Sway config:
-  - `input * xkb_layout "no"`
-  - `input * xkb_variant "nodeadkeys"`
-- Verify layout applies correctly after configuration
-
-### Touchpad Scroll Inverted
-
-**Severity:** Medium  
-**Impact:** Touchpad scrolling direction is inverted (unnatural)
-
-**Observed:** 2026-02-08 (after Sway transition)
-
-**Details:**
-- Touchpad scroll direction is inverted (scrolling down moves content up)
-- Natural scrolling may be enabled when it shouldn't be, or vice versa
-- Affects user experience and productivity
-
-**Analysis:**
-- Sway/libinput handles touchpad input differently than GNOME
-- Scroll direction can be configured via libinput settings
-- May need to set `input * natural_scroll` or adjust scroll direction
-
-**Next Steps:**
-- Add touchpad scroll configuration to Sway config:
-  - `input * natural_scroll enabled` or `disabled` (depending on preference)
-  - Or use `input * scroll_method` and `input * scroll_button` settings
-- Test scroll direction after configuration
-
 ## Summary
 
 **New Issues After Sway Transition:**
@@ -145,20 +95,14 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 - ⚠️ Cursor SIGSEGV crashes (host-specific pattern, see `hosts/mani/issues.md`)
 - ⚠️ Touchpad event processing lag warning
 - ⚠️ Swaybar tray icon errors
-- ⚠️ **Keyboard layout not applied (Norwegian layout missing)** - ✅ RESOLVED
-- ⚠️ **Touchpad scroll inverted** - ✅ RESOLVED
 
 **Potential Root Causes:**
 - Wayland input handling differences from X11
-- Missing keyboard layout configuration in Sway config
-- Missing touchpad scroll configuration in Sway config
 - NVIDIA GPU Wayland compatibility (even with WLR_NO_HARDWARE_CURSORS)
 - Electron/Chromium Wayland support maturity
 - Missing status bar configuration (waybar)
 
 **Next Steps:**
-- **Immediate:** Add keyboard layout configuration to Sway config
-- **Immediate:** Add touchpad scroll configuration to Sway config
 - Monitor crash frequency and patterns
 - Compare stability between Sway (Wayland) and GNOME (X11)
 - Investigate fish shell Wayland compatibility
