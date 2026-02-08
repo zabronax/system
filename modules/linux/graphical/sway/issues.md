@@ -157,28 +157,6 @@ client bug: event processing lagging behind by 21ms, your system is too slow
   - Or use `input * scroll_method` and `input * scroll_button` settings
 - Test scroll direction after configuration
 
-## Sleep/Hibernation Issues
-
-### Sleep Issue Persists
-
-**Severity:** High  
-**Impact:** System fails to resume from sleep, requires hard restart
-
-**Status:** Issue persists in Sway/Wayland environment
-
-**Details:**
-- Same sleep/hibernation issues documented in `hosts/mani/issues.md`
-- System fails to resume properly from sleep states
-- Issue was present in GNOME (X11) and continues in Sway (Wayland)
-- Confirms this is a hardware/firmware-level issue, not display server specific
-
-**Analysis:**
-- Sleep issues are not related to display server (X11 vs Wayland)
-- Root cause is ACPI BIOS bugs (documented in `hosts/mani/issues.md`)
-- Requires BIOS update from ASUS (current: GA503RS.317, 02/27/2024)
-
-**Reference:** See `hosts/mani/issues.md` for full details on sleep/hibernation issues
-
 ## Summary
 
 **New Issues After Sway Transition:**
@@ -188,7 +166,6 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 - ⚠️ Swaybar tray icon errors
 - ⚠️ **Keyboard layout not applied (Norwegian layout missing)**
 - ⚠️ **Touchpad scroll inverted**
-- ⚠️ **Sleep/hibernation issues persist (not Sway-specific)**
 
 **Potential Root Causes:**
 - Wayland input handling differences from X11
@@ -197,7 +174,6 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 - NVIDIA GPU Wayland compatibility (even with WLR_NO_HARDWARE_CURSORS)
 - Electron/Chromium Wayland support maturity
 - Missing status bar configuration (waybar)
-- ACPI BIOS bugs (sleep issues - hardware/firmware level)
 
 **Next Steps:**
 - **Immediate:** Add keyboard layout configuration to Sway config
@@ -207,4 +183,5 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 - Investigate fish shell Wayland compatibility
 - Consider adding waybar status bar (may resolve tray icon errors)
 - Review NVIDIA Wayland driver compatibility
-- Sleep issues: Continue monitoring, requires BIOS update (not Sway-specific)
+
+**Note:** Sleep/hibernation issues persist but are not Sway-specific. See `hosts/mani/issues.md` for details.

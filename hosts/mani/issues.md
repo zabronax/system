@@ -25,6 +25,11 @@ Requires BIOS update from ASUS. Kernel parameter workarounds tested and found in
 
 **Current BIOS:** GA503RS.317 (02/27/2024)
 
+**Status Update (2026-02-08):**
+- Issue persists in Sway/Wayland environment (confirmed after transition from GNOME/X11)
+- Confirms this is a hardware/firmware-level issue, not display server specific
+- Sleep/resume failures occur regardless of desktop environment (GNOME/X11 or Sway/Wayland)
+
 ## ACPI BIOS Bugs (Non-Fatal)
 
 **Severity:** Low (Non-fatal)  
