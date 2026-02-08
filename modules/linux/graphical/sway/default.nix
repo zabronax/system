@@ -6,7 +6,7 @@ let
   # Determine terminal command
   # WezTerm is preferred if enabled, otherwise fall back to default
   terminalCmd = if config.wezterm.enable then
-    "${pkgs.wezterm}/bin/wezterm"
+    "${pkgs.wezterm}/bin/wezterm start"
   else
     "${pkgs.alacritty}/bin/alacritty";
   
