@@ -8,8 +8,10 @@
   
   # Keyboard layout configuration (Wayland input handling)
   # Norwegian layout with nodeadkeys variant
-  input * xkb_layout "no"
-  input * xkb_variant "nodeadkeys"
+  input * {
+      xkb_layout "no"
+      xkb_variant "nodeadkeys"
+  }
   
   # Touchpad configuration
   input "type:touchpad" {
@@ -21,15 +23,18 @@
   default_border none
   
   # Workspaces
-  # Switch to workspace
-  bindsym $mod+1 workspace number 1
-  bindsym $mod+2 workspace number 2
-  bindsym $mod+3 workspace number 3
+  bindsym {
+      $mod+1 workspace number 1
+      $mod+2 workspace number 2
+      $mod+3 workspace number 3
+  }
   
   # Move focused container to workspace
-  bindsym $mod+Shift+1 move container to workspace number 1
-  bindsym $mod+Shift+2 move container to workspace number 2
-  bindsym $mod+Shift+3 move container to workspace number 3
+  bindsym {
+      $mod+Shift+1 move container to workspace number 1
+      $mod+Shift+2 move container to workspace number 2
+      $mod+Shift+3 move container to workspace number 3
+  }
   
   # Essential keybindings
   # Launch terminal (Mod+Enter)
