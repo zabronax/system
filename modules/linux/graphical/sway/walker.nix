@@ -10,19 +10,33 @@ let
   else
     "${pkgs.alacritty}/bin/alacritty";
 
-  # Packages that walker needs access to for launching programs
-  # These use pkgs from the system (with overlays applied via nixpkgs.overlays)
-  walkerPathPackages = [
-    pkgs.bash          # Provides 'sh' shell
-    pkgs.coreutils     # Basic utilities (ls, cat, etc.)
-    pkgs.findutils      # find command
-    pkgs.xdg-utils      # xdg-open for websearch provider
-    pkgs.walker         # Walker itself (with overlay-applied version)
+  # Walker is just a query interface over elephant providers
+  # All execution (desktopapplications, runner, websearch, calc, files) happens in elephant
+  # Walker only needs its own binary, which is already available via standard NixOS profile paths
+  # Minimal PATH for walker - just standard system paths
+  walkerPath = lib.concatStringsSep ":" [
+    "/run/wrappers/bin"
+    "/nix/var/nix/profiles/default/bin"
+    "/home/${config.user}/.nix-profile/bin"
+    "/run/current-system/sw/bin"
+    "/etc/profiles/per-user/${config.user}/bin"  # User profile (where walker is installed)
   ];
 
-  # Build PATH string from packages and standard NixOS paths
+  # Packages that elephant needs access to for launching programs
+  # Elephant executes desktop applications, which typically use 'sh' shell
+  # Note: elephant itself is installed via home-manager and is already available
+  # in /etc/profiles/per-user/${config.user}/bin, which is included in elephantPath
+  # These use pkgs from the system (with overlays applied via nixpkgs.overlays)
+  elephantPathPackages = [
+    pkgs.bash          # Provides 'sh' shell (required for desktop file execution)
+    pkgs.coreutils     # Basic utilities (ls, cat, etc.)
+    pkgs.findutils     # find command
+    pkgs.xdg-utils     # xdg-open, xdg-desktop-menu, etc.
+  ];
+
+  # Build PATH string for elephant service
   # Since home-manager.useGlobalPkgs = true, pkgs here already has overlays applied
-  walkerPath = lib.makeBinPath walkerPathPackages + ":" + lib.concatStringsSep ":" [
+  elephantPath = lib.makeBinPath elephantPathPackages + ":" + lib.concatStringsSep ":" [
     "/run/wrappers/bin"
     "/nix/var/nix/profiles/default/bin"
     "/home/${config.user}/.nix-profile/bin"
@@ -76,21 +90,34 @@ in
       };
 
       # Override walker systemd service to add PATH environment
-      # Walker needs access to basic shell utilities (sh, etc.) to launch programs
-      # Also needs xdg-utils for websearch provider and elephant backend
-      # Since home-manager.useGlobalPkgs = true, pkgs here already has overlays applied
+      # Walker is just a query interface - it communicates with elephant via IPC/socket
+      # All actual execution (desktopapplications, runner, websearch, calc, files) happens in elephant
+      # Walker only needs standard NixOS profile paths to find its own binary
       systemd.user.services.walker = {
         Service = {
-          # Add PATH to include:
-          # - bash (provides 'sh' shell)
-          # - coreutils (basic utilities: ls, cat, cp, mv, etc.)
-          # - findutils (find command)
-          # - xdg-utils (xdg-open for websearch provider)
-          # - elephant (backend service, overlay-applied if needed)
-          # - walker (overlay-applied version)
-          # - Standard NixOS profile paths
+          # Minimal PATH - just standard NixOS profile paths
+          # Walker binary is installed via home-manager and available in user profile
           Environment = [
             "PATH=${walkerPath}"
+          ];
+        };
+      };
+
+      # Override elephant systemd service to add PATH environment
+      # Elephant executes desktop applications via desktopapplications provider
+      # Desktop files use 'sh' shell to execute commands, so elephant needs PATH
+      # Since home-manager.useGlobalPkgs = true, pkgs here already has overlays applied
+      systemd.user.services.elephant = {
+        Service = {
+          # Add PATH to include:
+          # - bash (provides 'sh' shell - REQUIRED for desktop file execution)
+          # - coreutils (basic utilities: ls, cat, cp, mv, etc.)
+          # - findutils (find command)
+          # - xdg-utils (xdg-open, xdg-desktop-menu, etc.)
+          # - elephant (installed via home-manager, available in user profile)
+          # - Standard NixOS profile paths
+          Environment = [
+            "PATH=${elephantPath}"
           ];
         };
       };
