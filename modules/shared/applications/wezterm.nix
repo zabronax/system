@@ -61,6 +61,9 @@
           -- Launch fish shell by default
           config.default_prog = { '${pkgs.fish}/bin/fish', '-l' }
 
+          -- Disable tab bar (tiling window manager handles window management)
+          config.enable_tab_bar = false
+
           -- Enable daemon mode for faster window opening
           config.daemon_options = {
             stdout = '${config.homePath}/.local/share/wezterm/stdout',
