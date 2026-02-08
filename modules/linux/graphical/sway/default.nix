@@ -16,6 +16,14 @@ let
   else
     null;
   
+  # Wallpaper path (if wallpaper is enabled)
+  # Extract store path from source (derivation or path)
+  sourceToPath = source: if lib.isDerivation source then source.outPath else source;
+  wallpaperPath = if config.wallpaper.enable && config.wallpaper.path != null then
+    "${sourceToPath config.wallpaper.source}/${config.wallpaper.path}"
+  else
+    null;
+  
   # Script to initialize systemd integration for Sway
   # This ensures environment variables are imported before starting the target
   swaySystemdInit = pkgs.writeShellScriptBin "sway-systemd-init" ''
@@ -25,7 +33,8 @@ let
   
   # Import Sway configuration (pure function with binary dependencies)
   swayConfig = import ./sway.nix {
-    inherit terminalCmd launcherCmd;
+    inherit terminalCmd launcherCmd wallpaperPath;
+    inherit pkgs;
     swaySystemdInitCmd = "${swaySystemdInit}/bin/sway-systemd-init";
   };
 in
@@ -63,8 +72,8 @@ in
     # User can create ~/.config/sway/config to override this system config
     environment.etc."sway/config".text = swayConfig;
 
-    # Make the systemd init script available in the environment
-    environment.systemPackages = [ swaySystemdInit ];
+    # Make the systemd init script and swaybg available in the environment
+    environment.systemPackages = [ swaySystemdInit pkgs.swaybg ];
 
     # Enable GDM display manager to launch Sway
     # GDM can launch Wayland sessions including Sway

@@ -1,4 +1,4 @@
-{ terminalCmd, launcherCmd ? null, swaySystemdInitCmd, ... }:
+{ terminalCmd, launcherCmd ? null, wallpaperPath ? null, pkgs, swaySystemdInitCmd, ... }:
 ''
   # Systemd integration - activate graphical-session.target
   # This allows systemd user services (like walker/elephant) to start automatically
@@ -6,6 +6,9 @@
   exec ${swaySystemdInitCmd}
   # Stop sway-session.target when Sway shuts down
   exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+
+  # Set wallpaper (if configured)
+  ${if wallpaperPath != null then ''exec ${pkgs.swaybg}/bin/swaybg -i "${wallpaperPath}"'' else ""}
 
   # Set terminal
   set $term ${terminalCmd}

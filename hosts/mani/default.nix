@@ -101,7 +101,7 @@ inputs.nixpkgs.lib.nixosSystem {
       wallpaper = {
         enable = true;
         source = inputs.walls;
-        path = "aerial/aerial_view_of_a_city_at_night.jpg";
+        path = "digital/a_road_with_trees_and_a_mountain_in_the_background.png";
       };
 
       # Graphical Environment

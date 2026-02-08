@@ -175,7 +175,8 @@ in
       # Linux-specific wallpaper configuration (GNOME via gsettings)
       # Use XDG autostart so the script runs when the GNOME session starts (reliable); systemd user
       # units tied to graphical-session.target can fail to trigger depending on session ordering.
-      (lib.mkIf pkgs.stdenv.isLinux (
+      # Note: Sway wallpaper is handled in the Sway module itself
+      (lib.mkIf (pkgs.stdenv.isLinux && config.graphical.environment == "gnome") (
         let
           gnomeWallpaperScript = pkgs.writeShellScriptBin "gnome-set-wallpaper" (
             builtins.readFile ./gnome-set-wallpaper.sh
