@@ -35,6 +35,7 @@ let
   swayConfig = import ./sway.nix {
     inherit terminalCmd launcherCmd wallpaperPath;
     inherit pkgs;
+    inherit (config.theme.colorScheme.colors) base00 base01 base02 base03 base05 base08 base0D;
     swaySystemdInitCmd = "${swaySystemdInit}/bin/sway-systemd-init";
   };
 in

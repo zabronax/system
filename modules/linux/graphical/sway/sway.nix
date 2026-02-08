@@ -1,4 +1,4 @@
-{ terminalCmd, launcherCmd ? null, wallpaperPath ? null, pkgs, swaySystemdInitCmd, ... }:
+{ terminalCmd, launcherCmd ? null, wallpaperPath ? null, pkgs, base00, base01, base02, base03, base05, base08, base0D, swaySystemdInitCmd, ... }:
 ''
   # Systemd integration - activate graphical-session.target
   # This allows systemd user services (like walker/elephant) to start automatically
@@ -18,6 +18,21 @@
   
   # Mod key (Windows/Super key)
   set $mod Mod4
+
+  # Window colors using theme colorscheme
+  # base00: Default Background
+  # base01: Lighter Background
+  # base02: Selection Background
+  # base03: Comments/Invisibles
+  # base05: Default Foreground
+  # base08: Variables/Errors
+  # base0D: Functions/Headings
+  client.focused ${base0D} ${base00} ${base05}
+  client.unfocused ${base01} ${base00} ${base03}
+  client.focused_inactive ${base02} ${base00} ${base03}
+  client.urgent ${base08} ${base00} ${base05}
+  client.placeholder ${base01} ${base00} ${base03}
+  client.background ${base00}
   
   # Keyboard layout configuration (Wayland input handling)
   # Norwegian layout with nodeadkeys variant

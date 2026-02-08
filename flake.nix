@@ -43,6 +43,12 @@
       url = "github:abenz1267/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Walker launcher (latest version from source)
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -54,8 +60,12 @@
     let
       # Custom overlays for modifying nixpkgs
       # Add overlays here to patch packages, add custom derivations, etc.
-      # Example: overlays = [ (final: prev: { myPackage = ...; }) ];
-      overlays = [ ];
+      # Override walker to use latest version from source
+      overlays = [
+        (final: prev: {
+          walker = inputs.walker.packages.${prev.stdenv.system}.walker;
+        })
+      ];
 
       # Helpers for generating attribute sets across systems
       supportedSystems = [
@@ -70,9 +80,15 @@
     in
     {
       # Full NixOS builds
+      # Overlays are applied transparently - hosts don't need to know about them
       nixosConfigurations = {
         luna = import ./hosts/luna { inherit inputs; };
-        mani = import ./hosts/mani { inherit inputs; };
+        mani = import ./hosts/mani {
+          inherit inputs;
+          # Pass overlays via specialArgs - a module will apply them
+          # This way nixpkgs.config can still be set in modules
+          specialArgs = { inherit overlays; };
+        };
       };
 
       # Full macOS builds

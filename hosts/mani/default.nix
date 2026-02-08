@@ -1,5 +1,6 @@
 {
   inputs,
+  specialArgs ? {},
 }:
 
 let
@@ -18,10 +19,22 @@ let
     homePath = "/home/${identity.commonName}";
   };
 in
+# Overlays are passed from flake level via specialArgs (walker override)
+# The host doesn't need to know what overlays are applied
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;
+  
+  specialArgs = specialArgs // { inherit inputs; };
 
   modules = [
+    # Apply overlays from flake level (transparent to host)
+    (
+      { config, pkgs, overlays ? [], ... }:
+      {
+        nixpkgs.overlays = overlays;
+      }
+    )
+    
     # Unfree predicate for system packages
     # Needs to happen before any nixpkgs consumers are called
     (
