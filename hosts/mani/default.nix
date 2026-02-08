@@ -46,6 +46,14 @@ inputs.nixpkgs.lib.nixosSystem {
 
     # Home Manager
     inputs.home-manager.nixosModules.home-manager
+    # Configure home-manager to import elephant module
+    ({ config, ... }: {
+      home-manager.users.${config.user} = {
+        imports = [
+          inputs.elephant.homeManagerModules.default
+        ];
+      };
+    })
 
     # Theme configuration
     ../../themes/ashes

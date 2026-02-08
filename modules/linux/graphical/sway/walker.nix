@@ -26,6 +26,30 @@ with lib;
         #   name = "???";
         # };
       };
+
+      # Enable Elephant backend service (required for Walker)
+      # Elephant provides the data/plugin infrastructure that Walker consumes
+      programs.elephant = {
+        enable = true;
+        installService = true; # Creates systemd user service
+
+        # Enable essential providers
+        # See: https://walkerlauncher.com/docs/providers
+        providers = [
+          "providerlist"      # Provider switcher (required)
+          "desktopapplications" # Desktop application launcher (essential)
+          "files"             # File browser
+          "runner"             # Command runner
+          "websearch"          # Web search
+          "menus"              # Custom menus
+        ];
+
+        # Elephant configuration
+        settings = {
+          # Add any elephant-specific settings here
+          # Run `elephant generatedoc` to see available options
+        };
+      };
     };
   };
 }

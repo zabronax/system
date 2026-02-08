@@ -37,6 +37,12 @@
       url = "github:dharmx/walls/main";
       flake = false;
     };
+
+    # Elephant backend service for Walker launcher
+    elephant = {
+      url = "github:abenz1267/elephant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
