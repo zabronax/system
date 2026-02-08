@@ -51,8 +51,8 @@
     variant = "nodeadkeys";
   };
 
-  # Configure console keymap
-  console.keyMap = "no";
+  # Sync virtual console keymap with X11 keymap to avoid redundancy
+  console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
