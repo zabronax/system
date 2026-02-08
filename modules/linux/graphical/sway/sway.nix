@@ -1,5 +1,12 @@
-{ terminalCmd, launcherCmd ? null, ... }:
+{ terminalCmd, launcherCmd ? null, swaySystemdInitCmd, ... }:
 ''
+  # Systemd integration - activate graphical-session.target
+  # This allows systemd user services (like walker/elephant) to start automatically
+  # The script ensures environment variables are imported before starting the target
+  exec ${swaySystemdInitCmd}
+  # Stop sway-session.target when Sway shuts down
+  exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+
   # Set terminal
   set $term ${terminalCmd}
   

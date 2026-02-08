@@ -16,9 +16,17 @@ let
   else
     null;
   
+  # Script to initialize systemd integration for Sway
+  # This ensures environment variables are imported before starting the target
+  swaySystemdInit = pkgs.writeShellScriptBin "sway-systemd-init" ''
+    systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    systemctl --user start sway-session.target
+  '';
+  
   # Import Sway configuration (pure function with binary dependencies)
   swayConfig = import ./sway.nix {
     inherit terminalCmd launcherCmd;
+    swaySystemdInitCmd = "${swaySystemdInit}/bin/sway-systemd-init";
   };
 in
 
@@ -35,10 +43,28 @@ in
     # Enable walker launcher by default
     walker.enable = mkDefault true;
 
+    # Create systemd user target for Sway session
+    # This target binds to graphical-session.target and allows systemd services
+    # (like walker/elephant) to start automatically when Sway launches
+    home-manager.users.${config.user} = {
+      systemd.user.targets.sway-session = {
+        Unit = {
+          Description = "sway compositor session";
+          Documentation = "man:systemd.special(7)";
+          BindsTo = [ "graphical-session.target" ];
+          Wants = [ "graphical-session-pre.target" ];
+          After = [ "graphical-session-pre.target" ];
+        };
+      };
+    };
+
     # Sway system configuration (fallback)
     # Sway loads configs in order: ~/.sway/config, ~/.config/sway/config, /etc/sway/config
     # User can create ~/.config/sway/config to override this system config
     environment.etc."sway/config".text = swayConfig;
+
+    # Make the systemd init script available in the environment
+    environment.systemPackages = [ swaySystemdInit ];
 
     # Enable GDM display manager to launch Sway
     # GDM can launch Wayland sessions including Sway
