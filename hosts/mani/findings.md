@@ -57,3 +57,25 @@ These specifications are useful for NixOS configuration and hardware compatibili
 The following identifiers are intentionally filtered out for privacy:
 
 - **Storage serial numbers**: Hardware-level identifiers that cannot be changed and have low management value after warranty expiration.
+
+## Hardware Dump Methodology
+
+The current hardware dump technique (plain text file) has limitations:
+
+- **Noisy diffs**: Runtime measurements (bogomips, kernel module load order) create large diffs with no meaningful changes
+- **Poor change tracking**: Difficult to identify actual hardware changes vs. runtime variance
+- **Limited analysis**: No structured querying or analytical capabilities
+- **Large file size**: Entire dump must be regenerated and compared as a whole
+
+### Future Improvements
+
+Consider moving to a structured, queryable format for hardware dumps:
+
+- **DuckDB**: Analytical database format that can be persisted in the repository
+  - Better facilities for tracking changes over time (temporal queries, versioning)
+  - Structured schema allows filtering noise (runtime measurements) from actual hardware changes
+  - Query capabilities enable targeted analysis without regenerating entire dumps
+  - Compact binary format with efficient compression
+  - Can export to various formats for analysis or review
+
+This would provide better change tracking, reduce noise in version control, and enable more sophisticated hardware analysis over time.
