@@ -1,7 +1,10 @@
-{ terminalCmd, ... }:
+{ terminalCmd, launcherCmd ? null, ... }:
 ''
   # Set terminal
   set $term ${terminalCmd}
+  
+  # Set launcher (if enabled)
+  ${if launcherCmd != null then ''set $launcher ${launcherCmd}'' else ""}
   
   # Mod key (Windows/Super key)
   set $mod Mod4
@@ -41,7 +44,7 @@
       # Launch terminal (Mod+Enter)
       $mod+Return exec $term
       # Launch application launcher (Mod+D)
-      $mod+d exec wofi --show drun
+      ${if launcherCmd != null then ''$mod+d exec $launcher'' else ""}
       # Close focused window (Mod+Shift+Q)
       $mod+Shift+q kill
   }

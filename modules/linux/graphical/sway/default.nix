@@ -10,20 +10,30 @@ let
   else
     "${pkgs.alacritty}/bin/alacritty";
   
-  # Import Sway configuration
-  swayConfig = import ./sway.nix { inherit terminalCmd; };
+  # Launcher command (walker)
+  launcherCmd = if config.walker.enable then
+    "${pkgs.walker}/bin/walker"
+  else
+    null;
+  
+  # Import Sway configuration (pure function with binary dependencies)
+  swayConfig = import ./sway.nix {
+    inherit terminalCmd launcherCmd;
+  };
 in
 
 {
+  imports = [
+    ./walker.nix
+  ];
+
   config = mkIf (config.graphical.enable && config.graphical.environment == "sway") {
     # Enable Sway (Wayland compositor and window manager)
     # Note: Sway does NOT require X11 - it is a Wayland compositor
     programs.sway.enable = true;
     
-    # Enable wofi launcher
-    home-manager.users.${config.user} = {
-      programs.wofi.enable = true;
-    };
+    # Enable walker launcher by default
+    walker.enable = mkDefault true;
 
     # Sway system configuration (fallback)
     # Sway loads configs in order: ~/.sway/config, ~/.config/sway/config, /etc/sway/config
