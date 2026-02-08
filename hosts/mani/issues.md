@@ -81,6 +81,11 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
   - 13:00:29: SIGSEGV in Compositor process - 88.8M coredump (PID 4201) - Sway/Wayland
   - 13:35:09: SIGSEGV in zygote process (`--type=zygote`) - 63.4M coredump (PID 2839) - Sway/Wayland
   - 17:03:43: SIGTRAP - 8.8M coredump (PID 14169) - **GPU driver exception** - Sway/Wayland
+  - 19:31:46: SIGSEGV in Compositor process (PID 30988) and zygote process (PID 30981, `--type=zygote`) - 69.9M coredump - **Freeze and crash** - Application froze during standard working flow, then crashed 1-2 seconds later - Sway/Wayland
+    - Crash involved `libXcursor.so.1` (X cursor library) - notable for Wayland environment
+    - Error: `segfault at 26bc45a18cca ip 0000555ca5dc7a0b sp 00007f34031d52e0 error 4` (invalid memory access)
+    - Thread 7 crashed, Thread 5 waiting in epoll_wait
+    - Both Compositor and zygote processes crashed simultaneously
 - SIGSEGV crashes occurred in Electron zygote and Compositor processes
 - SIGTRAP crash (17:03:43): Caused by nouveau GPU driver graphics exception
   - Graphics Exception on GPC 0: "3D HEIGHT CT Violation"
@@ -99,8 +104,13 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 - SIGSEGV crashes: Suggests memory corruption or invalid memory access
   - First SIGSEGV observed after GPU fix (01:33:18)
   - Pattern continues in both GNOME/X11 and Sway/Wayland environments
-  - Multiple crashes observed in Sway/Wayland (12:59:42, 13:00:29, 13:35:09)
+  - Multiple crashes observed in Sway/Wayland (12:59:42, 13:00:29, 13:35:09, 19:31:46)
   - Different root cause than SIGILL crashes
+  - **New Finding (19:31:46)**: Crash involved `libXcursor.so.1` (X11 cursor library) in Wayland environment
+    - Suggests Electron/Cursor using X11 cursor libraries while running under Wayland
+    - Invalid memory access (`error 4`) in cursor handling code path
+    - Both Compositor and zygote processes crashed simultaneously
+    - May indicate Wayland/X11 cursor compatibility issue
   - Could be related to:
     * Cursor 2.4.22 version bugs
     * Kernel 6.12.68 compatibility issues
@@ -108,6 +118,7 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
     * Electron/Chromium zygote process memory management
     * Wayland compositor interaction (for crashes in Sway environment)
     * NVIDIA GPU Wayland compatibility (WLR_NO_HARDWARE_CURSORS set)
+    * **X11 cursor library (`libXcursor.so.1`) incompatibility with Wayland** (new finding)
 - SIGTRAP crashes (GPU driver related): Caused by nouveau GPU driver graphics exceptions
   - Crash at 17:03:43: nouveau driver encountered graphics exception and killed GPU channel
   - Graphics coordinate violations suggest GPU command buffer corruption or driver bug
@@ -119,6 +130,32 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
     * GPU hardware defects or instability
     * Driver bug with certain GPU operations
     * Missing or incorrect GPU initialization
+- Freeze and crash incidents: Application freezes before crashing
+  - Crash at 19:31:46: Application froze during standard working flow, then crashed 1-2 seconds later
+  - Context: Occurred during normal operation (not during startup/initialization)
+  - **Key Finding**: Crash involved `libXcursor.so.1` (X cursor library) in Wayland/Sway environment
+    - Cursor is using X11 cursor libraries (`libXcursor.so.1`) while running under Wayland
+    - Suggests potential compatibility issue between Electron's X11 cursor handling and Wayland
+    - Invalid memory access (`error 4`) in cursor-related code path
+  - **Process Details**: Both Compositor process (PID 30988) and zygote process (PID 30981) crashed simultaneously
+    - Compositor process segfaulted first
+    - Zygote process terminated as a result
+    - Thread 7 crashed in cursor handling code, Thread 5 was waiting in epoll_wait
+  - Timing: Short freeze duration (1-2 seconds) before crash suggests:
+    * Rapid memory corruption in cursor handling code
+    * Invalid memory access in X11 cursor library (libXcursor.so.1)
+    * Wayland/X11 compatibility issue causing immediate crash
+  - Freezes before crashes can indicate:
+    * UI thread deadlock or blocking operation
+    * Resource exhaustion (memory, file descriptors, etc.)
+    * GPU driver hang before exception
+    * Wayland compositor interaction issues
+    * Electron main process blocking
+    * **X11 cursor library incompatibility with Wayland** (new finding)
+  - May be related to SIGSEGV crashes but with specific X11 cursor library involvement
+  - Pattern suggests application becomes unresponsive briefly before actual crash occurs
+  - Different from startup crashes (17:03:43) - occurs during active use
+  - **Potential Root Cause**: Electron/Cursor using X11 cursor libraries (`libXcursor.so.1`) in Wayland environment may cause memory access violations when handling cursor operations
 
 **Crash Frequency:**
 - Reduced significantly after GPU fix (~95% reduction)
