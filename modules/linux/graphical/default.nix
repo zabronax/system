@@ -37,6 +37,7 @@ with lib;
 
   imports = [
     ./gnome
+    ./sway
   ];
 
   config = mkIf config.graphical.enable {

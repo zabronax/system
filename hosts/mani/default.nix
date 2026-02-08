@@ -99,7 +99,7 @@ inputs.nixpkgs.lib.nixosSystem {
       # Graphical Environment
       graphical = {
         enable = true;
-        environment = "gnome";
+        environment = "sway";
       };
 
       # This value determines the NixOS release from which the default
