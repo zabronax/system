@@ -33,10 +33,6 @@ in
         # Mod key (Windows/Super key)
         set $mod Mod4
         
-        # Default layout: auto-tiling master+sub (master on left, sub/slaves on right)
-        # This provides automatic tiling with a main window and secondary windows
-        default_layout auto_left
-        
         # Essential keybindings only
         # Launch terminal (Mod+Enter)
         bindsym $mod+Return exec $term
