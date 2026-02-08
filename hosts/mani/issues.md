@@ -152,13 +152,18 @@ Add kernel parameters to work around specific ACPI bugs. Test parameters one at 
 - **Result:** Parameter active but no reduction in ACPI errors (still 16 errors)
 - **Conclusion:** BIOS bugs are structural and not affected by OS identification
 
-**Parameter 2: `acpi_osi=!Windows`** ⏳ **TESTING**
+**Parameter 2: `acpi_osi=!Windows`** ❌ **NO IMPROVEMENT**
 - **Purpose:** Tell BIOS we're not Windows (may improve compatibility)
-- **Action Taken:** Replaced `acpi_osi=Linux` with `acpi_osi=!Windows` in `boot.kernelParams`
+- **Result:** Parameter active but no reduction in ACPI errors (still 16 errors)
+- **Conclusion:** OS identification parameters don't affect structural BIOS bugs
+
+**Parameter 3: `acpi=noirq`** ⏳ **TESTING**
+- **Purpose:** Disable ACPI IRQ routing (may help with initialization issues)
+- **Action Taken:** Replaced `acpi_osi=!Windows` with `acpi=noirq` in `boot.kernelParams`
+- **Note:** This disables ACPI IRQ routing - system will use legacy PIC/IOAPIC instead
 - **Next:** Rebuild, reboot, and monitor results
 
 **Remaining Parameters to Test:**
-3. `acpi=noirq` - Disable ACPI IRQ routing (may help with initialization issues)
 4. `acpi=strict` - Use strict ACPI compliance (may expose more issues, use with caution)
 
 **Testing Plan:**
