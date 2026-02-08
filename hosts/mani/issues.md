@@ -176,10 +176,34 @@ ACPI kernel parameter workarounds are not effective for these BIOS bugs:
 
 **Remaining Option:**
 - `acpi=strict` - Use strict ACPI compliance (may expose more issues, not recommended)
-- **Recommendation:** Skip remaining parameters and focus on:
-  - BIOS updates from ASUS
-  - Testing sleep/resume with current configuration
-  - Monitoring for stability improvements from GPU fix
+- **Recommendation:** Skip remaining parameters - not effective for structural BIOS bugs
+
+**Next Steps - BIOS Update Investigation:**
+
+**Assessment:** BIOS update is the most likely path to fix ACPI bugs, but not guaranteed.
+
+**Likelihood of Fix:** Moderate to High (60-70%)
+- ✅ ACPI bugs are firmware-level issues that BIOS updates can fix
+- ✅ Vendors often address ACPI table bugs in BIOS updates
+- ⚠️ Not guaranteed - depends on whether ASUS identified/fixed these bugs
+- ⚠️ Some ACPI bugs persist across BIOS versions
+
+**Before BIOS Update:**
+1. Check current BIOS version: `sudo dmidecode -s bios-version` or `/sys/class/dmi/id/bios_version`
+2. Check ASUS support site for available BIOS updates for exact model
+3. Read BIOS release notes for ACPI/thermal/power management fixes
+4. Verify update is for exact model (ASUS ROG Zephyrus G15)
+
+**Risks:**
+- ⚠️ BIOS flashing can brick motherboard if it fails
+- ⚠️ Ensure stable power (AC adapter) during flash
+- ⚠️ Verify compatibility with hardware revision
+- ⚠️ Have recovery plan if update fails
+
+**Alternative if BIOS update unavailable/unhelpful:**
+- Accept ACPI errors (non-fatal, system functions)
+- Focus on other stability improvements (GPU fix already helped significantly)
+- Monitor for kernel updates with better ACPI error handling
 
 **Testing Plan:**
 - Add one parameter at a time
