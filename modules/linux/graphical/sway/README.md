@@ -149,6 +149,17 @@ Planning and implementation notes for transitioning from GNOME to Sway on the ma
 4. **Environment Variables**: May need Wayland-specific vars (e.g., `XDG_SESSION_TYPE=wayland`)
 5. **GPU Drivers**: Ensure Wayland-compatible drivers (NVIDIA needs special consideration)
 
+### Configuration Management
+
+**Reloading Configuration:**
+- Sway supports live reloading of configuration without restarting
+- After rebuilding NixOS configuration, reload Sway config using: `swaymsg reload` (from terminal)
+- The reload command:
+  - Reloads the main configuration file (`~/.config/sway/config`)
+  - Reloads swaybars
+  - Re-arranges windows according to new configuration
+- No need to reboot or restart Sway session after configuration changes
+
 ### Migration Considerations
 
 - **Testing**: Test critical applications for Wayland compatibility before full switch
