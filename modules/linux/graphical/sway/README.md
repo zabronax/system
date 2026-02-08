@@ -1,199 +1,76 @@
 # Sway Tiling Window Manager Configuration
 
-Planning and implementation notes for transitioning from GNOME to Sway on the mani host.
+Sway module for NixOS providing Wayland compositor and tiling window manager configuration.
 
-## Components Needed
+## Module Structure
 
-### Core Components
+- **`default.nix`** - Main module file that imports sub-modules
+- **`sway.nix`** - Sway-specific NixOS configuration (systemd, packages, display manager)
+- **`sway-config.nix`** - Generates the Sway configuration file (`/etc/sway/config`)
+- **`walker.nix`** - Walker launcher configuration and theming
+- **`walker-theme.nix`** - CSS theme for Walker launcher using Base16 colorscheme
 
-1. **Sway** (Window Manager/Compositor) [¹][1]
-   - Wayland compositor and tiling window manager
-   - Replaces GNOME desktop environment
-   - Requires Wayland (not X11)
+## Implementation Status
 
-2. **Display Manager**
-   - Current: GDM (GNOME Display Manager)
-   - Options:
-     - Keep GDM (can launch Sway)
-     - Switch to `greetd` + `gtkgreet` [²][2] (lightweight, Sway-focused)
-     - Use `sway` directly (no display manager)
+### ✅ Implemented
 
-### Essential Utilities
+- **Sway Core**: Enabled with systemd integration, config at `/etc/sway/config`
+- **Display Manager**: GDM configured, Sway as default session
+- **Launcher**: Walker [¹⁴][14] with Elephant backend, custom Ashes theme
+- **Terminal**: WezTerm (if enabled) or Alacritty fallback
+- **Wallpaper**: swaybg integration (if wallpaper module enabled)
+- **Theme**: Base16 colorscheme applied to windows and Walker
+- **Input**: Norwegian keyboard (nodeadkeys), touchpad configured
+- **NVIDIA**: `WLR_NO_HARDWARE_CURSORS=1` set if NVIDIA hardware detected
 
-3. **swaybg** (Wallpaper) [³][3]
-   - Sets wallpaper in Sway
-   - Replaces GNOME wallpaper management
+### 🔄 Future Components
 
-4. **swayidle** (Idle Management) [⁴][4]
-   - Handles idle timeouts (screen lock, suspend)
-   - Works with `swaylock`
+- swayidle/swaylock (idle management and screen lock)
+- waybar (status bar)
+- Notification daemon (dunst/mako)
+- Polkit agent (authentication dialogs)
+- xdg-desktop-portal-wlr (screen sharing)
 
-5. **swaylock** (Screen Lock) [⁵][5]
-   - Screen locker for Sway
-   - Replaces GNOME screen lock
+## Configuration
 
-### User Interface Components
+### Sway Config (`sway-config.nix`)
 
-6. **Launcher** (Application Launcher)
-   - **wofi** [⁶][6] (recommended): Wayland-native, lightweight
-   - **rofi**: X11-based, works via XWayland (less ideal)
-   - Replaces GNOME application launcher
+- Systemd integration, wallpaper, terminal/launcher setup
+- Window colors from Base16 colorscheme
+- Norwegian keyboard layout, two-finger touchpad scrolling
+- No borders, 8px gaps, 3 workspaces
+- Keybindings: `Mod+Enter` (terminal), `Mod+D` (launcher), `Mod+Shift+Q` (close), `Mod+Shift+1/2/3` (move to workspace)
 
-7. **Status Bar**
-   - **waybar** [⁷][7]: Standard status bar for Sway
-   - Shows system info, workspaces, time, etc.
-   - Replaces GNOME top bar
+### Walker Launcher
 
-### Additional Considerations
+- Custom Ashes theme (CSS)
+- Elephant backend providers: desktop applications, files, runner, websearch, menus
+- Systemd service with PATH configuration
 
-8. **Notification Daemon**
-   - **dunst** or **mako**: Lightweight notification daemons
-   - Replaces GNOME notification system
+## Usage
 
-9. **Polkit Agent**
-   - For authentication dialogs (sudo, etc.)
-   - Options: `polkit-kde-agent` or `polkit-gnome`
+Enable Sway on a host:
 
-10. **Screen Sharing**
-    - **xdg-desktop-portal-wlr** [⁸][8]: For screen sharing in Wayland
-    - Required for applications that need screen sharing
+```nix
+graphical = {
+  enable = true;
+  environment = "sway";
+};
+```
 
-## Transition Order
+Reload configuration after rebuild:
 
-1. **Phase 1: Foundation**
-   - Add Sway to graphical module
-   - Basic Sway configuration
-   - Test that Sway works with NVIDIA GPU
+```bash
+swaymsg reload
+```
 
-2. **Phase 2: Essential Utilities**
-   - Configure swaybg (wallpaper)
-   - Set up swayidle/swaylock (idle/lock)
-   - Basic keybindings
+## Wayland Notes
 
-3. **Phase 3: Launcher**
-   - Install and configure wofi
-   - Set up application launcher keybinding
-
-4. **Phase 4: Status Bar**
-   - Install and configure waybar
-   - Customize status bar modules
-
-5. **Phase 5: Polish**
-   - Notification daemon
-   - Polkit agent
-   - Screen sharing support
-   - Fine-tune configuration
-
-## NVIDIA Considerations
-
-- Sway works with NVIDIA [⁹][9], but may need environment variables:
-  - `WLR_NO_HARDWARE_CURSORS=1` (if cursor issues)
-  - Ensure NVIDIA drivers are properly configured for Wayland
-- Test GPU compatibility before full transition
-
-## Wayland vs X11
-
-### Current State (X11)
-
-- **Current setup**: Uses X11 (`services.xserver.enable = true`)
-- **X11 (X Window System)** [¹⁰][10]: Legacy display server protocol from the 1980s
-- **Architecture**: Client-server model where X server manages display, input, and windows
-- **Security model**: Applications can see/interact with each other's windows (security concern)
-- **Network transparency**: Built-in (can run apps remotely)
-- **Compatibility**: Universal support, mature ecosystem
-
-### Target State (Wayland)
-
-- **Sway requirement**: Sway is a Wayland compositor, requires Wayland (not X11)
-- **Wayland** [¹¹][11]: Modern display server protocol (2008+)
-- **Architecture**: Compositor-centric model where compositor (Sway) manages everything
-- **Security model**: Applications are isolated, cannot see/interact with other windows (more secure)
-- **Network transparency**: Not built-in (requires separate solutions like `waypipe` [¹²][12])
-- **Compatibility**: Most modern apps support Wayland natively
-
-### Key Differences
-
-1. **Security & Isolation**
-   - **X11**: Any application can read keyboard input, capture screens, manipulate other windows
-   - **Wayland**: Applications only see their own windows and input, compositor enforces isolation
-
-2. **Architecture**
-   - **X11**: Separate X server process manages display, window managers are clients
-   - **Wayland**: Compositor (Sway) IS the display server, window manager, and compositor combined
-
-3. **Performance**
-   - **X11**: Older protocol, more overhead, potential for tearing
-   - **Wayland**: Modern protocol, better performance, built-in vsync/compositing
-
-4. **Configuration**
-   - **X11**: Global X server config (`services.xserver.xkb`), system-wide settings
-   - **Wayland**: Per-compositor configuration (Sway config file), compositor-specific
-
-5. **Input Handling**
-   - **X11**: Centralized input handling through X server
-   - **Wayland**: Compositor handles input directly, more responsive
-
-### XWayland Compatibility Layer
-
-- **XWayland** [¹³][13]: Automatic compatibility layer that runs X11 applications under Wayland
-- **How it works**: XWayland creates a virtual X server that translates X11 calls to Wayland
-- **Transparency**: Most X11 apps work seamlessly, user may not notice
-- **Limitations**: Some X11-specific features may not work (e.g., global hotkeys, screen capture)
-- **Performance**: Slight overhead, but generally acceptable
-
-### Configuration Changes Required
-
-1. **Disable X11**: Remove or disable `services.xserver.enable` (Sway handles display)
-2. **Keyboard Layout**: Move from `services.xserver.xkb` to Sway config (`input * xkb_layout`)
-3. **Display Manager**: GDM can launch Wayland sessions, or use Wayland-native alternatives
-4. **Environment Variables**: May need Wayland-specific vars (e.g., `XDG_SESSION_TYPE=wayland`)
-5. **GPU Drivers**: Ensure Wayland-compatible drivers (NVIDIA needs special consideration)
-
-### Configuration Management
-
-**Reloading Configuration:**
-- Sway supports live reloading of configuration without restarting
-- After rebuilding NixOS configuration, reload Sway config using: `swaymsg reload` (from terminal)
-- The reload command:
-  - Reloads the main configuration file (`~/.config/sway/config`)
-  - Reloads swaybars
-  - Re-arranges windows according to new configuration
-- No need to reboot or restart Sway session after configuration changes
-
-### Migration Considerations
-
-- **Testing**: Test critical applications for Wayland compatibility before full switch
-- **Fallback**: Can keep X11 session available for troubleshooting
-- **Gradual**: Some apps may need XWayland indefinitely (legacy software)
-- **Documentation**: Update any X11-specific configuration/documentation
+Sway is a Wayland compositor (not X11). X11 apps run via XWayland automatically. NVIDIA GPUs may need `WLR_NO_HARDWARE_CURSORS=1` (configured automatically if detected).
 
 ## References
 
-[¹][1] Sway. "Sway - i3-compatible Wayland compositor," GitHub. [Online]. Available: <https://github.com/swaywm/sway>
-
-[²][2] C. Miller. "greetd - A minimal, agnostic, flexible login manager," GitHub. [Online]. Available: <https://git.sr.ht/~kennylevinsen/greetd>
-
-[³][3] Sway. "swaybg - Wallpaper tool for Wayland compositors," GitHub. [Online]. Available: <https://github.com/swaywm/swaybg>
-
-[⁴][4] Sway. "swayidle - Idle management daemon for Wayland," GitHub. [Online]. Available: <https://github.com/swaywm/swayidle>
-
-[⁵][5] Sway. "swaylock - Screen locker for Wayland," GitHub. [Online]. Available: <https://github.com/swaywm/swaylock>
-
-[⁶][6] dylanaraps. "wofi - A launcher/menu program for wlroots based wayland compositors," GitHub. [Online]. Available: <https://github.com/SimplyCEO/wofi>
-
-[⁷][7] A. Pettersson. "waybar - Highly customizable Wayland bar for Sway and Wlroots based compositors," GitHub. [Online]. Available: <https://github.com/Alexays/Waybar>
-
-[⁸][8] emersion. "xdg-desktop-portal-wlr - xdg-desktop-portal backend for wlroots," GitHub. [Online]. Available: <https://github.com/emersion/xdg-desktop-portal-wlr>
-
-[⁹][9] NVIDIA. "NVIDIA Linux Driver README and Installation Guide," NVIDIA Developer Documentation. [Online]. Available: <https://us.download.nvidia.com/XFree86/Linux-x86_64/580.126.09/README/index.html>
-
-[¹⁰][10] X.Org Foundation. "X Window System," X.org. [Online]. Available: <https://www.x.org/wiki/>
-
-[¹¹][11] K. Høiland-Jørgensen et al. "Wayland," freedesktop.org. [Online]. Available: <https://wayland.freedesktop.org/>
-
-[¹²][12] M. Larabel. "waypipe - Network transparency for Wayland," GitHub. [Online]. Available: <https://github.com/deepin-community/waypipe>
-
-[¹³][13] X.Org Foundation. "XWayland - X server for Wayland," freedesktop.org. [Online]. Available: <https://cgit.freedesktop.org/xorg/xserver>
+[¹][1] [Sway](https://github.com/swaywm/sway) | [²][2] [greetd](https://git.sr.ht/~kennylevinsen/greetd) | [³][3] [swaybg](https://github.com/swaywm/swaybg) | [⁴][4] [swayidle](https://github.com/swaywm/swayidle) | [⁵][5] [swaylock](https://github.com/swaywm/swaylock) | [⁶][6] [wofi](https://github.com/SimplyCEO/wofi) | [⁷][7] [waybar](https://github.com/Alexays/Waybar) | [⁸][8] [xdg-desktop-portal-wlr](https://github.com/emersion/xdg-desktop-portal-wlr) | [⁹][9] [NVIDIA Drivers](https://us.download.nvidia.com/XFree86/Linux-x86_64/580.126.09/README/index.html) | [¹⁰][10] [X.org](https://www.x.org/wiki/) | [¹¹][11] [Wayland](https://wayland.freedesktop.org/) | [¹²][12] [waypipe](https://github.com/deepin-community/waypipe) | [¹³][13] [XWayland](https://cgit.freedesktop.org/xorg/xserver) | [¹⁴][14] [Walker](https://github.com/abenz1267/walker)
 
 [1]: https://github.com/swaywm/sway
 [2]: https://git.sr.ht/~kennylevinsen/greetd
@@ -208,3 +85,4 @@ Planning and implementation notes for transitioning from GNOME to Sway on the ma
 [11]: https://wayland.freedesktop.org/
 [12]: https://github.com/deepin-community/waypipe
 [13]: https://cgit.freedesktop.org/xorg/xserver
+[14]: https://github.com/abenz1267/walker
