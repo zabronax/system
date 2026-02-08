@@ -38,6 +38,12 @@ in
         input * xkb_layout "no"
         input * xkb_variant "nodeadkeys"
         
+        # Touchpad configuration
+        input "type:touchpad" {
+            scroll_method two_finger
+            natural_scroll enabled
+        }
+        
         # Essential keybindings only
         # Launch terminal (Mod+Enter)
         bindsym $mod+Return exec $term
