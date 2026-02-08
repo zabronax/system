@@ -49,8 +49,6 @@
     "nvidia-drm.modeset=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "mem_sleep_default=s2idle"
-    # ACPI workarounds: Disable ACPI IRQ routing to work around BIOS bugs
-    "acpi=noirq"
   ];
 
   # Configure keymap in X11
