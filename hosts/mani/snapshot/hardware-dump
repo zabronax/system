@@ -1,8 +1,8 @@
 ==========================================
 Hardware Information Dump
-Generated: 2026-02-07T15:19:08+01:00
+Generated: 2026-02-08T01:29:46+01:00
 Hostname: mani
-Kernel: 6.12.67
+Kernel: 6.12.68
 ==========================================
 
 === CPU INFORMATION ===
@@ -27,7 +27,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -54,7 +54,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -81,7 +81,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -108,7 +108,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -135,7 +135,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -162,7 +162,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -189,7 +189,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -216,7 +216,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -243,7 +243,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -270,7 +270,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -297,7 +297,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -324,7 +324,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -351,7 +351,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -378,7 +378,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -405,7 +405,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -432,7 +432,7 @@ cpuid level	: 16
 wp		: yes
 flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
 bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso ibpb_no_ret tsa vmscape
-bogomips	: 6587.38
+bogomips	: 6587.81
 TLB size	: 2560 4K pages
 clflush size	: 64
 cache_alignment	: 64
@@ -442,7 +442,7 @@ power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
 
 === MEMORY INFORMATION ===
 
-MemTotal:       32076824 kB
+MemTotal:       32076820 kB
 SwapTotal:       9227464 kB
 Hugepagesize:       2048 kB
 
@@ -456,11 +456,11 @@ lsusb not available
 
 === BLOCK DEVICES ===
 
-NAME          SIZE TYPE MOUNTPOINT FSTYPE UUID MODEL                                    VENDOR STATE
-nvme0n1     953.9G disk                        WD PC SN735 SDBPNHH-1T00-1002                   live
-├─nvme0n1p1     1G part /boot                                                                  
-├─nvme0n1p2 944.1G part /etc/nixos                                                             
-└─nvme0n1p3   8.8G part [SWAP]                                                                 
+NAME          SIZE TYPE MOUNTPOINT FSTYPE UUID                                 MODEL                         VENDOR STATE
+nvme0n1     953.9G disk                                                        WD PC SN735 SDBPNHH-1T00-1002        live
+├─nvme0n1p1     1G part /boot      vfat   EEB3-1B0F                                                                 
+├─nvme0n1p2 944.1G part /          ext4   5b624167-e3f7-4ced-9a9f-e5a8c8c101b3                                      
+└─nvme0n1p3   8.8G part [SWAP]     swap   fab8cf70-03d0-4b36-90ba-edbeee98dbac                                      
 
 === KERNEL MODULES ===
 
@@ -471,7 +471,7 @@ snd_seq_dummy 12288 0 - Live 0x0000000000000000
 snd_hrtimer 12288 1 - Live 0x0000000000000000
 snd_seq 114688 7 snd_seq_dummy, Live 0x0000000000000000
 snd_seq_device 16384 1 snd_seq, Live 0x0000000000000000
-ccm 20480 9 - Live 0x0000000000000000
+ccm 20480 6 - Live 0x0000000000000000
 af_packet 69632 6 - Live 0x0000000000000000
 cmac 12288 4 - Live 0x0000000000000000
 algif_hash 12288 1 - Live 0x0000000000000000
@@ -493,162 +493,165 @@ x_tables 53248 7 xt_conntrack,ip6t_rpfilter,ipt_rpfilter,xt_pkttype,xt_LOG,xt_tc
 nf_tables 393216 113 nft_compat, Live 0x0000000000000000
 libcrc32c 12288 2 nf_conntrack,nf_tables, Live 0x0000000000000000
 sch_fq_codel 20480 2 - Live 0x0000000000000000
-nvidia_drm 143360 38 - Live 0x0000000000000000 (PO)
+joydev 28672 0 - Live 0x0000000000000000
+mousedev 24576 0 - Live 0x0000000000000000
 snd_soc_acp6x_mach 40960 0 - Live 0x0000000000000000
 snd_soc_dmic 12288 0 - Live 0x0000000000000000
 snd_acp6x_pdm_dma 16384 0 - Live 0x0000000000000000
 snd_sof_amd_acp70 16384 0 - Live 0x0000000000000000
+nvidia_drm 143360 38 - Live 0x0000000000000000 (PO)
 snd_sof_amd_acp63 16384 0 - Live 0x0000000000000000
 snd_soc_acpi_amd_match 8192 1 snd_sof_amd_acp63, Live 0x0000000000000000
-nvidia_modeset 1937408 15 nvidia_drm, Live 0x0000000000000000 (PO)
 snd_sof_amd_vangogh 16384 0 - Live 0x0000000000000000
-amdgpu 15753216 2 - Live 0x0000000000000000
 snd_sof_amd_rembrandt 16384 0 - Live 0x0000000000000000
 snd_sof_amd_renoir 16384 0 - Live 0x0000000000000000
-snd_sof_amd_acp 69632 5 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir, Live 0x0000000000000000
-snd_sof_pci 24576 5 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir, Live 0x0000000000000000
-snd_sof_xtensa_dsp 16384 1 snd_sof_amd_acp, Live 0x0000000000000000
 mt7921e 24576 0 - Live 0x0000000000000000
-snd_sof 479232 2 snd_sof_amd_acp,snd_sof_pci, Live 0x0000000000000000
+nvidia_modeset 1937408 13 nvidia_drm, Live 0x0000000000000000 (PO)
+snd_sof_amd_acp 69632 5 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir, Live 0x0000000000000000
 mt7921_common 98304 1 mt7921e, Live 0x0000000000000000
-nvidia_uvm 3878912 0 - Live 0x0000000000000000 (PO)
+snd_sof_pci 24576 5 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir, Live 0x0000000000000000
 mt792x_lib 65536 2 mt7921e,mt7921_common, Live 0x0000000000000000
-snd_sof_utils 16384 1 snd_sof, Live 0x0000000000000000
+snd_sof_xtensa_dsp 16384 1 snd_sof_amd_acp, Live 0x0000000000000000
+amdgpu 15753216 2 - Live 0x0000000000000000
+snd_sof 479232 2 snd_sof_amd_acp,snd_sof_pci, Live 0x0000000000000000
 mt76_connac_lib 94208 3 mt7921e,mt7921_common,mt792x_lib, Live 0x0000000000000000
+snd_sof_utils 16384 1 snd_sof, Live 0x0000000000000000
+nls_iso8859_1 12288 1 - Live 0x0000000000000000
+hid_asus 45056 0 - Live 0x0000000000000000
+hid_multitouch 36864 0 - Live 0x0000000000000000
+nls_cp437 16384 1 - Live 0x0000000000000000
 snd_pci_ps 28672 0 - Live 0x0000000000000000
+mt76 139264 4 mt7921e,mt7921_common,mt792x_lib,mt76_connac_lib, Live 0x0000000000000000
 snd_amd_sdw_acpi 16384 2 snd_sof_amd_acp,snd_pci_ps, Live 0x0000000000000000
+vfat 24576 1 - Live 0x0000000000000000
+nvidia_uvm 3878912 0 - Live 0x0000000000000000 (PO)
 soundwire_amd 45056 2 snd_sof_amd_acp,snd_pci_ps, Live 0x0000000000000000
+fat 110592 1 vfat, Live 0x0000000000000000
 soundwire_generic_allocation 12288 1 soundwire_amd, Live 0x0000000000000000
 snd_hda_codec_realtek 221184 1 - Live 0x0000000000000000
-mt76 139264 4 mt7921e,mt7921_common,mt792x_lib,mt76_connac_lib, Live 0x0000000000000000
-joydev 28672 0 - Live 0x0000000000000000
-snd_hda_codec_generic 114688 1 snd_hda_codec_realtek, Live 0x0000000000000000
 soundwire_bus 147456 2 soundwire_amd,soundwire_generic_allocation, Live 0x0000000000000000
-intel_rapl_msr 20480 0 - Live 0x0000000000000000
-snd_hda_scodec_component 20480 1 snd_hda_codec_realtek, Live 0x0000000000000000
-edac_mce_amd 40960 0 - Live 0x0000000000000000
-snd_soc_core 462848 5 snd_soc_acp6x_mach,snd_soc_dmic,snd_acp6x_pdm_dma,snd_sof,soundwire_amd, Live 0x0000000000000000
 mac80211 1662976 4 mt7921_common,mt792x_lib,mt76_connac_lib,mt76, Live 0x0000000000000000
+snd_hda_codec_generic 114688 1 snd_hda_codec_realtek, Live 0x0000000000000000
+snd_soc_core 462848 5 snd_soc_acp6x_mach,snd_soc_dmic,snd_acp6x_pdm_dma,snd_sof,soundwire_amd, Live 0x0000000000000000
+snd_hda_scodec_component 20480 1 snd_hda_codec_realtek, Live 0x0000000000000000
 snd_hda_codec_hdmi 98304 2 - Live 0x0000000000000000
-edac_core 114688 0 - Live 0x0000000000000000
 snd_compress 32768 1 snd_soc_core, Live 0x0000000000000000
 ac97_bus 12288 1 snd_soc_core, Live 0x0000000000000000
-snd_pcm_dmaengine 16384 1 snd_soc_core, Live 0x0000000000000000
-amd_atl 57344 1 - Live 0x0000000000000000
 btusb 81920 0 - Live 0x0000000000000000
-amdxcp 12288 1 amdgpu, Live 0x0000000000000000
-btrtl 32768 1 btusb, Live 0x0000000000000000
-drm_exec 12288 1 amdgpu, Live 0x0000000000000000
-snd_rpl_pci_acp6x 16384 0 - Live 0x0000000000000000
-intel_rapl_common 53248 1 intel_rapl_msr, Live 0x0000000000000000
-mousedev 24576 0 - Live 0x0000000000000000
 snd_hda_intel 69632 3 - Live 0x0000000000000000
-uvcvideo 188416 2 - Live 0x0000000000000000
-nls_iso8859_1 12288 1 - Live 0x0000000000000000
-btintel 69632 1 btusb, Live 0x0000000000000000
-gpu_sched 65536 1 amdgpu, Live 0x0000000000000000
-nls_cp437 16384 1 - Live 0x0000000000000000
-crct10dif_pclmul 12288 1 - Live 0x0000000000000000
+btrtl 32768 1 btusb, Live 0x0000000000000000
 snd_intel_dspcfg 40960 2 snd_sof,snd_hda_intel, Live 0x0000000000000000
-btbcm 24576 1 btusb, Live 0x0000000000000000
-drm_buddy 28672 1 amdgpu, Live 0x0000000000000000
-snd_acp_pci 12288 0 - Live 0x0000000000000000
-crc32_pclmul 12288 0 - Live 0x0000000000000000
-drm_suballoc_helper 12288 1 amdgpu, Live 0x0000000000000000
-btmtk 36864 1 btusb, Live 0x0000000000000000
-vfat 24576 1 - Live 0x0000000000000000
-videobuf2_vmalloc 20480 1 uvcvideo, Live 0x0000000000000000
+uvcvideo 188416 2 - Live 0x0000000000000000
+edac_mce_amd 40960 0 - Live 0x0000000000000000
 snd_intel_sdw_acpi 16384 1 snd_intel_dspcfg, Live 0x0000000000000000
-polyval_clmulni 12288 0 - Live 0x0000000000000000
-fat 110592 1 vfat, Live 0x0000000000000000
-polyval_generic 12288 1 polyval_clmulni, Live 0x0000000000000000
+snd_pcm_dmaengine 16384 1 snd_soc_core, Live 0x0000000000000000
+btintel 69632 1 btusb, Live 0x0000000000000000
+snd_rpl_pci_acp6x 16384 0 - Live 0x0000000000000000
+edac_core 114688 0 - Live 0x0000000000000000
+amdxcp 12288 1 amdgpu, Live 0x0000000000000000
+btbcm 24576 1 btusb, Live 0x0000000000000000
+drm_exec 12288 1 amdgpu, Live 0x0000000000000000
+snd_hda_codec 221184 4 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel, Live 0x0000000000000000
+snd_acp_pci 12288 0 - Live 0x0000000000000000
+gpu_sched 65536 1 amdgpu, Live 0x0000000000000000
+amd_atl 57344 1 - Live 0x0000000000000000
+intel_rapl_msr 20480 0 - Live 0x0000000000000000
+btmtk 36864 1 btusb, Live 0x0000000000000000
+videobuf2_vmalloc 20480 1 uvcvideo, Live 0x0000000000000000
+intel_rapl_common 53248 1 intel_rapl_msr, Live 0x0000000000000000
 uvc 12288 1 uvcvideo, Live 0x0000000000000000
-spd5118 12288 0 - Live 0x0000000000000000
-bluetooth 1089536 34 rfcomm,bnep,btusb,btrtl,btintel,btbcm,btmtk, Live 0x0000000000000000
-r8169 131072 0 - Live 0x0000000000000000
 snd_acp_legacy_common 16384 1 snd_acp_pci, Live 0x0000000000000000
+drm_buddy 28672 1 amdgpu, Live 0x0000000000000000
+crct10dif_pclmul 12288 1 - Live 0x0000000000000000
+videobuf2_memops 16384 1 videobuf2_vmalloc, Live 0x0000000000000000
+spd5118 12288 0 - Live 0x0000000000000000
+hid_generic 12288 0 - Live 0x0000000000000000
+snd_hda_core 143360 5 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec, Live 0x0000000000000000
+drm_suballoc_helper 12288 1 amdgpu, Live 0x0000000000000000
+bluetooth 1089536 34 rfcomm,bnep,btusb,btrtl,btintel,btbcm,btmtk, Live 0x0000000000000000
+snd_pci_acp6x 20480 0 - Live 0x0000000000000000
+crc32_pclmul 12288 0 - Live 0x0000000000000000
+videobuf2_v4l2 40960 1 uvcvideo, Live 0x0000000000000000
+snd_hwdep 20480 1 snd_hda_codec, Live 0x0000000000000000
+polyval_clmulni 12288 0 - Live 0x0000000000000000
+r8169 131072 0 - Live 0x0000000000000000
+cfg80211 1413120 4 mt7921_common,mt76_connac_lib,mt76,mac80211, Live 0x0000000000000000
+polyval_generic 12288 1 polyval_clmulni, Live 0x0000000000000000
 drm_display_helper 294912 1 amdgpu, Live 0x0000000000000000
 ghash_clmulni_intel 16384 0 - Live 0x0000000000000000
-videobuf2_memops 16384 1 videobuf2_vmalloc, Live 0x0000000000000000
-snd_hda_codec 221184 4 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel, Live 0x0000000000000000
-videobuf2_v4l2 40960 1 uvcvideo, Live 0x0000000000000000
-hid_asus 45056 0 - Live 0x0000000000000000
-asus_nb_wmi 32768 0 - Live 0x0000000000000000
-cfg80211 1413120 4 mt7921_common,mt76_connac_lib,mt76,mac80211, Live 0x0000000000000000
+snd_pcm 188416 14 snd_acp6x_pdm_dma,snd_sof_amd_acp,snd_sof,snd_sof_utils,snd_pci_ps,soundwire_amd,snd_soc_core,snd_hda_codec_hdmi,snd_compress,snd_hda_intel,snd_pcm_dmaengine,snd_hda_codec,snd_hda_core,snd_pci_acp6x, Live 0x0000000000000000
 sha512_ssse3 53248 0 - Live 0x0000000000000000
-amd_pmf 77824 0 - Live 0x0000000000000000
-videobuf2_common 98304 4 uvcvideo,videobuf2_vmalloc,videobuf2_memops,videobuf2_v4l2, Live 0x0000000000000000
-asus_wmi 110592 2 hid_asus,asus_nb_wmi, Live 0x0000000000000000
 sha256_ssse3 36864 0 - Live 0x0000000000000000
-realtek 45056 1 - Live 0x0000000000000000
-snd_pci_acp6x 20480 0 - Live 0x0000000000000000
-cec 77824 1 drm_display_helper, Live 0x0000000000000000
-drm_ttm_helper 16384 3 nvidia_drm,amdgpu, Live 0x0000000000000000
-amdtee 36864 0 - Live 0x0000000000000000
-snd_hda_core 143360 5 snd_hda_codec_realtek,snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec, Live 0x0000000000000000
+videobuf2_common 98304 4 uvcvideo,videobuf2_vmalloc,videobuf2_memops,videobuf2_v4l2, Live 0x0000000000000000
 sha1_ssse3 32768 0 - Live 0x0000000000000000
-ucsi_acpi 12288 0 - Live 0x0000000000000000
-sparse_keymap 12288 1 asus_wmi, Live 0x0000000000000000
-ecdh_generic 16384 2 bluetooth, Live 0x0000000000000000
-mdio_devres 12288 1 r8169, Live 0x0000000000000000
-hid_multitouch 36864 0 - Live 0x0000000000000000
-wmi_bmof 12288 0 - Live 0x0000000000000000
-videodev 397312 2 uvcvideo,videobuf2_v4l2, Live 0x0000000000000000
-sp5100_tco 20480 0 - Live 0x0000000000000000
-ttm 106496 2 amdgpu,drm_ttm_helper, Live 0x0000000000000000
-aesni_intel 122880 11 - Live 0x0000000000000000
-amd_sfh 53248 1 amd_pmf, Live 0x0000000000000000
 snd_pci_acp5x 20480 0 - Live 0x0000000000000000
-typec_ucsi 77824 1 ucsi_acpi, Live 0x0000000000000000
-of_mdio 24576 1 mdio_devres, Live 0x0000000000000000
-rfkill 40960 8 bluetooth,cfg80211,asus_wmi, Live 0x0000000000000000
-i2c_algo_bit 24576 1 amdgpu, Live 0x0000000000000000
-snd_hwdep 20480 1 snd_hda_codec, Live 0x0000000000000000
-evdev 28672 31 - Live 0x0000000000000000
+realtek 45056 1 - Live 0x0000000000000000
+sp5100_tco 20480 0 - Live 0x0000000000000000
+asus_nb_wmi 32768 0 - Live 0x0000000000000000
+mdio_devres 12288 1 r8169, Live 0x0000000000000000
+watchdog 49152 1 sp5100_tco, Live 0x0000000000000000
+wmi_bmof 12288 0 - Live 0x0000000000000000
 snd_rn_pci_acp3x 24576 0 - Live 0x0000000000000000
-tiny_power_button 12288 0 - Live 0x0000000000000000
-platform_profile 12288 2 amd_pmf,asus_wmi, Live 0x0000000000000000
+videodev 397312 2 uvcvideo,videobuf2_v4l2, Live 0x0000000000000000
+asus_wmi 110592 2 hid_asus,asus_nb_wmi, Live 0x0000000000000000
+aesni_intel 122880 9 - Live 0x0000000000000000
+snd_acp_config 20480 10 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir,snd_pci_ps,snd_acp_pci,snd_pci_acp6x,snd_pci_acp5x,snd_rn_pci_acp3x, Live 0x0000000000000000
+cec 77824 1 drm_display_helper, Live 0x0000000000000000
+of_mdio 24576 1 mdio_devres, Live 0x0000000000000000
 gf128mul 16384 2 polyval_generic,aesni_intel, Live 0x0000000000000000
-snd_pcm 188416 14 snd_acp6x_pdm_dma,snd_sof_amd_acp,snd_sof,snd_sof_utils,snd_pci_ps,soundwire_amd,snd_soc_core,snd_hda_codec_hdmi,snd_compress,snd_pcm_dmaengine,snd_hda_intel,snd_hda_codec,snd_pci_acp6x,snd_hda_core, Live 0x0000000000000000
+snd_timer 53248 3 snd_hrtimer,snd_seq,snd_pcm, Live 0x0000000000000000
+drm_ttm_helper 16384 3 nvidia_drm,amdgpu, Live 0x0000000000000000
+ecdh_generic 16384 2 bluetooth, Live 0x0000000000000000
+sparse_keymap 12288 1 asus_wmi, Live 0x0000000000000000
+fixed_phy 16384 1 of_mdio, Live 0x0000000000000000
 crypto_simd 16384 1 aesni_intel, Live 0x0000000000000000
 cryptd 28672 3 ghash_clmulni_intel,crypto_simd, Live 0x0000000000000000
+ttm 106496 2 amdgpu,drm_ttm_helper, Live 0x0000000000000000
+rfkill 40960 8 bluetooth,cfg80211,asus_wmi, Live 0x0000000000000000
+i2c_piix4 36864 0 - Live 0x0000000000000000
+evdev 28672 31 - Live 0x0000000000000000
+snd_soc_acpi 16384 3 snd_sof_amd_acp,snd_pci_ps,snd_acp_config, Live 0x0000000000000000
+fwnode_mdio 16384 1 of_mdio, Live 0x0000000000000000
 ecc 49152 1 ecdh_generic, Live 0x0000000000000000
 mc 90112 6 uvcvideo,videobuf2_v4l2,videobuf2_common,videodev, Live 0x0000000000000000
-nvidia 111611904 306 nvidia_modeset,nvidia_uvm, Live 0x0000000000000000 (PO)
+usbhid 90112 1 hid_asus, Live 0x0000000000000000
+i2c_algo_bit 24576 1 amdgpu, Live 0x0000000000000000
 rapl 20480 0 - Live 0x0000000000000000
-roles 16384 1 typec_ucsi, Live 0x0000000000000000
-tpm_crb 28672 0 - Live 0x0000000000000000
-k10temp 16384 0 - Live 0x0000000000000000
-libarc4 12288 1 mac80211, Live 0x0000000000000000
-typec 118784 1 typec_ucsi, Live 0x0000000000000000
-fan 28672 0 - Live 0x0000000000000000
-thermal 28672 0 - Live 0x0000000000000000
-rtc_cmos 28672 1 - Live 0x0000000000000000
-watchdog 49152 1 sp5100_tco, Live 0x0000000000000000
-fixed_phy 16384 1 of_mdio, Live 0x0000000000000000
-video 81920 4 nvidia_modeset,amdgpu,asus_nb_wmi,asus_wmi, Live 0x0000000000000000
-snd_timer 53248 3 snd_hrtimer,snd_seq,snd_pcm, Live 0x0000000000000000
-snd_acp_config 20480 10 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_sof_amd_vangogh,snd_sof_amd_rembrandt,snd_sof_amd_renoir,snd_pci_ps,snd_acp_pci,snd_pci_acp6x,snd_pci_acp5x,snd_rn_pci_acp3x, Live 0x0000000000000000
-button 28672 1 amd_pmf, Live 0x0000000000000000
-tpm_tis 16384 0 - Live 0x0000000000000000
-i2c_hid_acpi 12288 0 - Live 0x0000000000000000
-fwnode_mdio 16384 1 of_mdio, Live 0x0000000000000000
-libphy 233472 6 r8169,realtek,mdio_devres,of_mdio,fixed_phy,fwnode_mdio, Live 0x0000000000000000
 snd 155648 21 snd_seq,snd_seq_device,snd_sof,snd_hda_codec_realtek,snd_hda_codec_generic,snd_soc_core,snd_hda_codec_hdmi,snd_compress,snd_hda_intel,snd_hda_codec,snd_hwdep,snd_pcm,snd_timer, Live 0x0000000000000000
-tee 49152 2 amd_pmf,amdtee, Live 0x0000000000000000
-i2c_piix4 36864 0 - Live 0x0000000000000000
-tpm_tis_core 36864 1 tpm_tis, Live 0x0000000000000000
-amd_pmc 61440 0 - Live 0x0000000000000000
-snd_soc_acpi 16384 3 snd_sof_amd_acp,snd_pci_ps,snd_acp_config, Live 0x0000000000000000
-i2c_hid 45056 1 i2c_hid_acpi, Live 0x0000000000000000
-battery 28672 1 asus_wmi, Live 0x0000000000000000
-wmi 28672 3 asus_wmi,wmi_bmof,video, Live 0x0000000000000000
-input_leds 12288 0 - Live 0x0000000000000000
 snd_pci_acp3x 20480 0 - Live 0x0000000000000000
+k10temp 16384 0 - Live 0x0000000000000000
+libphy 233472 6 r8169,realtek,mdio_devres,of_mdio,fixed_phy,fwnode_mdio, Live 0x0000000000000000
+libarc4 12288 1 mac80211, Live 0x0000000000000000
 i2c_smbus 20480 1 i2c_piix4, Live 0x0000000000000000
-ac 16384 0 - Live 0x0000000000000000
 soundcore 16384 1 snd, Live 0x0000000000000000
+rtc_cmos 28672 1 - Live 0x0000000000000000
+i2c_hid_acpi 12288 0 - Live 0x0000000000000000
+ucsi_acpi 12288 0 - Live 0x0000000000000000
+amd_pmf 77824 0 - Live 0x0000000000000000
+i2c_hid 45056 1 i2c_hid_acpi, Live 0x0000000000000000
+amdtee 36864 0 - Live 0x0000000000000000
+video 81920 4 nvidia_modeset,amdgpu,asus_nb_wmi,asus_wmi, Live 0x0000000000000000
+typec_ucsi 77824 1 ucsi_acpi, Live 0x0000000000000000
+amd_sfh 53248 1 amd_pmf, Live 0x0000000000000000
+platform_profile 12288 2 asus_wmi,amd_pmf, Live 0x0000000000000000
+tpm_crb 28672 0 - Live 0x0000000000000000
+roles 16384 1 typec_ucsi, Live 0x0000000000000000
+hid 270336 6 hid_asus,hid_multitouch,hid_generic,usbhid,i2c_hid,amd_sfh, Live 0x0000000000000000
+typec 118784 1 typec_ucsi, Live 0x0000000000000000
+input_leds 12288 0 - Live 0x0000000000000000
+nvidia 111611904 249 nvidia_modeset,nvidia_uvm, Live 0x0000000000000000 (PO)
+tiny_power_button 12288 0 - Live 0x0000000000000000
+tee 49152 2 amd_pmf,amdtee, Live 0x0000000000000000
+thermal 28672 0 - Live 0x0000000000000000
+wmi 28672 3 wmi_bmof,asus_wmi,video, Live 0x0000000000000000
 mac_hid 12288 0 - Live 0x0000000000000000
+amd_pmc 61440 0 - Live 0x0000000000000000
+tpm_tis 16384 0 - Live 0x0000000000000000
+fan 28672 0 - Live 0x0000000000000000
+tpm_tis_core 36864 1 tpm_tis, Live 0x0000000000000000
+battery 28672 1 asus_wmi, Live 0x0000000000000000
+button 28672 1 amd_pmf, Live 0x0000000000000000
+ac 16384 0 - Live 0x0000000000000000
 serio_raw 20480 0 - Live 0x0000000000000000
 loop 45056 0 - Live 0x0000000000000000
 kvm_amd 245760 0 - Live 0x0000000000000000
@@ -656,8 +659,8 @@ ccp 180224 2 amdtee,kvm_amd, Live 0x0000000000000000
 kvm 1368064 1 kvm_amd, Live 0x0000000000000000
 irqbypass 12288 1 kvm, Live 0x0000000000000000
 fuse 229376 5 - Live 0x0000000000000000
-efi_pstore 12288 0 - Live 0x0000000000000000
 configfs 69632 1 - Live 0x0000000000000000
+efi_pstore 12288 0 - Live 0x0000000000000000
 nfnetlink 20480 3 nft_compat,nf_tables, Live 0x0000000000000000
 efivarfs 32768 1 - Live 0x0000000000000000
 tpm 122880 3 tpm_crb,tpm_tis,tpm_tis_core, Live 0x0000000000000000
@@ -669,24 +672,21 @@ crc32c_generic 12288 0 - Live 0x0000000000000000
 crc16 12288 3 amdgpu,bluetooth,ext4, Live 0x0000000000000000
 mbcache 16384 1 ext4, Live 0x0000000000000000
 jbd2 208896 1 ext4, Live 0x0000000000000000
-hid_generic 12288 0 - Live 0x0000000000000000
-usbhid 90112 1 hid_asus, Live 0x0000000000000000
-hid 270336 6 hid_asus,hid_multitouch,amd_sfh,i2c_hid,hid_generic,usbhid, Live 0x0000000000000000
 sdhci_pci 106496 0 - Live 0x0000000000000000
 atkbd 40960 0 - Live 0x0000000000000000
 cqhci 36864 1 sdhci_pci, Live 0x0000000000000000
 libps2 20480 1 atkbd, Live 0x0000000000000000
 vivaldi_fmap 12288 1 atkbd, Live 0x0000000000000000
 sdhci 98304 1 sdhci_pci, Live 0x0000000000000000
-i8042 57344 1 asus_wmi, Live 0x0000000000000000
 xhci_pci 24576 0 - Live 0x0000000000000000
 nvme 69632 3 - Live 0x0000000000000000
-led_class 20480 9 mt76,snd_hda_codec_generic,r8169,hid_asus,asus_wmi,videodev,libphy,input_leds,sdhci, Live 0x0000000000000000
+led_class 20480 9 hid_asus,mt76,snd_hda_codec_generic,r8169,videodev,asus_wmi,libphy,input_leds,sdhci, Live 0x0000000000000000
 crc32c_intel 16384 3 - Live 0x0000000000000000
-serio 28672 5 amd_pmc,serio_raw,atkbd,i8042, Live 0x0000000000000000
+i8042 57344 1 asus_wmi, Live 0x0000000000000000
 xhci_hcd 401408 1 xhci_pci, Live 0x0000000000000000
 nvme_core 249856 4 nvme, Live 0x0000000000000000
 mmc_core 282624 3 sdhci_pci,cqhci,sdhci, Live 0x0000000000000000
+serio 28672 5 amd_pmc,serio_raw,atkbd,i8042, Live 0x0000000000000000
 nvme_auth 24576 1 nvme_core, Live 0x0000000000000000
 dm_mod 225280 0 - Live 0x0000000000000000
 dax 53248 1 dm_mod, Live 0x0000000000000000
@@ -790,7 +790,7 @@ Module: acpi_x86
     sleep_no_lps0 = N
 
 Module: aesni_intel
-  Reference Count: 11
+  Reference Count: 9
 
 Module: af_alg
   Reference Count: 6
@@ -1044,7 +1044,7 @@ Module: button
     lid_report_interval = 500
 
 Module: ccm
-  Reference Count: 9
+  Reference Count: 6
 
 Module: ccp
   Version: 1.1.0
@@ -1298,7 +1298,7 @@ Module: fb
 
 Module: firmware_class
   Parameters:
-    path = /nix/store/vgvm08981n6qm79sbhf4q65za9crjmp6-firmware/lib/firmware
+    path = /nix/store/vva41ri52ixkdq4aw84hys2g15gl6xjf-firmware/lib/firmware
 
 Module: fixed_phy
   Reference Count: 1
@@ -1648,7 +1648,7 @@ Module: nmi_backtrace
 Module: nvidia
   Version: 580.126.09
   Source Version: 43FAF8DACC4A0232A53DCEB
-  Reference Count: 306
+  Reference Count: 249
   Taint: PO
 
 Module: nvidia_drm
@@ -1663,7 +1663,7 @@ Module: nvidia_drm
 Module: nvidia_modeset
   Version: 580.126.09
   Source Version: 721710E18A318C762C067EB
-  Reference Count: 15
+  Reference Count: 13
   Taint: PO
   Parameters:
     conceal_vrr_caps = N/A
@@ -2269,7 +2269,7 @@ Module: tiny_power_button
 
 Module: tpm
   Version: 2.0
-  Source Version: 85637B29979B41379888819
+  Source Version: 6A98ED6987A0060B53FA2AF
   Reference Count: 3
   Parameters:
     disable_pcr_integrity = N
@@ -2299,8 +2299,8 @@ Module: ttm
   Reference Count: 2
   Parameters:
     dma32_pages_limit = 524288
-    page_pool_size = 4009603
-    pages_limit = 4009603
+    page_pool_size = 4009602
+    pages_limit = 4009602
 
 Module: typec
   Reference Count: 1
@@ -2522,10 +2522,10 @@ Class: dmi
 
 Class: drm
   Device count: 0
-    Device: card0
+    Device: card1
       uevent: MAJOR=226
-MINOR=0
-DEVNAME=dri/card0
+MINOR=1
+DEVNAME=dri/card1
 
 Class: drm_dp_aux_dev
   Device count: 0
@@ -2555,7 +2555,7 @@ DEVNAME=fb0
 Class: hidraw
   Device count: 0
     Device: hidraw0
-      uevent: MAJOR=246
+      uevent: MAJOR=244
 MINOR=0
 DEVNAME=hidraw0
 
@@ -2714,7 +2714,7 @@ Class: spi_master
 Class: tee
   Device count: 0
     Device: tee0
-      uevent: MAJOR=244
+      uevent: MAJOR=245
 MINOR=0
 DEVNAME=tee0
 
@@ -2733,7 +2733,7 @@ DEVNAME=tpm0
 Class: tpmrm
   Device count: 0
     Device: tpmrm0
-      uevent: MAJOR=245
+      uevent: MAJOR=246
 MINOR=65536
 DEVNAME=tpmrm0
 
@@ -2798,7 +2798,7 @@ Class: wakeup
 Class: watchdog
   Device count: 0
     Device: watchdog0
-      uevent: MAJOR=243
+      uevent: MAJOR=237
 MINOR=0
 DEVNAME=watchdog0
 
@@ -2845,56 +2845,56 @@ Interface: wlp3s0
 === GRAPHICS DEVICES ===
 
 --- DRM devices ---
-Card: card0
-  Vendor: 0x0x1002
-  Device: 0x0x1681
-  Subsystem Vendor: 0x0x1043
-  Subsystem Device: 0x0x13dd
-  Connector card0-DP-2: disconnected
-  Connector card0-DP-3: disconnected
-  Connector card0-DP-4: disconnected
-  Connector card0-DP-5: disconnected
-  Connector card0-DP-6: disconnected
-  Connector card0-DP-7: disconnected
-  Connector card0-DP-8: disconnected
-  Connector card0-DP-9: disconnected
-  Connector card0-eDP-2: disconnected
-  Connector card0-Writeback-1: unknown
-
-Card: card0-DP-2
-
-Card: card0-DP-3
-
-Card: card0-DP-4
-
-Card: card0-DP-5
-
-Card: card0-DP-6
-
-Card: card0-DP-7
-
-Card: card0-DP-8
-
-Card: card0-DP-9
-
-Card: card0-eDP-2
-
-Card: card0-Writeback-1
-
 Card: card1
   Vendor: 0x0x10de
   Device: 0x0x249c
   Subsystem Vendor: 0x0x1043
   Subsystem Device: 0x0x13dd
   Connector card1-DP-1: disconnected
-  Connector card1-eDP-1: connected
+  Connector card1-eDP-2: connected
   Connector card1-HDMI-A-1: disconnected
 
 Card: card1-DP-1
 
-Card: card1-eDP-1
+Card: card1-eDP-2
 
 Card: card1-HDMI-A-1
+
+Card: card2
+  Vendor: 0x0x1002
+  Device: 0x0x1681
+  Subsystem Vendor: 0x0x1043
+  Subsystem Device: 0x0x13dd
+  Connector card2-DP-2: disconnected
+  Connector card2-DP-3: disconnected
+  Connector card2-DP-4: disconnected
+  Connector card2-DP-5: disconnected
+  Connector card2-DP-6: disconnected
+  Connector card2-DP-7: disconnected
+  Connector card2-DP-8: disconnected
+  Connector card2-DP-9: disconnected
+  Connector card2-eDP-1: disconnected
+  Connector card2-Writeback-1: unknown
+
+Card: card2-DP-2
+
+Card: card2-DP-3
+
+Card: card2-DP-4
+
+Card: card2-DP-5
+
+Card: card2-DP-6
+
+Card: card2-DP-7
+
+Card: card2-DP-8
+
+Card: card2-DP-9
+
+Card: card2-eDP-1
+
+Card: card2-Writeback-1
 
 --- OpenGL information ---
 name of display: :0
@@ -2953,7 +2953,67 @@ Input: input0
     LED=7
     MODALIAS=input:b0011v0001p0001eAB83-e0,1,4,11,14,k71,72,73,74,75,76,77,79,7A,7B,7C,7D,7E,7F,80,8C,8E,8F,9B,9C,9D,9E,9F,A3,A4,A5,A6,AC,AD,B7,B8,B9,C1,D9,E2,ram4,l0,1,2,sfw
 
-Input: input12
+Input: input1
+  Name: Power Button
+  Physical: PNP0C0C/button/input0
+  UEvent:
+    PRODUCT=19/0/1/0
+    NAME="Power Button"
+    PHYS="PNP0C0C/button/input0"
+    PROP=0
+    EV=3
+    KEY=8000 10000000000000 0
+    MODALIAS=input:b0019v0000p0001e0000-e0,1,k74,8F,ramlsfw
+
+Input: input16
+  Name: HD-Audio Generic HDMI/DP,pcm=3
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HD-Audio Generic HDMI/DP,pcm=3"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input17
+  Name: HDA NVidia HDMI/DP,pcm=3
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=3"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input18
+  Name: HDA NVidia HDMI/DP,pcm=7
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=7"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input19
+  Name: HDA NVidia HDMI/DP,pcm=8
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=8"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
+
+Input: input2
   Name: Sleep Button
   Physical: PNP0C0E/button/input0
   UEvent:
@@ -2965,44 +3025,19 @@ Input: input12
     KEY=4000 0 0
     MODALIAS=input:b0019v0000p0003e0000-e0,1,k8E,ramlsfw
 
-Input: input13
-  Name: Lid Switch
-  Physical: PNP0C0D/button/input0
+Input: input20
+  Name: HDA NVidia HDMI/DP,pcm=9
+  Physical: ALSA
   UEvent:
-    PRODUCT=19/0/5/0
-    NAME="Lid Switch"
-    PHYS="PNP0C0D/button/input0"
+    PRODUCT=0/0/0/0
+    NAME="HDA NVidia HDMI/DP,pcm=9"
+    PHYS="ALSA"
     PROP=0
     EV=21
-    SW=1
-    MODALIAS=input:b0019v0000p0005e0000-e0,5,kramlsfw0,
+    SW=140
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
 
-Input: input14
-  Name: Video Bus
-  Physical: LNXVIDEO/video/input0
-  UEvent:
-    PRODUCT=19/0/6/0
-    NAME="Video Bus"
-    PHYS="LNXVIDEO/video/input0"
-    PROP=0
-    EV=3
-    KEY=3e000b00000000 0 0 0
-    MODALIAS=input:b0019v0000p0006e0000-e0,1,kE0,E1,E3,F1,F2,F3,F4,F5,ramlsfw
-
-Input: input15
-  Name: Asus WMI hotkeys
-  Physical: asus-nb-wmi/input0
-  UEvent:
-    PRODUCT=19/0/0/0
-    NAME="Asus WMI hotkeys"
-    PHYS="asus-nb-wmi/input0"
-    PROP=0
-    EV=100013
-    KEY=400000000000000 10000000c0000 400000 0 0 0 181606f00900c00 280027801701000 e000000000000 0
-    MSC=10
-    MODALIAS=input:b0019v0000p0000e0000-e0,1,4,14,k71,72,73,8C,94,95,96,98,A3,A4,A5,A6,A9,B7,B9,CA,CB,D4,D7,E0,E1,E2,E3,E5,E6,ED,EE,F0,F7,F8,1D6,212,213,230,27A,ram4,lsfw
-
-Input: input16
+Input: input21
   Name: ASUE120D:00 04F3:31FB Mouse
   Physical: i2c-ASUE120D:00
   UEvent:
@@ -3017,7 +3052,7 @@ Input: input16
     MSC=10
     MODALIAS=input:b0018v04F3p31FBe0100-e0,1,2,4,k110,111,r0,1,6,8,B,C,am4,lsfw
 
-Input: input17
+Input: input22
   Name: ASUE120D:00 04F3:31FB Touchpad
   Physical: i2c-ASUE120D:00
   UEvent:
@@ -3032,67 +3067,31 @@ Input: input17
     MSC=20
     MODALIAS=input:b0018v04F3p31FBe0100-e0,1,3,4,k110,145,148,14A,14D,14E,14F,ra0,1,2F,35,36,37,39,m5,lsfw
 
-Input: input18
-  Name: HDA NVidia HDMI/DP,pcm=3
-  Physical: ALSA
-  UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HDA NVidia HDMI/DP,pcm=3"
-    PHYS="ALSA"
-    PROP=0
-    EV=21
-    SW=140
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
-
-Input: input19
-  Name: HDA NVidia HDMI/DP,pcm=7
-  Physical: ALSA
-  UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HDA NVidia HDMI/DP,pcm=7"
-    PHYS="ALSA"
-    PROP=0
-    EV=21
-    SW=140
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
-
-Input: input20
-  Name: HDA NVidia HDMI/DP,pcm=8
-  Physical: ALSA
-  UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HDA NVidia HDMI/DP,pcm=8"
-    PHYS="ALSA"
-    PROP=0
-    EV=21
-    SW=140
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
-
-Input: input21
-  Name: HDA NVidia HDMI/DP,pcm=9
-  Physical: ALSA
-  UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HDA NVidia HDMI/DP,pcm=9"
-    PHYS="ALSA"
-    PROP=0
-    EV=21
-    SW=140
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
-
-Input: input22
-  Name: HD-Audio Generic HDMI/DP,pcm=3
-  Physical: ALSA
-  UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HD-Audio Generic HDMI/DP,pcm=3"
-    PHYS="ALSA"
-    PROP=0
-    EV=21
-    SW=140
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw6,8,
-
 Input: input23
+  Name: HD-Audio Generic Mic
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HD-Audio Generic Mic"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=10
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw4,
+
+Input: input24
+  Name: HD-Audio Generic Headphone
+  Physical: ALSA
+  UEvent:
+    PRODUCT=0/0/0/0
+    NAME="HD-Audio Generic Headphone"
+    PHYS="ALSA"
+    PROP=0
+    EV=21
+    SW=4
+    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw2,
+
+Input: input25
   Name: Asus Keyboard
   Physical: usb-0000:06:00.3-3/input0
   UEvent:
@@ -3109,43 +3108,19 @@ Input: input23
     LED=1f
     MODALIAS=input:b0003v0B05p19B6e0110-e0,1,2,3,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8B,8C,8E,8F,90,94,95,96,98,9B,9C,9E,9F,A1,A3,A4,A5,A6,A7,A8,A9,AB,AC,AD,AE,B0,B1,B2,B3,B4,B5,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,CA,CB,CE,CF,D0,D1,D2,D4,D8,D9,DB,E0,E1,E4,E5,E6,EA,EB,F0,F1,F4,F5,F7,F8,100,110,111,112,113,114,161,162,166,16A,16E,172,174,176,177,178,179,17A,17B,17C,17D,17F,180,182,183,185,188,189,18C,18D,18E,18F,190,191,192,193,195,197,198,199,19A,19C,1A0,1A1,1A2,1A3,1A4,1A5,1A6,1A7,1A8,1A9,1AA,1AB,1AC,1AD,1AE,1AF,1B0,1B1,1B7,1BA,1D1,240,241,242,243,244,245,246,247,249,24A,24B,24C,24D,250,251,r0,1,6,8,B,C,a20,28,m4,l0,1,2,3,4,sfw
 
-Input: input24
-  Name: HD-Audio Generic Mic
-  Physical: ALSA
+Input: input3
+  Name: Lid Switch
+  Physical: PNP0C0D/button/input0
   UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HD-Audio Generic Mic"
-    PHYS="ALSA"
+    PRODUCT=19/0/5/0
+    NAME="Lid Switch"
+    PHYS="PNP0C0D/button/input0"
     PROP=0
     EV=21
-    SW=10
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw4,
+    SW=1
+    MODALIAS=input:b0019v0000p0005e0000-e0,5,kramlsfw0,
 
-Input: input25
-  Name: HD-Audio Generic Headphone
-  Physical: ALSA
-  UEvent:
-    PRODUCT=0/0/0/0
-    NAME="HD-Audio Generic Headphone"
-    PHYS="ALSA"
-    PROP=0
-    EV=21
-    SW=4
-    MODALIAS=input:b0000v0000p0000e0000-e0,5,kramlsfw2,
-
-Input: input8
-  Name: Power Button
-  Physical: PNP0C0C/button/input0
-  UEvent:
-    PRODUCT=19/0/1/0
-    NAME="Power Button"
-    PHYS="PNP0C0C/button/input0"
-    PROP=0
-    EV=3
-    KEY=8000 10000000000000 0
-    MODALIAS=input:b0019v0000p0001e0000-e0,1,k74,8F,ramlsfw
-
-Input: input9
+Input: input4
   Name: Video Bus
   Physical: LNXVIDEO/video/input0
   UEvent:
@@ -3156,6 +3131,31 @@ Input: input9
     EV=3
     KEY=3e000b00000000 0 0 0
     MODALIAS=input:b0019v0000p0006e0000-e0,1,kE0,E1,E3,F1,F2,F3,F4,F5,ramlsfw
+
+Input: input5
+  Name: Video Bus
+  Physical: LNXVIDEO/video/input0
+  UEvent:
+    PRODUCT=19/0/6/0
+    NAME="Video Bus"
+    PHYS="LNXVIDEO/video/input0"
+    PROP=0
+    EV=3
+    KEY=3e000b00000000 0 0 0
+    MODALIAS=input:b0019v0000p0006e0000-e0,1,kE0,E1,E3,F1,F2,F3,F4,F5,ramlsfw
+
+Input: input6
+  Name: Asus WMI hotkeys
+  Physical: asus-nb-wmi/input0
+  UEvent:
+    PRODUCT=19/0/0/0
+    NAME="Asus WMI hotkeys"
+    PHYS="asus-nb-wmi/input0"
+    PROP=0
+    EV=100013
+    KEY=400000000000000 10000000c0000 400000 0 0 0 181606f00900c00 280027801701000 e000000000000 0
+    MSC=10
+    MODALIAS=input:b0019v0000p0000e0000-e0,1,4,14,k71,72,73,8C,94,95,96,98,A3,A4,A5,A6,A9,B7,B9,CA,CB,D4,D7,E0,E1,E2,E3,E5,E6,ED,EE,F0,F7,F8,1D6,212,213,230,27A,ram4,lsfw
 
 
 === STORAGE DEVICES ===
@@ -3306,45 +3306,45 @@ File: /sys/firmware/memmap/6/end
 
 --- ACPI tables ---
 total 0
-drwxr-xr-x 4 nobody nogroup     0 Feb  7 15:12 .
-drwxr-xr-x 7 nobody nogroup     0 Feb  7 15:12 ..
--r-------- 1 nobody nogroup   222 Feb  7 15:12 APIC
--r-------- 1 nobody nogroup    56 Feb  7 15:12 BGRT
--r-------- 1 nobody nogroup    41 Feb  7 15:12 CDIT
--r-------- 1 nobody nogroup  3816 Feb  7 15:12 CRAT
-drwxr-xr-x 2 nobody nogroup     0 Feb  7 15:12 data
--r-------- 1 nobody nogroup 49801 Feb  7 15:12 DSDT
-drwxr-xr-x 2 nobody nogroup     0 Feb  7 15:12 dynamic
--r-------- 1 nobody nogroup   276 Feb  7 15:12 FACP
--r-------- 1 nobody nogroup    64 Feb  7 15:12 FACS
--r-------- 1 nobody nogroup   156 Feb  7 15:12 FIDT
--r-------- 1 nobody nogroup    68 Feb  7 15:12 FPDT
--r-------- 1 nobody nogroup   420 Feb  7 15:12 IVRS
--r-------- 1 nobody nogroup    60 Feb  7 15:12 MCFG
--r-------- 1 nobody nogroup    85 Feb  7 15:12 MSDM
--r-------- 1 nobody nogroup   460 Feb  7 15:12 SSDT1
--r-------- 1 nobody nogroup  1866 Feb  7 15:12 SSDT10
--r-------- 1 nobody nogroup  4438 Feb  7 15:12 SSDT11
--r-------- 1 nobody nogroup 27835 Feb  7 15:12 SSDT12
--r-------- 1 nobody nogroup 18416 Feb  7 15:12 SSDT13
--r-------- 1 nobody nogroup  3071 Feb  7 15:12 SSDT14
--r-------- 1 nobody nogroup   141 Feb  7 15:12 SSDT15
--r-------- 1 nobody nogroup  2888 Feb  7 15:12 SSDT16
--r-------- 1 nobody nogroup  1810 Feb  7 15:12 SSDT17
--r-------- 1 nobody nogroup  1871 Feb  7 15:12 SSDT18
--r-------- 1 nobody nogroup    87 Feb  7 15:12 SSDT19
--r-------- 1 nobody nogroup 32237 Feb  7 15:12 SSDT2
--r-------- 1 nobody nogroup  2863 Feb  7 15:12 SSDT20
--r-------- 1 nobody nogroup 21332 Feb  7 15:12 SSDT3
--r-------- 1 nobody nogroup 13327 Feb  7 15:12 SSDT4
--r-------- 1 nobody nogroup  3902 Feb  7 15:12 SSDT5
--r-------- 1 nobody nogroup  5380 Feb  7 15:12 SSDT6
--r-------- 1 nobody nogroup  5485 Feb  7 15:12 SSDT7
--r-------- 1 nobody nogroup   139 Feb  7 15:12 SSDT8
--r-------- 1 nobody nogroup 31043 Feb  7 15:12 SSDT9
--r-------- 1 nobody nogroup    76 Feb  7 15:12 TPM2
--r-------- 1 nobody nogroup 44676 Feb  7 15:12 VFCT
--r-------- 1 nobody nogroup    40 Feb  7 15:12 WSMT
+drwxr-xr-x 4 root root     0 Feb  8 01:29 .
+drwxr-xr-x 7 root root     0 Feb  8 01:16 ..
+-r-------- 1 root root   222 Feb  8 01:29 APIC
+-r-------- 1 root root    56 Feb  8 01:29 BGRT
+-r-------- 1 root root    41 Feb  8 01:29 CDIT
+-r-------- 1 root root  3816 Feb  8 01:29 CRAT
+drwxr-xr-x 2 root root     0 Feb  8 01:29 data
+-r-------- 1 root root 49801 Feb  8 01:29 DSDT
+drwxr-xr-x 2 root root     0 Feb  8 01:29 dynamic
+-r-------- 1 root root   276 Feb  8 01:29 FACP
+-r-------- 1 root root    64 Feb  8 01:29 FACS
+-r-------- 1 root root   156 Feb  8 01:29 FIDT
+-r-------- 1 root root    68 Feb  8 01:29 FPDT
+-r-------- 1 root root   420 Feb  8 01:29 IVRS
+-r-------- 1 root root    60 Feb  8 01:29 MCFG
+-r-------- 1 root root    85 Feb  8 01:29 MSDM
+-r-------- 1 root root   460 Feb  8 01:29 SSDT1
+-r-------- 1 root root  1866 Feb  8 01:29 SSDT10
+-r-------- 1 root root  4438 Feb  8 01:29 SSDT11
+-r-------- 1 root root 27835 Feb  8 01:29 SSDT12
+-r-------- 1 root root 18416 Feb  8 01:29 SSDT13
+-r-------- 1 root root  3071 Feb  8 01:29 SSDT14
+-r-------- 1 root root   141 Feb  8 01:29 SSDT15
+-r-------- 1 root root  2888 Feb  8 01:29 SSDT16
+-r-------- 1 root root  1810 Feb  8 01:29 SSDT17
+-r-------- 1 root root  1871 Feb  8 01:29 SSDT18
+-r-------- 1 root root    87 Feb  8 01:29 SSDT19
+-r-------- 1 root root 32237 Feb  8 01:29 SSDT2
+-r-------- 1 root root  2863 Feb  8 01:29 SSDT20
+-r-------- 1 root root 21332 Feb  8 01:29 SSDT3
+-r-------- 1 root root 13327 Feb  8 01:29 SSDT4
+-r-------- 1 root root  3902 Feb  8 01:29 SSDT5
+-r-------- 1 root root  5380 Feb  8 01:29 SSDT6
+-r-------- 1 root root  5485 Feb  8 01:29 SSDT7
+-r-------- 1 root root   139 Feb  8 01:29 SSDT8
+-r-------- 1 root root 31043 Feb  8 01:29 SSDT9
+-r-------- 1 root root    76 Feb  8 01:16 TPM2
+-r-------- 1 root root 44676 Feb  8 01:29 VFCT
+-r-------- 1 root root    40 Feb  8 01:29 WSMT
 
 === ADDITIONAL TOOLS (if available) ===
 
