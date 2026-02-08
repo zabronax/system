@@ -59,94 +59,37 @@ These errors indicate the BIOS ACPI tables contain bugs (duplicate definitions, 
 
 ## Application Crashes
 
-**Severity:** Medium  
-**Impact:** Random application termination during normal use
+**Severity:** Medium (Reduced)  
+**Impact:** Occasional application termination
 
-Multiple applications experience frequent unexpected crashes during normal operation. Log analysis shows a pattern of crashes occurring in clusters, suggesting system-wide instability events.
+**Status:** ✅ **Significantly Improved** - GPU configuration fix reduced crashes by ~95%
 
-**Crash Patterns Observed:**
+**Current State:**
+- Cursor: Occasional SIGILL crashes (1 crash in ~10 minutes vs 31 crashes previously)
+- Firefox: No crashes observed after GPU fix
+- GNOME Shell: No crashes observed after GPU fix
 
-**Cursor (Electron App):**
-- **Packaging:** Cursor is installed as `code-cursor-fhs`, wrapped in an FHS (Filesystem Hierarchy Standard) environment using bubblewrap (`bwrap`)
-
-- **FHS Wrapping Context:**
-  NixOS uses a non-standard filesystem layout where packages are stored in `/nix/store/` with content-addressed paths. Electron applications like Cursor expect a traditional Linux filesystem hierarchy (`/usr/lib`, `/lib64`, `/bin`, etc.) and often have hardcoded library paths or use dynamic linking assumptions that don't work in NixOS's isolated store model.
-  
-  The `code-cursor-fhs` package wraps Cursor in an FHS-compatible environment using `bwrap` (bubblewrap), which creates a lightweight namespace-based sandbox. This wrapper:
-  - Mounts an FHS rootfs containing standard Linux directory structure
-  - Provides bind mounts for `/usr`, `/lib`, `/lib64`, `/bin`, `/etc`, etc. from the FHS environment
-  - Allows Cursor's Electron runtime and native Node.js modules to find expected libraries and paths
-  - Maintains isolation while providing compatibility with traditional Linux application expectations
-  
-  This is a common pattern in NixOS for proprietary or binary-only applications that cannot be easily patched to work with Nix's store model.
-
-- **Crash Signals:**
-  - **Most common:** `SIGTRAP` (signal 5) - Breakpoint/trap exceptions
-  - **Frequent:** `SIGSEGV` (signal 11) - Segmentation faults
-  - **Occasional:** `SIGILL` (signal 4) - Illegal instruction exceptions
-
-- Crash frequency: Multiple crashes per hour during active use
-- Core dumps show crashes in native modules (`file_service.linux-x64-gnu.node`) and main process
-- Recent example: 10+ crashes within 5 minutes (Feb 7, 23:45-23:50)
-
-- **FHS Wrapping Implications:**
-  The FHS wrapper adds an additional layer of complexity and potential failure points:
-  - **Library binding issues:** Native modules may link against libraries in the FHS environment that have version mismatches or incompatibilities with the actual system libraries
-  - **System call interposition:** The `bwrap` sandbox intercepts and filters system calls, which could affect low-level operations in native code
-  - **Path resolution complexity:** Multiple layers of path resolution (Nix store → FHS mount → actual filesystem) could introduce edge cases
-  - **Graphics/GPU access:** The wrapper must properly expose GPU devices and graphics libraries, which may be complicated by dual GPU configuration (NVIDIA + AMD)
-  
-  While the FHS wrapper itself shouldn't directly cause crashes, any instability in the underlying system (memory corruption, GPU driver issues, CPU microcode problems) could be exacerbated by the additional abstraction layer. The crashes in native Node.js modules (`file_service.linux-x64-gnu.node`) suggest issues with native code execution, which could be affected by:
-  - Library version mismatches between FHS environment and system
-  - Graphics driver interactions through the wrapper
-  - System call filtering or sandbox restrictions
-  - Memory access patterns that interact poorly with the namespace isolation
-
-**Mozilla Firefox:**
-- Crashes in `WebKitWebProcess` child processes
-- `SIGSEGV` and `SIGABRT` signals observed
-- Exception handler messages indicate crash recovery attempts
-- Multiple WebKit processes crashing simultaneously suggests memory corruption or graphics driver issues
-
-**GNOME Shell:**
-- `SIGSEGV` crashes observed
-- Core dump inaccessible in at least one instance
-
-**Analysis:**
-The variety of crash types (`SIGTRAP`, `SIGSEGV`, `SIGILL`) affecting multiple applications suggests:
-- Potential memory corruption (hardware or driver-related)
-- Graphics driver instability (affects Electron apps and compositor)
-- CPU instruction execution issues (SIGILL suggests hardware or microcode problems)
-- System-wide instability events causing cascading failures
-
-The clustering of crashes suggests periodic system-wide instability rather than isolated application bugs.
+**Remaining Issue:**
+- Cursor still experiences occasional SIGILL (illegal instruction) crashes
+- Suggests CPU-level or instruction execution problems
+- May be related to FHS wrapper, CPU microcode, or hardware defects
+- See CPU hardware testing guide for investigation methods
 
 ## Early Boot Instability
 
-**Severity:** High  
-**Impact:** System freeze or user session termination shortly after boot
+**Severity:** Medium (Improved)  
+**Impact:** Occasional system issues shortly after boot
 
-Boot log analysis reveals numerous extremely short boot sessions, indicating frequent early boot failures or forced restarts:
+**Status:** ✅ **Improved** - GPU configuration fix appears to have stabilized boot process
 
-**Boot Session Analysis:**
-- Multiple boots lasting only seconds to minutes before termination
-- Example pattern (Feb 7, 11:11-11:22): 9 consecutive boots with durations ranging from 19 seconds to 14 minutes
-- Many boots show identical start/end times, indicating immediate failures or forced restarts
+**Current State:**
+- Boot stability improved after GPU configuration fix
+- No recent short boot cycles observed
+- System appears stable after boot
 
-**Observed Manifestations:**
-- User session unexpectedly terminating (kicked to login screen)
-- Complete system freeze requiring hard restart
-- GNOME Shell crashes immediately after boot (observed: `SIGSEGV` crash at 23:44:44)
-
-**Potential Root Causes:**
-The combination of ACPI errors, graphics driver initialization, and thermal management issues during boot suggests:
-
-- **ACPI initialization failures:** The thermal zone error (`\_TZ.THRM._SCP`) during boot may cause power management initialization to fail
-- **Graphics driver issues:** NVIDIA driver initialization with `nvidia-drm.modeset=1` combined with dual GPU (NVIDIA + AMD) may cause conflicts
-- **Hardware initialization race conditions:** Multiple PCI devices initializing simultaneously may cause timing issues
-- **Memory instability:** Early boot memory access patterns may trigger hardware-level memory errors
-
-**Frequency:** Frequent - multiple short boot cycles observed, suggesting this is a recurring issue rather than intermittent.
+**Remaining Concerns:**
+- ACPI errors still present during boot (may affect power management)
+- Thermal zone errors could still cause issues under certain conditions
 
 ## Summary and Root Cause Analysis
 
@@ -164,194 +107,66 @@ All documented issues appear to stem from underlying hardware or firmware proble
    - Frequent short boot cycles suggest hardware-level failures
    - Memory testing completed prior to NixOS migration: no errors or warnings detected
 
-3. **Dual GPU Configuration:** ⚠️ **TOP PRIORITY**
+3. **Dual GPU Configuration:** ✅ **RESOLVED**
    - NVIDIA RTX 3080 Laptop GPU + AMD Radeon Graphics (integrated)
-   - **Current state:** System running on Wayland with display driven by integrated AMD GPU
-   - **Issue:** dGPU (NVIDIA) is loaded and available for offloading but not used as primary display GPU
-   - Graphics driver initialization conflicts may contribute to crashes and boot instability
-   - Power management complexity with dual GPUs may affect sleep/resume
-   - **Impact:** Performance degradation, potential instability from GPU switching, power management issues
+   - **Status:** NVIDIA configured as primary GPU via PRIME sync
+   - **Result:** Significant stability improvement, crash frequency reduced by ~95%
+   - **Impact:** Resolved performance and stability issues
 
-**Recommended Investigation Steps:**
+**Next Priority: ACPI Workarounds** ⚠️
 
-1. **BIOS/UEFI Firmware:**
-   - Check for BIOS updates from ASUS
-   - Review ACPI-related BIOS settings
-   - Consider disabling unused hardware (WWAN, Thunderbolt) if not needed
+**Status:**
+- ✅ Sleep mode configuration aligned (deep → s2idle)
+- ⏳ ACPI error workarounds pending
 
-2. **Graphics Driver Configuration:**
-   - Test with single GPU mode (disable NVIDIA or AMD)
-   - Review NVIDIA driver parameters and power management settings
-   - Check for graphics driver updates
+**Remaining Issues:**
+- Sleep/hibernation failures (ACPI-related)
+- Boot-time ACPI errors (16 errors per boot)
+- Thermal zone errors affecting power management
 
-3. **ACPI Workarounds:**
-   - Consider kernel parameters to work around ACPI bugs
-   - Test different sleep modes (`mem_sleep_default=s2idle` vs `deep`)
-   - Monitor ACPI errors during suspend/resume attempts
+## Current Priority: ACPI Workarounds ⚠️
 
-4. **Hardware Diagnostics:**
-   - Check CPU microcode version and updates
-   - Review system temperatures during crashes
-   - Test with minimal hardware configuration
-
-## GPU Configuration Issue ⚠️ **TOP PRIORITY**
-
-**Severity:** High  
-**Impact:** Performance degradation, potential instability, incorrect GPU usage
-
-**Current State:**
-- System running on Wayland (GNOME Shell)
-- Display driven by integrated AMD Radeon GPU
-- NVIDIA RTX 3080 dGPU is loaded and available but not used as primary display GPU
-- NVIDIA GPU shows activity (GNOME Shell using 283MiB) but likely via offloading, not direct display
-- Previously system was running exclusively on dGPU
-
-**Investigation Findings:**
-- `nvidia-smi` shows NVIDIA GPU is active and being used
-- `glxinfo` shows NVIDIA RTX 3080 as OpenGL renderer (with PRIME offload)
-- Both `nvidia-drm` and `amdgpu` drivers are loaded
-- Wayland session type detected
-- ACPI shows vga_switcheroo detected: `amdgpu: vga_switcheroo: detected switching method \_SB_.PCI0.GP17.VGA_.ATPX handle`
-
-**Configuration Needed:**
-- Configure NVIDIA as primary display GPU (or disable AMD iGPU)
-- Set up proper PRIME configuration for Wayland
-- Ensure dGPU is used exclusively for display output
-- May require switching to X11 if Wayland doesn't support dGPU-only mode well
-
-**Potential Impact on Other Issues:**
-- GPU switching/power management may contribute to sleep/resume failures
-- Dual GPU initialization conflicts may cause boot instability
-- Incorrect GPU usage may affect application crashes (graphics driver issues)
-
-## Recommended First Investigation Path
-
-**Priority: GPU Configuration (dGPU Primary)** ⚠️ **UPDATED PRIORITY**
+**Status:** Step 1 completed, Step 2 pending
 
 **Rationale:**
-Observation indicates system is now running on integrated GPU instead of dGPU, which was previously working exclusively. This is likely contributing to:
-- Performance issues
-- Potential instability from GPU switching
-- Sleep/resume problems (dual GPU power management)
-- Application crashes (graphics driver conflicts)
-
-Fixing GPU configuration should be prioritized as it may resolve multiple issues simultaneously.
-
-**Step 1: Investigate Current GPU State** ✅ **COMPLETED**
-
-**Findings:**
-- NVIDIA GPU is loaded and active (`nvidia-smi` shows usage)
-- Display was being driven by AMD iGPU (issue identified)
-- Wayland session with both drivers loaded
-- PRIME offloading available but not configured for primary use
-
-**Step 2: Configure NVIDIA as Primary GPU** ✅ **COMPLETED**
-
-**GPU Bus IDs Identified:**
-- NVIDIA RTX 3080: `PCI:1:0:0` (0000:01:00.0)
-- AMD Radeon (integrated): `PCI:6:0:0` (0000:06:00.0)
-
-**Configuration Options:**
-
-**Option A: PRIME Sync (NVIDIA as primary)**
-- Enable `hardware.nvidia.prime.sync.enable = true`
-- Set `hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0"`
-- Set `hardware.nvidia.prime.amdgpuBusId = "PCI:6:0:0"`
-- **Note:** PRIME sync works better with X11 than Wayland
-
-**Option B: Disable AMD iGPU**
-- Add kernel parameter to disable AMD GPU: `amdgpu.blacklist=1` or similar
-- May require BIOS setting to disable iGPU
-- Forces NVIDIA-only mode
-
-**Option C: Switch to X11**
-- Better NVIDIA support and PRIME sync compatibility
-- Can configure NVIDIA as exclusive display GPU
-- May improve stability
-
-**Option D: Keep Wayland with PRIME Offloading**
-- Current setup (display on iGPU, render on dGPU)
-- Configure environment variables for better dGPU usage
-- Less ideal but may work if other options fail
-
-**Action Plan:**
-1. ✅ Identify GPU bus IDs
-2. ✅ Configure PRIME sync with NVIDIA as primary (Option A)
-   - Added `hardware.nvidia.prime.sync.enable = true`
-   - Set `nvidiaBusId = "PCI:1:0:0"` (NVIDIA RTX 3080)
-   - Set `amdgpuBusId = "PCI:6:0:0"` (AMD Radeon integrated)
-3. ✅ **Completed:** Rebuild system and test
-4. ✅ **Verified:** NVIDIA is now primary GPU (framebuffer primary, OpenGL renderer confirmed)
-5. ✅ **Stability Improvement:** Significant improvement observed
-
-**Results:**
-- ✅ **Application Crashes:** Significant reduction (53 crashes → 1 crash in ~10 min)
-  - Cursor: 31 crashes → 1 crash (SIGILL) after GPU fix
-  - Firefox: 6 crashes → 0 crashes
-  - GNOME Shell: 16 crashes → 0 crashes
-- ⚠️ **Crash Frequency:** Dramatically reduced but not eliminated
-  - Before GPU fix: Multiple crashes per hour
-  - After GPU fix: 1 crash in ~10 minutes of uptime
-  - Crash type: SIGILL (illegal instruction) - suggests CPU-level issues
-- ✅ **GPU Status:** NVIDIA RTX 3080 active and primary, all applications using dGPU correctly
-- ⚠️ **ACPI Errors:** Still present (16 errors, expected - BIOS bugs, not GPU-related)
-
-**Conclusion:**
-GPU configuration fix has significantly reduced crash frequency but not completely eliminated crashes. The remaining crash (SIGILL - illegal instruction) suggests additional underlying issues:
-- CPU microcode or instruction execution problems
-- FHS wrapper/library binding issues
-- Possible memory corruption
-- Application-specific bugs
-
-The GPU fix resolved the majority of crashes (especially SIGTRAP and SIGSEGV), but SIGILL crashes persist, indicating CPU-level or instruction execution problems that require further investigation.
-
-**Previous Priority: ACPI Workarounds (Kernel Parameters)**
-
-**Rationale:**
-ACPI BIOS bugs are the root cause affecting multiple issues (sleep/hibernation, boot errors, early boot instability). Kernel parameter workarounds are:
+ACPI BIOS bugs are affecting sleep/hibernation and causing boot-time errors. Kernel parameter workarounds are:
 - **Low risk:** Easy to test and revert
 - **Quick to implement:** Can be tested immediately
-- **High potential impact:** May address multiple issues simultaneously
+- **High potential impact:** May address sleep/resume and boot stability issues
 - **Non-invasive:** No hardware changes or BIOS flashing required
 
 **Step 1: Align Sleep Mode Configuration** ✅ **COMPLETED**
 
-Investigation revealed that deep sleep (S3) is not supported by ACPI/BIOS - only `s2idle` is available. The kernel was requesting `deep` but falling back to `s2idle` anyway.
+Investigation revealed that deep sleep (S3) is not supported by ACPI/BIOS - only `s2idle` is available.
 
 **Action Taken:** Modified `boot.kernelParams` in `hosts/mani/configuration.nix`:
 - Changed `mem_sleep_default=deep` → `mem_sleep_default=s2idle`
 - Aligns configuration with actual system capabilities
-- Prevents kernel from attempting unsupported sleep mode
 
-**Next Steps:**
-- Rebuild system and test sleep/resume functionality
-- Monitor for ACPI errors during suspend/resume
-- If sleep still fails, proceed to Step 2 (ACPI workaround parameters)
+**Step 2: Add ACPI Error Suppression/Workarounds** 🔄 **IN PROGRESS**
 
-**Step 2: Add ACPI Error Suppression/Workarounds**
+Add kernel parameters to work around specific ACPI bugs. Test parameters one at a time:
 
-If sleep mode change doesn't help, add kernel parameters to work around specific ACPI bugs:
+**Parameter 1: `acpi_osi=Linux`** ⏳ **TESTING**
+- **Purpose:** Override OS identification (may help with vendor-specific bugs)
+- **Action Taken:** Added to `boot.kernelParams` in `hosts/mani/configuration.nix`
+- **Next:** Rebuild, reboot, and monitor results
 
-**Potential parameters to test:**
-- `acpi=noirq` - Disable ACPI IRQ routing (may help with initialization issues)
-- `acpi=off` - Disable ACPI entirely (not recommended, breaks power management)
-- `acpi=strict` - Use strict ACPI compliance (may expose more issues)
-- `acpi_osi=Linux` - Override OS identification (may help with vendor-specific bugs)
-- `acpi_osi=!Windows` - Tell BIOS we're not Windows (may improve compatibility)
+**Remaining Parameters to Test:**
+2. `acpi_osi=!Windows` - Tell BIOS we're not Windows (may improve compatibility)
+3. `acpi=noirq` - Disable ACPI IRQ routing (may help with initialization issues)
+4. `acpi=strict` - Use strict ACPI compliance (may expose more issues, use with caution)
 
-**Step 3: Monitor and Document**
-
-After each change:
+**Testing Plan:**
+- Add one parameter at a time
+- Rebuild and reboot
 - Monitor boot logs for ACPI error reduction
 - Test sleep/resume functionality
-- Track application crash frequency
-- Document any improvements or regressions
+- Document results before trying next parameter
 
 **Success Criteria:**
-- Reduction in ACPI boot errors
+- Reduction in ACPI boot errors (currently 16 errors per boot)
 - Improved sleep/resume reliability
-- Reduced application crash frequency
-- More stable early boot behavior
+- More stable boot process
 
-**If ACPI workarounds don't help:**
-Proceed to **Graphics Driver Configuration** testing (single GPU mode) as the next investigation path, as dual GPU configuration may be contributing to instability.
+**Note:** Avoid `acpi=off` as it disables ACPI entirely and breaks power management.
