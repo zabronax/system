@@ -93,7 +93,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Applications
       wezterm.enable = true;
-      programs.firefox.enable = true;
+      applications.firefox.enable = true;
       applications.cursor.enable = true;
 
       # Programming Toolchains
