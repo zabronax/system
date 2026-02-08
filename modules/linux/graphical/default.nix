@@ -30,7 +30,7 @@ with lib;
   };
 
   imports = [
-    ./gnome.nix
+    ./gnome
   ];
 
   config = mkIf config.graphical.enable {
