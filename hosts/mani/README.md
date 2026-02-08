@@ -29,7 +29,6 @@ Bare metal NixOS laptop host - ASUS ROG Zephyrus G15 gaming laptop.
 
 1. Fresh NixOS installation or existing NixOS system
 2. Flakes enabled
-3. Hardware scan completed (`nixos-generate-config`)
 
 ### Build and Switch
 
@@ -43,14 +42,29 @@ Or from a local checkout:
 sudo nixos-rebuild switch --flake .#mani
 ```
 
+## Configuration Structure
+
+The configuration is organized from a PC builder's perspective:
+
+- **`platform.nix`**: Hardware-specific platform configuration organized by physical hardware components:
+  - Motherboard and soldered components (CPU, firmware, kernel modules)
+  - Custom motherboard extensions (power buttons, console keymap)
+  - System boot configuration (bootloader, filesystems, kernel parameters)
+  - Capability extension devices (NVIDIA GPU, audio)
+  - Capability communication devices (network interfaces, printing)
+- **`default.nix`**: Host-specific configuration (applications, user accounts, desktop environment)
+- **Shared modules**: Common configuration shared across hosts (time, i18n, graphical environment)
+
 ## Key Configuration
 
 The following hardware capabilities are configured:
 
-- **NVIDIA GPU**: Proprietary drivers and power management
-- **Network**: NetworkManager with explicit MAC address configuration
-- **Audio**: PipeWire with ALSA support
-- **Power Management**: Suspend and sleep configuration
+- **NVIDIA GPU**: Proprietary drivers with PRIME sync (NVIDIA as primary, AMD integrated)
+- **Network**: NetworkManager with explicit MAC address configuration for wired and wireless interfaces
+- **Audio**: PipeWire with ALSA and PulseAudio compatibility
+- **Power Management**: Suspend on power button, sleep mode configuration (s2idle)
+- **Graphical Environment**: GNOME desktop with X11 windowing system
+- **Console**: Virtual console keymap synced with X11 keymap
 
 ## Documentation
 
