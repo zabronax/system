@@ -10,6 +10,7 @@
     ./nixpkgs.nix
     ./signing.nix
     ./time.nix
+    ./i18n.nix
     ./shell
     ./applications
     ./programming
