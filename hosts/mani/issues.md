@@ -157,14 +157,29 @@ Add kernel parameters to work around specific ACPI bugs. Test parameters one at 
 - **Result:** Parameter active but no reduction in ACPI errors (still 16 errors)
 - **Conclusion:** OS identification parameters don't affect structural BIOS bugs
 
-**Parameter 3: `acpi=noirq`** ⏳ **TESTING**
+**Parameter 3: `acpi=noirq`** ❌ **BROKE FUNCTIONALITY**
 - **Purpose:** Disable ACPI IRQ routing (may help with initialization issues)
-- **Action Taken:** Replaced `acpi_osi=!Windows` with `acpi=noirq` in `boot.kernelParams`
-- **Note:** This disables ACPI IRQ routing - system will use legacy PIC/IOAPIC instead
-- **Next:** Rebuild, reboot, and monitor results
+- **Result:** Touchpad became unresponsive - hardware functionality broken
+- **Conclusion:** Disabling ACPI IRQ routing breaks hardware that relies on ACPI interrupts
+- **Action:** Reverted parameter - not viable workaround
 
-**Remaining Parameters to Test:**
-4. `acpi=strict` - Use strict ACPI compliance (may expose more issues, use with caution)
+**ACPI Workaround Summary:**
+- ✅ `acpi_osi=Linux`: No improvement (16 errors remain)
+- ✅ `acpi_osi=!Windows`: No improvement (16 errors remain)
+- ❌ `acpi=noirq`: Broke hardware (touchpad unresponsive)
+
+**Conclusion:**
+ACPI kernel parameter workarounds are not effective for these BIOS bugs:
+- OS identification parameters don't affect structural ACPI table bugs
+- Disabling ACPI features breaks hardware functionality
+- BIOS bugs are fundamental and require BIOS updates or different approach
+
+**Remaining Option:**
+- `acpi=strict` - Use strict ACPI compliance (may expose more issues, not recommended)
+- **Recommendation:** Skip remaining parameters and focus on:
+  - BIOS updates from ASUS
+  - Testing sleep/resume with current configuration
+  - Monitoring for stability improvements from GPU fix
 
 **Testing Plan:**
 - Add one parameter at a time
