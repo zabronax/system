@@ -55,15 +55,42 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 **Status:** ✅ **Significantly Improved** - GPU configuration fix reduced crashes by ~95%
 
 **Current State:**
-- Cursor: Occasional SIGILL crashes (1 crash in ~10 minutes vs 31 crashes previously)
+- Cursor: Multiple crash types observed (SIGILL, SIGTRAP, SIGSEGV)
 - Firefox: No crashes observed after GPU fix
 - GNOME Shell: No crashes observed after GPU fix
 
-**Remaining Issue:**
-- Cursor still experiences occasional SIGILL (illegal instruction) crashes
+**Cursor Crash Patterns:**
+
+**Version 2.4.21 (prior to update):**
+- 6 SIGILL (Illegal Instruction) crashes observed
+- 2 SIGTRAP (Trace/Breakpoint) crashes observed
+- Pattern: Multiple crashes in quick succession, then gaps
 - Suggests CPU-level or instruction execution problems
-- May be related to FHS wrapper, CPU microcode, or hardware defects
-- See CPU hardware testing guide in snapshot directory for investigation methods
+
+**Version 2.4.22 (after update, 2026-02-08):**
+- 1 SIGTRAP crash observed
+- 1 SIGSEGV (Segmentation Fault) crash observed - **NEW CRASH TYPE**
+- Most recent crash (01:33:18): SIGSEGV in zygote process (101.4M coredump)
+- Crash occurred in Electron zygote process (`--type=zygote`)
+- Suggests memory corruption or memory access violation (different from SIGILL)
+
+**Analysis:**
+- SIGILL crashes: Suggest CPU-level issues (illegal instruction execution)
+  - May be related to FHS wrapper, CPU microcode, or hardware defects
+  - See CPU hardware testing guide in snapshot directory for investigation methods
+- SIGSEGV crash: Suggests memory corruption or invalid memory access
+  - First SIGSEGV observed after GPU fix
+  - Different root cause than SIGILL crashes
+  - Could be related to:
+    * Cursor 2.4.22 version bugs
+    * Kernel 6.12.68 compatibility issues
+    * FHS wrapper memory mapping issues
+    * Electron/Chromium zygote process memory management
+
+**Crash Frequency:**
+- Reduced significantly after GPU fix (~95% reduction)
+- Crashes still occur but at much lower frequency
+- Multiple crash types suggest multiple underlying issues
 
 ## Summary
 
@@ -75,13 +102,25 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 **Active Issues:**
 - ⚠️ Sleep/Hibernation: Fails to resume reliably (ACPI BIOS bugs)
 - ⚠️ ACPI BIOS Bugs: 16 non-fatal errors per boot (requires BIOS update)
-- ⚠️ Cursor Crashes: Occasional SIGILL crashes (reduced but not eliminated)
+- ⚠️ Cursor Crashes: Multiple crash types observed (SIGILL, SIGTRAP, SIGSEGV)
+  - SIGILL: CPU-level instruction execution issues (reduced but not eliminated)
+  - SIGSEGV: Memory corruption/access violations (new pattern on Cursor 2.4.22)
 
 **Root Causes:**
 - ACPI BIOS bugs (firmware-level, require BIOS update)
 - CPU-level issues (SIGILL crashes suggest microcode or hardware problems)
+- Memory corruption/access issues (SIGSEGV crashes suggest different underlying problem)
+- Potential Cursor version compatibility issues (2.4.22 introduces SIGSEGV pattern)
 
 **Next Steps:**
 - Check for BIOS updates from ASUS (current: GA503RS.317, 02/27/2024)
-- Monitor Cursor crash patterns for CPU hardware defect indicators
+- Monitor Cursor crash patterns:
+  - Track SIGILL vs SIGSEGV frequency
+  - Monitor if SIGSEGV becomes common pattern on Cursor 2.4.22
+  - Check Cursor 2.4.22 release notes for known issues
+  - Consider compatibility with kernel 6.12.68
 - Continue monitoring system stability improvements from GPU fix
+- If SIGSEGV crashes persist on 2.4.22, consider:
+  - Temporarily downgrading to 2.4.21 to compare patterns
+  - Investigating FHS wrapper memory mapping issues
+  - Checking Electron/Chromium zygote process compatibility
