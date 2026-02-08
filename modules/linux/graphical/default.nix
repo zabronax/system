@@ -7,8 +7,14 @@ with lib;
     enable = mkEnableOption "graphical environment";
     
     environment = mkOption {
-      type = types.enum [ "gnome" ];
-      description = "Desktop environment to use";
+      type = types.enum [ "gnome" "sway" ];
+      description = ''
+        Desktop environment or window manager to use.
+        
+        Note: Desktop environments are exclusive - only one can be active
+        at a time. Multiple can be installed and selected at login, but
+        only the configured one will be enabled in the system.
+      '';
       default = "gnome";
     };
 
@@ -34,15 +40,13 @@ with lib;
   ];
 
   config = mkIf config.graphical.enable {
-    # Enable X11 windowing system (required for graphical environments)
-    services.xserver.enable = true;
-
-    # Configure X11 keyboard layout
-    # This applies to all X11-based desktop environments (GNOME, KDE, i3, etc.)
-    # Hosts can override by setting graphical.xkb.layout/variant
-    services.xserver.xkb = {
-      layout = config.graphical.xkb.layout;
-      variant = config.graphical.xkb.variant;
-    };
+    # Validate that an environment is selected
+    # This assertion ensures that if graphical is enabled, an environment must be chosen
+    assertions = [
+      {
+        assertion = config.graphical.environment != null;
+        message = "graphical.enable is true but no graphical.environment is set";
+      }
+    ];
   };
 }

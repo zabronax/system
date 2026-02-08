@@ -48,8 +48,8 @@
     HandlePowerKey = "suspend";
   };
 
-  # Sync virtual console keymap with X11 keymap to avoid redundancy
-  console.useXkbConfig = true;
+  # Note: Console keymap sync with X11 (console.useXkbConfig) is handled
+  # by the desktop environment module (GNOME) since it's X11-dependent
 
   # ----------------------------------------------------------------------------
   # 3. System Boot Configuration
@@ -90,9 +90,8 @@
 
   # NVIDIA GPU (RTX 3080 Mobile)
   # Note: NVIDIA-specific kernel parameters are defined in section 3 (Boot Configuration)
-  services.xserver.videoDrivers = [
-    "nvidia"
-  ];
+  # Note: X11 video driver configuration (services.xserver.videoDrivers) is handled
+  # by the desktop environment module (GNOME) since it's X11-specific
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
