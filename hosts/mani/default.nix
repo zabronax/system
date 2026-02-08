@@ -50,6 +50,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
       # Applications
       wezterm.enable = true;
+      programs.firefox.enable = true;
 
       # Programming Toolchains
       toolchain.nix.enable = true;
