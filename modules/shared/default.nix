@@ -82,6 +82,8 @@
         wget
         curl
         pkgs.lua5_4
+        below # Modern htop replacement (C-Group aware)
+        iftop # Network traffic monitor
       ];
 
       # Use the system-level nixpkgs instead of Home Manager's
