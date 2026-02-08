@@ -60,6 +60,9 @@ in
           theme = "ashes";
           # Close walker when clicking outside the main content area
           click_to_close = true;
+          # Force keyboard focus to walker when it opens
+          # This ensures the launcher receives keyboard input immediately
+          force_keyboard_focus = true;
         };
       };
 
