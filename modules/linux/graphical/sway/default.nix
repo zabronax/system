@@ -9,12 +9,6 @@ let
     "${pkgs.wezterm}/bin/wezterm"
   else
     "${pkgs.alacritty}/bin/alacritty";
-  
-  # Determine Cursor command if enabled
-  cursorCmd = if config.applications.cursor.enable then
-    "${pkgs.code-cursor-fhs}/bin/code-cursor-fhs"
-  else
-    null;
 in
 
 {
@@ -44,14 +38,9 @@ in
             natural_scroll enabled
         }
         
-        # Essential keybindings only
+        # Essential keybindings
         # Launch terminal (Mod+Enter)
         bindsym $mod+Return exec $term
-        
-        # Launch Cursor if enabled (Mod+Shift+C)
-        ${lib.optionalString (cursorCmd != null) ''
-          bindsym $mod+Shift+c exec ${cursorCmd}
-        ''}
       '';
     };
 
