@@ -36,40 +36,21 @@ Issues and crashes observed after transitioning to Sway window manager on the ma
 
 ### Cursor Crashes (SIGSEGV)
 
-**Severity:** Medium  
-**Impact:** Editor crashes, potential data loss
+**Note:** Cursor crashes are tracked as host-specific issues, not Sway-specific. See `hosts/mani/issues.md` for full details.
 
-**Observed:** 2026-02-08 12:59:42 and 13:00:29 (after Sway transition)
-
-**Details:**
-- **Signal:** SIGSEGV (Segmentation Fault)
-- **Processes:**
-  - PID 3636: Cursor zygote process (`--type=zygote`) - 84.8M coredump
-  - PID 4201: Cursor Compositor process - 88.8M coredump
-- **Pattern:** Two crashes within ~1 minute
-- **Context:** Running in Sway/Wayland session
+**Observed in Sway/Wayland:**
+- 2026-02-08 12:59:42: SIGSEGV in zygote process (PID 3636) - 84.8M coredump
+- 2026-02-08 13:00:29: SIGSEGV in Compositor process (PID 4201) - 88.8M coredump
+- 2026-02-08 13:35:09: SIGSEGV in zygote process (PID 2839) - 63.4M coredump
 
 **Analysis:**
-- These crashes match the documented SIGSEGV pattern for Cursor 2.4.22 (see `hosts/mani/issues.md`)
-- However, they occurred after transitioning to Sway/Wayland
-- Possible Sway/Wayland-specific factors:
+- These crashes are part of the documented Cursor 2.4.22 SIGSEGV pattern (see `hosts/mani/issues.md`)
+- Pattern continues across both GNOME/X11 and Sway/Wayland environments
+- Possible Sway/Wayland-specific factors may exacerbate the issue:
   - Wayland compositor interaction with Electron/Chromium
   - NVIDIA GPU compatibility with Wayland (WLR_NO_HARDWARE_CURSORS set)
   - XWayland compatibility layer issues
   - Memory management differences between X11 and Wayland
-
-**Relationship to Existing Issues:**
-- Cursor crashes were already documented in `hosts/mani/issues.md`
-- These instances may be:
-  - Continuation of existing Cursor 2.4.22 SIGSEGV pattern
-  - Exacerbated by Wayland environment
-  - New pattern specific to Sway/Wayland
-
-**Next Steps:**
-- Compare crash frequency in Sway vs GNOME (X11)
-- Monitor if crashes are more frequent in Wayland
-- Check if NVIDIA Wayland compatibility affects Electron apps
-- Review Cursor's Wayland support status
 
 ## Sway/Wayland Warnings
 
@@ -161,11 +142,11 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 
 **New Issues After Sway Transition:**
 - ⚠️ Fish shell SIGSEGV crash (input handling)
-- ⚠️ Cursor SIGSEGV crashes (may be exacerbated by Wayland)
+- ⚠️ Cursor SIGSEGV crashes (host-specific pattern, see `hosts/mani/issues.md`)
 - ⚠️ Touchpad event processing lag warning
 - ⚠️ Swaybar tray icon errors
-- ⚠️ **Keyboard layout not applied (Norwegian layout missing)**
-- ⚠️ **Touchpad scroll inverted**
+- ⚠️ **Keyboard layout not applied (Norwegian layout missing)** - ✅ RESOLVED
+- ⚠️ **Touchpad scroll inverted** - ✅ RESOLVED
 
 **Potential Root Causes:**
 - Wayland input handling differences from X11

@@ -74,23 +74,32 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 
 **Version 2.4.22 (after update, 2026-02-08):**
 - 1 SIGTRAP crash observed
-- 1 SIGSEGV (Segmentation Fault) crash observed - **NEW CRASH TYPE**
-- Most recent crash (01:33:18): SIGSEGV in zygote process (101.4M coredump)
-- Crash occurred in Electron zygote process (`--type=zygote`)
+- Multiple SIGSEGV (Segmentation Fault) crashes observed - **NEW CRASH TYPE**
+- Crashes observed:
+  - 01:33:18: SIGSEGV in zygote process (`--type=zygote`) - 101.4M coredump (PID unknown)
+  - 12:59:42: SIGSEGV in zygote process (`--type=zygote`) - 84.8M coredump (PID 3636) - Sway/Wayland
+  - 13:00:29: SIGSEGV in Compositor process - 88.8M coredump (PID 4201) - Sway/Wayland
+  - 13:35:09: SIGSEGV in zygote process (`--type=zygote`) - 63.4M coredump (PID 2839) - Sway/Wayland
+- Crash occurred in Electron zygote and Compositor processes
+- Pattern continues across both GNOME/X11 and Sway/Wayland environments
 - Suggests memory corruption or memory access violation (different from SIGILL)
 
 **Analysis:**
 - SIGILL crashes: Suggest CPU-level issues (illegal instruction execution)
   - May be related to FHS wrapper, CPU microcode, or hardware defects
   - See CPU hardware testing guide in snapshot directory for investigation methods
-- SIGSEGV crash: Suggests memory corruption or invalid memory access
-  - First SIGSEGV observed after GPU fix
+- SIGSEGV crashes: Suggests memory corruption or invalid memory access
+  - First SIGSEGV observed after GPU fix (01:33:18)
+  - Pattern continues in both GNOME/X11 and Sway/Wayland environments
+  - Multiple crashes observed in Sway/Wayland (12:59:42, 13:00:29, 13:35:09)
   - Different root cause than SIGILL crashes
   - Could be related to:
     * Cursor 2.4.22 version bugs
     * Kernel 6.12.68 compatibility issues
     * FHS wrapper memory mapping issues
     * Electron/Chromium zygote process memory management
+    * Wayland compositor interaction (for crashes in Sway environment)
+    * NVIDIA GPU Wayland compatibility (WLR_NO_HARDWARE_CURSORS set)
 
 **Crash Frequency:**
 - Reduced significantly after GPU fix (~95% reduction)
