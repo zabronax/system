@@ -9,6 +9,22 @@ let
     "${pkgs.wezterm}/bin/wezterm start"
   else
     "${pkgs.alacritty}/bin/alacritty";
+
+  # Packages that walker needs access to for launching programs
+  walkerPathPackages = [
+    pkgs.bash          # Provides 'sh' shell
+    pkgs.coreutils     # Basic utilities (ls, cat, etc.)
+    pkgs.findutils      # find command
+    pkgs.xdg-utils      # xdg-open for websearch provider
+  ];
+
+  # Build PATH string from packages and standard NixOS paths
+  walkerPath = lib.makeBinPath walkerPathPackages + ":" + lib.concatStringsSep ":" [
+    "/run/wrappers/bin"
+    "/nix/var/nix/profiles/default/bin"
+    "/home/${config.user}/.nix-profile/bin"
+    "/run/current-system/sw/bin"
+  ];
 in
 
 {
@@ -36,6 +52,23 @@ in
         #   layout = "???";
         #   name = "???";
         # };
+      };
+
+      # Override walker systemd service to add PATH environment
+      # Walker needs access to basic shell utilities (sh, etc.) to launch programs
+      # Also needs xdg-utils for websearch provider
+      systemd.user.services.walker = {
+        Service = {
+          # Add PATH to include:
+          # - bash (provides 'sh' shell)
+          # - coreutils (basic utilities: ls, cat, cp, mv, etc.)
+          # - findutils (find command)
+          # - xdg-utils (xdg-open for websearch provider)
+          # - Standard NixOS profile paths
+          Environment = [
+            "PATH=${walkerPath}"
+          ];
+        };
       };
 
       # Enable Elephant backend service (required for Walker)
