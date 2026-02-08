@@ -9,6 +9,9 @@ let
     "${pkgs.wezterm}/bin/wezterm"
   else
     "${pkgs.alacritty}/bin/alacritty";
+  
+  # Import Sway configuration
+  swayConfig = import ./sway.nix { inherit terminalCmd; };
 in
 
 {
@@ -17,31 +20,9 @@ in
     # Note: Sway does NOT require X11 - it is a Wayland compositor
     programs.sway.enable = true;
 
-    # Minimal Sway configuration - just enough to launch terminal and editor
-    # Sway config is written to ~/.config/sway/config via home-manager
+    # Sway configuration - written to ~/.config/sway/config via home-manager
     home-manager.users.${config.user} = {
-      xdg.configFile."sway/config".text = ''
-        # Set terminal
-        set $term ${terminalCmd}
-        
-        # Mod key (Windows/Super key)
-        set $mod Mod4
-        
-        # Keyboard layout configuration (Wayland input handling)
-        # Norwegian layout with nodeadkeys variant
-        input * xkb_layout "no"
-        input * xkb_variant "nodeadkeys"
-        
-        # Touchpad configuration
-        input "type:touchpad" {
-            scroll_method two_finger
-            natural_scroll enabled
-        }
-        
-        # Essential keybindings
-        # Launch terminal (Mod+Enter)
-        bindsym $mod+Return exec $term
-      '';
+      xdg.configFile."sway/config".text = swayConfig;
     };
 
     # Enable GDM display manager to launch Sway
