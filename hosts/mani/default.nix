@@ -61,6 +61,12 @@ inputs.nixpkgs.lib.nixosSystem {
       # Configuration
       networking.hostName = "mani";
 
+      # Time configuration
+      time = {
+        timeZone = "Europe/Oslo";
+        timeAuthority = "systemd-timesyncd";
+      };
+
       # Theme variant
       theme.variant = "dark";
 
