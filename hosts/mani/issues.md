@@ -73,16 +73,24 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 - Suggests CPU-level or instruction execution problems
 
 **Version 2.4.22 (after update, 2026-02-08):**
-- 1 SIGTRAP crash observed
+- Multiple SIGTRAP crashes observed - **GPU DRIVER RELATED**
 - Multiple SIGSEGV (Segmentation Fault) crashes observed - **NEW CRASH TYPE**
 - Crashes observed:
   - 01:33:18: SIGSEGV in zygote process (`--type=zygote`) - 101.4M coredump (PID unknown)
   - 12:59:42: SIGSEGV in zygote process (`--type=zygote`) - 84.8M coredump (PID 3636) - Sway/Wayland
   - 13:00:29: SIGSEGV in Compositor process - 88.8M coredump (PID 4201) - Sway/Wayland
   - 13:35:09: SIGSEGV in zygote process (`--type=zygote`) - 63.4M coredump (PID 2839) - Sway/Wayland
-- Crash occurred in Electron zygote and Compositor processes
+  - 17:03:43: SIGTRAP - 8.8M coredump (PID 14169) - **GPU driver exception** - Sway/Wayland
+- SIGSEGV crashes occurred in Electron zygote and Compositor processes
+- SIGTRAP crash (17:03:43): Caused by nouveau GPU driver graphics exception
+  - Graphics Exception on GPC 0: "3D HEIGHT CT Violation"
+  - Graphics Exception on GPC 1: "WIDTH CT Violation"
+  - GPU channel 56 errored and was killed by nouveau driver
+  - Context: After reboot, during startup (WezTerm and Cursor running, Firefox not started)
+  - Root cause: nouveau driver GPU exception, not Cursor application bug
 - Pattern continues across both GNOME/X11 and Sway/Wayland environments
-- Suggests memory corruption or memory access violation (different from SIGILL)
+- SIGSEGV suggests memory corruption or memory access violation (different from SIGILL)
+- SIGTRAP (17:03:43) suggests GPU driver incompatibility or hardware-level GPU issue
 
 **Analysis:**
 - SIGILL crashes: Suggest CPU-level issues (illegal instruction execution)
@@ -100,6 +108,17 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
     * Electron/Chromium zygote process memory management
     * Wayland compositor interaction (for crashes in Sway environment)
     * NVIDIA GPU Wayland compatibility (WLR_NO_HARDWARE_CURSORS set)
+- SIGTRAP crashes (GPU driver related): Caused by nouveau GPU driver graphics exceptions
+  - Crash at 17:03:43: nouveau driver encountered graphics exception and killed GPU channel
+  - Graphics coordinate violations suggest GPU command buffer corruption or driver bug
+  - Occurs during application startup/initialization (consistent with user report)
+  - Root cause: nouveau (open-source NVIDIA) driver incompatibility or bug
+  - Not an application bug - driver killed the GPU channel causing application termination
+  - Could be related to:
+    * nouveau driver Wayland compatibility issues
+    * GPU hardware defects or instability
+    * Driver bug with certain GPU operations
+    * Missing or incorrect GPU initialization
 
 **Crash Frequency:**
 - Reduced significantly after GPU fix (~95% reduction)
@@ -119,21 +138,29 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 - ⚠️ Cursor Crashes: Multiple crash types observed (SIGILL, SIGTRAP, SIGSEGV)
   - SIGILL: CPU-level instruction execution issues (reduced but not eliminated)
   - SIGSEGV: Memory corruption/access violations (new pattern on Cursor 2.4.22)
+  - SIGTRAP: GPU driver exceptions (nouveau driver graphics violations)
 
 **Root Causes:**
 - ACPI BIOS bugs (firmware-level, require BIOS update)
 - CPU-level issues (SIGILL crashes suggest microcode or hardware problems)
 - Memory corruption/access issues (SIGSEGV crashes suggest different underlying problem)
+- GPU driver issues (SIGTRAP crashes caused by nouveau driver graphics exceptions)
 - Potential Cursor version compatibility issues (2.4.22 introduces SIGSEGV pattern)
 
 **Next Steps:**
 - Check for BIOS updates from ASUS (current: GA503RS.317, 02/27/2024)
 - Monitor Cursor crash patterns:
-  - Track SIGILL vs SIGSEGV frequency
+  - Track SIGILL vs SIGSEGV vs SIGTRAP frequency
   - Monitor if SIGSEGV becomes common pattern on Cursor 2.4.22
+  - Monitor SIGTRAP crashes related to nouveau GPU driver
   - Check Cursor 2.4.22 release notes for known issues
   - Consider compatibility with kernel 6.12.68
 - Continue monitoring system stability improvements from GPU fix
+- For SIGTRAP GPU driver crashes:
+  - Investigate nouveau driver compatibility with Wayland/Sway
+  - Consider switching to proprietary NVIDIA driver (nvidia) instead of nouveau
+  - Check if crashes occur with other GPU-intensive applications
+  - Monitor if crashes are specific to startup/initialization phase
 - If SIGSEGV crashes persist on 2.4.22, consider:
   - Temporarily downgrading to 2.4.21 to compare patterns
   - Investigating FHS wrapper memory mapping issues

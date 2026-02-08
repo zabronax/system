@@ -42,13 +42,20 @@ Issues and crashes observed after transitioning to Sway window manager on the ma
 - 2026-02-08 12:59:42: SIGSEGV in zygote process (PID 3636) - 84.8M coredump
 - 2026-02-08 13:00:29: SIGSEGV in Compositor process (PID 4201) - 88.8M coredump
 - 2026-02-08 13:35:09: SIGSEGV in zygote process (PID 2839) - 63.4M coredump
+- 2026-02-08 17:03:43: SIGTRAP - 8.8M coredump (PID 14169) - **GPU driver exception**
+  - Caused by nouveau GPU driver graphics exception
+  - Graphics Exception: "3D HEIGHT CT Violation" and "WIDTH CT Violation"
+  - GPU channel 56 killed by nouveau driver
+  - Context: After reboot, during startup (WezTerm and Cursor running, Firefox not started)
 
 **Analysis:**
-- These crashes are part of the documented Cursor 2.4.22 SIGSEGV pattern (see `hosts/mani/issues.md`)
+- SIGSEGV crashes are part of the documented Cursor 2.4.22 SIGSEGV pattern (see `hosts/mani/issues.md`)
+- SIGTRAP crash (17:03:43) is GPU driver related, not application bug
 - Pattern continues across both GNOME/X11 and Sway/Wayland environments
 - Possible Sway/Wayland-specific factors may exacerbate the issue:
   - Wayland compositor interaction with Electron/Chromium
   - NVIDIA GPU compatibility with Wayland (WLR_NO_HARDWARE_CURSORS set)
+  - nouveau driver Wayland compatibility issues (SIGTRAP crash)
   - XWayland compatibility layer issues
   - Memory management differences between X11 and Wayland
 
@@ -93,6 +100,7 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 **New Issues After Sway Transition:**
 - ⚠️ Fish shell SIGSEGV crash (input handling)
 - ⚠️ Cursor SIGSEGV crashes (host-specific pattern, see `hosts/mani/issues.md`)
+- ⚠️ Cursor SIGTRAP crash (GPU driver exception - nouveau driver issue)
 - ⚠️ Touchpad event processing lag warning
 - ⚠️ Swaybar tray icon errors
 
@@ -106,7 +114,11 @@ client bug: event processing lagging behind by 21ms, your system is too slow
 - Monitor crash frequency and patterns
 - Compare stability between Sway (Wayland) and GNOME (X11)
 - Investigate fish shell Wayland compatibility
+- For SIGTRAP GPU driver crashes:
+  - Investigate nouveau driver compatibility with Wayland/Sway
+  - Consider switching to proprietary NVIDIA driver (nvidia) instead of nouveau
+  - Monitor if crashes occur during startup/initialization phase
 - Consider adding waybar status bar (may resolve tray icon errors)
-- Review NVIDIA Wayland driver compatibility
+- Review NVIDIA Wayland driver compatibility (both nouveau and proprietary)
 
 **Note:** Sleep/hibernation issues persist but are not Sway-specific. See `hosts/mani/issues.md` for details.
