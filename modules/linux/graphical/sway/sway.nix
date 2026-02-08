@@ -20,4 +20,9 @@
   # Essential keybindings
   # Launch terminal (Mod+Enter)
   bindsym $mod+Return exec $term
+  
+  # Launch browser (Mod+B)
+  # TODO: Dynamically determine browser based on configuration
+  # (e.g., check programs.firefox.enable, programs.chromium.enable, etc.)
+  bindsym $mod+b exec firefox
 ''
