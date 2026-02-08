@@ -53,8 +53,8 @@ inputs.nixpkgs.lib.nixosSystem {
     # Identity configuration
     userConfig
 
-    # Bootstrap configuration
-    ./configuration.nix
+    # Platform/hardware configuration
+    ./platform.nix
 
     # Host specific configuration
     ({ config, pkgs, ... }: {
