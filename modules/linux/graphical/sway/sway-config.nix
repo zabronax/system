@@ -55,23 +55,28 @@
   gaps outer 8
   
   # Workspaces and move focused container to workspace
-  bindsym {
-      # Command Hub
-      $mod+1 workspace number 1
-      $mod+Shift+1 move container to workspace number 1
-      # Integrated Development Environment
-      $mod+2 workspace number 2
-      $mod+Shift+2 move container to workspace number 2
-      # Internet Browsing
-      $mod+3 workspace number 3
-      $mod+Shift+3 move container to workspace number 3
-      # Communication
-      $mod+4 workspace number 4
-      $mod+Shift+4 move container to workspace number 4
-      # Misc
-      $mod+0 workspace number 0
-      $mod+Shift+0 move container to workspace number 0
-  }
+  # Command Hub
+  bindsym $mod+1 workspace number 1
+  bindsym $mod+Shift+1 move container to workspace number 1
+  assign [app_id="org.wezfurlong.wezterm"] 1
+  
+  # Integrated Development Environment
+  bindsym $mod+2 workspace number 2
+  bindsym $mod+Shift+2 move container to workspace number 2
+  assign [app_id="cursor"] 2
+  
+  # Internet Browsing
+  bindsym $mod+3 workspace number 3
+  bindsym $mod+Shift+3 move container to workspace number 3
+  assign [app_id="firefox"] 3
+  
+  # Communication
+  bindsym $mod+4 workspace number 4
+  bindsym $mod+Shift+4 move container to workspace number 4
+  
+  # Misc
+  bindsym $mod+0 workspace number 0
+  bindsym $mod+Shift+0 move container to workspace number 0
   
   # Essential keybindings
   bindsym {
