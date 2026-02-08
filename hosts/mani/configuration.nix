@@ -50,7 +50,7 @@
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "mem_sleep_default=s2idle"
     # ACPI workarounds: Override OS identification to work around BIOS bugs
-    "acpi_osi=Linux"
+    "acpi_osi=!Windows"
   ];
 
   # Configure keymap in X11

@@ -147,13 +147,17 @@ Investigation revealed that deep sleep (S3) is not supported by ACPI/BIOS - only
 
 Add kernel parameters to work around specific ACPI bugs. Test parameters one at a time:
 
-**Parameter 1: `acpi_osi=Linux`** ⏳ **TESTING**
+**Parameter 1: `acpi_osi=Linux`** ❌ **NO IMPROVEMENT**
 - **Purpose:** Override OS identification (may help with vendor-specific bugs)
-- **Action Taken:** Added to `boot.kernelParams` in `hosts/mani/configuration.nix`
+- **Result:** Parameter active but no reduction in ACPI errors (still 16 errors)
+- **Conclusion:** BIOS bugs are structural and not affected by OS identification
+
+**Parameter 2: `acpi_osi=!Windows`** ⏳ **TESTING**
+- **Purpose:** Tell BIOS we're not Windows (may improve compatibility)
+- **Action Taken:** Replaced `acpi_osi=Linux` with `acpi_osi=!Windows` in `boot.kernelParams`
 - **Next:** Rebuild, reboot, and monitor results
 
 **Remaining Parameters to Test:**
-2. `acpi_osi=!Windows` - Tell BIOS we're not Windows (may improve compatibility)
 3. `acpi=noirq` - Disable ACPI IRQ routing (may help with initialization issues)
 4. `acpi=strict` - Use strict ACPI compliance (may expose more issues, use with caution)
 
