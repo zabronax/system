@@ -33,6 +33,11 @@ in
         # Mod key (Windows/Super key)
         set $mod Mod4
         
+        # Keyboard layout configuration (Wayland input handling)
+        # Norwegian layout with nodeadkeys variant
+        input * xkb_layout "no"
+        input * xkb_variant "nodeadkeys"
+        
         # Essential keybindings only
         # Launch terminal (Mod+Enter)
         bindsym $mod+Return exec $term
