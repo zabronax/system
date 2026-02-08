@@ -20,10 +20,10 @@ in
     # Note: Sway does NOT require X11 - it is a Wayland compositor
     programs.sway.enable = true;
 
-    # Sway configuration - written to ~/.config/sway/config via home-manager
-    home-manager.users.${config.user} = {
-      xdg.configFile."sway/config".text = swayConfig;
-    };
+    # Sway system configuration (fallback)
+    # Sway loads configs in order: ~/.sway/config, ~/.config/sway/config, /etc/sway/config
+    # User can create ~/.config/sway/config to override this system config
+    environment.etc."sway/config".text = swayConfig;
 
     # Enable GDM display manager to launch Sway
     # GDM can launch Wayland sessions including Sway
