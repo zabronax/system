@@ -59,13 +59,9 @@
     }@inputs:
     let
       # Custom overlays for modifying nixpkgs
-      # Add overlays here to patch packages, add custom derivations, etc.
-      # Override walker to use latest version from source
-      overlays = [
-        (final: prev: {
-          walker = inputs.walker.packages.${prev.stdenv.system}.walker;
-        })
-      ];
+      # Overlays are organized in the overlays/ directory
+      # See overlays/default.nix for which overlays are included
+      overlays = import ./overlays/default.nix { inherit inputs; };
 
       # Helpers for generating attribute sets across systems
       supportedSystems = [
