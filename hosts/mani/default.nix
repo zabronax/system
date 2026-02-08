@@ -22,6 +22,22 @@ inputs.nixpkgs.lib.nixosSystem {
   inherit system;
 
   modules = [
+    # Unfree predicate for system packages
+    # Needs to happen before any nixpkgs consumers are called
+    (
+      { config, pkgs, ... }:
+      {
+        nixpkgs.config.allowUnfreePredicate =
+          pkg:
+          builtins.elem (pkgs.lib.getName pkg) [
+            "nvidia-x11"
+            "nvidia-settings"
+            "code-cursor-fhs"
+            "cursor"
+          ];
+      }
+    )
+
     # Shared modules
     ../../modules/shared
 
