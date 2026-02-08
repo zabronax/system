@@ -63,8 +63,9 @@ The following hardware capabilities are configured:
 - **Network**: NetworkManager with explicit MAC address configuration for wired and wireless interfaces
 - **Audio**: PipeWire with ALSA and PulseAudio compatibility
 - **Power Management**: Suspend on power button, sleep mode configuration (s2idle)
-- **Graphical Environment**: GNOME desktop with X11 windowing system
-- **Console**: Virtual console keymap synced with X11 keymap
+- **Graphical Environment**: Sway tiling window manager with Wayland compositor
+- **Launcher**: Walker application launcher with Elephant backend
+- **Theme**: Ashes dark theme (Base16 colorscheme)
 
 ## Documentation
 
