@@ -19,6 +19,11 @@ in
     # Enable Sway (Wayland compositor and window manager)
     # Note: Sway does NOT require X11 - it is a Wayland compositor
     programs.sway.enable = true;
+    
+    # Enable wofi launcher
+    home-manager.users.${config.user} = {
+      programs.wofi.enable = true;
+    };
 
     # Sway system configuration (fallback)
     # Sway loads configs in order: ~/.sway/config, ~/.config/sway/config, /etc/sway/config

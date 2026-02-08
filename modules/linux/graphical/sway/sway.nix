@@ -44,4 +44,7 @@
   # TODO: Dynamically determine browser based on configuration
   # (e.g., check programs.firefox.enable, programs.chromium.enable, etc.)
   bindsym $mod+b exec firefox
+  
+  # Launch application launcher (Mod+D)
+  bindsym $mod+d exec wofi --show drun
 ''
