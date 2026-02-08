@@ -32,6 +32,10 @@
   # Window decoration - hide title bars
   default_border none
   
+  # Gaps - breathing room between windows and screen edges
+  gaps inner 8
+  gaps outer 8
+  
   # Workspaces
   bindsym {
       $mod+1 workspace number 1
