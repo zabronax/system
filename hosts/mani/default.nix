@@ -73,6 +73,7 @@ inputs.nixpkgs.lib.nixosSystem {
       # Applications
       wezterm.enable = true;
       programs.firefox.enable = true;
+      applications.cursor.enable = true;
 
       # Programming Toolchains
       toolchain.nix.enable = true;
@@ -83,11 +84,8 @@ inputs.nixpkgs.lib.nixosSystem {
         description = config.displayName;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [
-          git
-          vim
-          wget
-          mesa-demos # GPU Utilities
-          code-cursor-fhs
+          # Hardware-specific packages (GPU utilities for NVIDIA/AMD)
+          mesa-demos
         ];
       };
 
