@@ -62,7 +62,7 @@ This repository follows a clear separation of concerns:
 > A platform installation of *One of*:
 > - Nix-Darwin, for macOS
 > - Nix-WSL, for Windows WSL
-> - NixOS, for bare metal (no NixOS hosts are currently defined)
+> - NixOS, for bare metal Linux
 
 ### macOS ([lupus](/hosts/lupus/))
 
@@ -76,15 +76,22 @@ sudo darwin-rebuild switch --flake github:zabronax/system#lupus
 sudo nixos-rebuild switch --flake github:zabronax/system#luna
 ```
 
+### NixOS ([mani](/hosts/mani/))
+
+```sh
+sudo nixos-rebuild switch --flake github:zabronax/system#mani
+```
+
 ## Hosts
 
 See [`hosts/README.md`](hosts/README.md) for detailed host information.
 
-| Hostname   | Architecture     | Platform | Description                 |
-|------------|------------------|----------|-----------------------------|
-| **lupus**  | `aarch64-darwin` | macOS    | Daily driver MacBook Air    |
-| **minmus** | `aarch64-darwin` | macOS    | Minimal macOS system        |
-| **luna**   | `x86_64-linux`   | WSL      | WSL development environment |
+| Hostname   | Architecture     | Platform | Description                      |
+|------------|------------------|----------|----------------------------------|
+| **lupus**  | `aarch64-darwin` | macOS    | Daily driver MacBook Air         |
+| **minmus** | `aarch64-darwin` | macOS    | Minimal macOS system             |
+| **luna**   | `x86_64-linux`   | WSL      | WSL development environment      |
+| **mani**   | `x86_64-linux`   | NixOS    | Bare metal laptop (Sway/Wayland) |
 
 
 ## Structure
@@ -95,9 +102,11 @@ See [`hosts/README.md`](hosts/README.md) for detailed host information.
 ├── hosts/             # Host-specific compositions
 │   ├── luna/          # WSL development environment
 │   ├── lupus/         # Daily driver MacBook Air
+│   ├── mani/          # Bare metal NixOS laptop
 │   └── minmus/        # Minimal macOS system
 ├── modules/           # Reusable configuration modules
 │   ├── darwin/        # macOS-specific modules
+│   ├── linux/         # Linux-specific modules
 │   ├── shared/        # Cross-platform modules
 │   └── wsl/           # WSL-specific modules
 ├── themes/            # Theme configurations
