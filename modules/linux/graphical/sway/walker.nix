@@ -2,6 +2,15 @@
 
 with lib;
 
+let
+  # Determine terminal command
+  # WezTerm is preferred if enabled, otherwise fall back to default
+  terminalCmd = if config.wezterm.enable then
+    "${pkgs.wezterm}/bin/wezterm start"
+  else
+    "${pkgs.alacritty}/bin/alacritty";
+in
+
 {
   options.walker = {
     enable = mkEnableOption "walker application launcher";
@@ -18,6 +27,8 @@ with lib;
         # For all options, see:
         # https://raw.githubusercontent.com/abenz1267/walker/refs/heads/master/resources/config.toml
         settings = {
+          # Set terminal for runner provider's "run in terminal" action
+          terminal = terminalCmd;
         };
 
         # TODO! Figure out the theme options
