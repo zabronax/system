@@ -17,6 +17,9 @@
       natural_scroll enabled
   }
   
+  # Window decoration - hide title bars
+  default_border none
+  
   # Workspaces
   # Switch to workspace
   bindsym $mod+1 workspace number 1
