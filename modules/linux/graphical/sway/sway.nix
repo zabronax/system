@@ -62,6 +62,38 @@ in
           After = [ "graphical-session-pre.target" ];
         };
       };
+
+      # Configure libinput-gestures for swipe gestures
+      # libinput-gestures provides three-finger swipe support for workspace switching
+      # Note: User must be in the 'input' group for libinput-gestures to work
+      xdg.configFile."libinput-gestures.conf".text = ''
+        # Swipe left: go to previous workspace
+        gesture swipe left 3 ${pkgs.sway}/bin/swaymsg workspace prev_on_output
+        
+        # Swipe right: go to next workspace
+        gesture swipe right 3 ${pkgs.sway}/bin/swaymsg workspace next_on_output
+      '';
+
+      # Enable libinput-gestures systemd service
+      # Starts after sway-session.target to ensure Sway is running
+      # Note: Sway environment variables (SWAYSOCK) are imported by sway-systemd-init
+      # and should be available to this service since it starts after sway-session.target
+      systemd.user.services.libinput-gestures = {
+        Unit = {
+          Description = "libinput-gestures for Sway workspace switching";
+          After = [ "sway-session.target" ];
+          Wants = [ "sway-session.target" ];
+        };
+        Service = {
+          ExecStart = "${pkgs.libinput-gestures}/bin/libinput-gestures";
+          Restart = "on-failure";
+          # Ensure swaymsg is in PATH
+          Environment = "PATH=${pkgs.sway}/bin:${pkgs.libinput-gestures}/bin";
+        };
+        Install = {
+          WantedBy = [ "sway-session.target" ];
+        };
+      };
     };
 
     # Sway system configuration (fallback)
@@ -70,7 +102,7 @@ in
     environment.etc."sway/config".text = swayConfig;
 
     # Make the systemd init script and swaybg available in the environment
-    environment.systemPackages = [ swaySystemdInit pkgs.swaybg ];
+    environment.systemPackages = [ swaySystemdInit pkgs.swaybg pkgs.libinput-gestures ];
 
     # Enable GDM display manager to launch Sway
     # GDM can launch Wayland sessions including Sway

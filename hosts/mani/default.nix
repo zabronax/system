@@ -103,7 +103,7 @@ inputs.nixpkgs.lib.nixosSystem {
       users.users.${config.user} = {
         isNormalUser = true;
         description = config.displayName;
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "input" ];
         packages = with pkgs; [
           # Hardware-specific packages (GPU utilities for NVIDIA/AMD)
           mesa-demos
