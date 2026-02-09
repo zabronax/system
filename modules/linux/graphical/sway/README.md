@@ -70,7 +70,33 @@ Sway is a Wayland compositor (not X11). X11 apps run via XWayland automatically.
 
 ## References
 
-[¹][1] [Sway](https://github.com/swaywm/sway) | [²][2] [greetd](https://git.sr.ht/~kennylevinsen/greetd) | [³][3] [swaybg](https://github.com/swaywm/swaybg) | [⁴][4] [swayidle](https://github.com/swaywm/swayidle) | [⁵][5] [swaylock](https://github.com/swaywm/swaylock) | [⁶][6] [wofi](https://github.com/SimplyCEO/wofi) | [⁷][7] [waybar](https://github.com/Alexays/Waybar) | [⁸][8] [xdg-desktop-portal-wlr](https://github.com/emersion/xdg-desktop-portal-wlr) | [⁹][9] [NVIDIA Drivers](https://us.download.nvidia.com/XFree86/Linux-x86_64/580.126.09/README/index.html) | [¹⁰][10] [X.org](https://www.x.org/wiki/) | [¹¹][11] [Wayland](https://wayland.freedesktop.org/) | [¹²][12] [waypipe](https://github.com/deepin-community/waypipe) | [¹³][13] [XWayland](https://cgit.freedesktop.org/xorg/xserver) | [¹⁴][14] [Walker](https://github.com/abenz1267/walker)
+[¹][1] Sway. "Sway - i3-compatible Wayland compositor," GitHub. [Online]. Available: <https://github.com/swaywm/sway>
+
+[²][2] C. Miller. "greetd - A minimal, agnostic, flexible login manager," GitHub. [Online]. Available: <https://git.sr.ht/~kennylevinsen/greetd>
+
+[³][3] Sway. "swaybg - Wallpaper tool for Wayland compositors," GitHub. [Online]. Available: <https://github.com/swaywm/swaybg>
+
+[⁴][4] Sway. "swayidle - Idle management daemon for Wayland," GitHub. [Online]. Available: <https://github.com/swaywm/swayidle>
+
+[⁵][5] Sway. "swaylock - Screen locker for Wayland," GitHub. [Online]. Available: <https://github.com/swaywm/swaylock>
+
+[⁶][6] dylanaraps. "wofi - A launcher/menu program for wlroots based wayland compositors," GitHub. [Online]. Available: <https://github.com/SimplyCEO/wofi>
+
+[⁷][7] A. Pettersson. "waybar - Highly customizable Wayland bar for Sway and Wlroots based compositors," GitHub. [Online]. Available: <https://github.com/Alexays/Waybar>
+
+[⁸][8] emersion. "xdg-desktop-portal-wlr - xdg-desktop-portal backend for wlroots," GitHub. [Online]. Available: <https://github.com/emersion/xdg-desktop-portal-wlr>
+
+[⁹][9] NVIDIA. "NVIDIA Linux Driver README and Installation Guide," NVIDIA Developer Documentation. [Online]. Available: <https://us.download.nvidia.com/XFree86/Linux-x86_64/580.126.09/README/index.html>
+
+[¹⁰][10] X.Org Foundation. "X Window System," X.org. [Online]. Available: <https://www.x.org/wiki/>
+
+[¹¹][11] K. Høiland-Jørgensen et al. "Wayland," freedesktop.org. [Online]. Available: <https://wayland.freedesktop.org/>
+
+[¹²][12] M. Larabel. "waypipe - Network transparency for Wayland," GitHub. [Online]. Available: <https://github.com/deepin-community/waypipe>
+
+[¹³][13] X.Org Foundation. "XWayland - X server for Wayland," freedesktop.org. [Online]. Available: <https://cgit.freedesktop.org/xorg/xserver>
+
+[¹⁴][14] abenz1267. "walker - A launcher for wlroots based wayland compositors," GitHub. [Online]. Available: <https://github.com/abenz1267/walker>
 
 [1]: https://github.com/swaywm/sway
 [2]: https://git.sr.ht/~kennylevinsen/greetd

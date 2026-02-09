@@ -170,21 +170,31 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 - ✅ Sleep Mode Configuration: Aligned with actual BIOS capabilities (s2idle)
 
 **Active Issues:**
+- 🔴 **Critical System Crash**: Complete system lockup requiring hard reboot (2026-02-09)
+  - Triggered by Cursor crash leading to kernel "scheduling while atomic" bug
+  - RCU stalls causing system unresponsiveness
 - ⚠️ Sleep/Hibernation: Fails to resume reliably (ACPI BIOS bugs)
 - ⚠️ ACPI BIOS Bugs: 16 non-fatal errors per boot (requires BIOS update)
 - ⚠️ Cursor Crashes: Multiple crash types observed (SIGILL, SIGTRAP, SIGSEGV)
   - SIGILL: CPU-level instruction execution issues (reduced but not eliminated)
   - SIGSEGV: Memory corruption/access violations (new pattern on Cursor 2.4.22)
   - SIGTRAP: GPU driver exceptions (nouveau driver graphics violations)
+  - **NEW**: SIGTRAP crashes may trigger kernel-level system crashes
 
 **Root Causes:**
+- **Kernel-level bugs** (Critical - "scheduling while atomic" bug triggered by application crashes)
 - ACPI BIOS bugs (firmware-level, require BIOS update)
 - CPU-level issues (SIGILL crashes suggest microcode or hardware problems)
 - Memory corruption/access issues (SIGSEGV crashes suggest different underlying problem)
 - GPU driver issues (SIGTRAP crashes caused by nouveau driver graphics exceptions)
 - Potential Cursor version compatibility issues (2.4.22 introduces SIGSEGV pattern)
+- **Application crashes triggering kernel bugs** (Critical - Cursor crashes may cause system lockups)
 
 **Next Steps:**
+- **PRIORITY**: Monitor for recurrence of critical system crash pattern
+  - Watch for "scheduling while atomic" kernel bugs
+  - Monitor RCU stall patterns
+  - Track if Cursor crashes trigger system crashes
 - Check for BIOS updates from ASUS (current: GA503RS.317, 02/27/2024)
 - Monitor Cursor crash patterns:
   - Track SIGILL vs SIGSEGV vs SIGTRAP frequency
@@ -202,3 +212,138 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
   - Temporarily downgrading to 2.4.21 to compare patterns
   - Investigating FHS wrapper memory mapping issues
   - Checking Electron/Chromium zygote process compatibility
+
+## Critical System Crash (Previous Boot - 2026-02-09)
+
+**Severity:** Critical  
+**Impact:** Complete system lockup requiring hard reboot  
+**Date:** 2026-02-09 (Previous boot, boot -1)
+
+**Timeline:**
+- **21:18:35** - System boot initiated
+- **21:18:36** - Standard ACPI BIOS errors (16 errors, as documented)
+- **21:18:40** - nouveau GPU driver error: `[BL_GET level:0] (ret:-22)`
+- **21:18:58** - **Cursor crash (SIGTRAP/int3)** - Process 2579 crashed with trap int3
+  - Stack trace shows crash in cursor binary at `0x6cfed13`
+  - Involved `libXcursor.so.1` module (X11 cursor library)
+  - Coredump generated
+- **21:19:07** - **Critical kernel crash** - "Fixing recursive fault but reboot is needed!"
+  - **BUG: scheduling while atomic** - Process 2630 (sleep) attempted to schedule while in atomic context
+  - **RCU stalls detected** - RCU (Read-Copy-Update) subsystem detected stalls
+  - Process 2630 blocked on level-0 rcu_node (CPUs 0-15)
+  - System became completely unresponsive
+- **21:19:26 onwards** - Multiple RCU stall warnings (every ~30-60 seconds)
+  - RCU stalls continued for several minutes
+  - System services began timing out (systemd-hostnamed, systemd-localed)
+  - System required hard reboot
+
+**Root Cause Analysis:**
+1. **Initial trigger**: Cursor application crash (SIGTRAP) at 21:18:58
+   - Crash occurred ~23 seconds after boot
+   - Involved X11 cursor library (`libXcursor.so.1`) in Wayland environment
+   - Similar to previously documented SIGTRAP crashes
+   - Process 2579 crashed with trap int3 (breakpoint/trace trap)
+
+2. **Intermediate failure**: Process 2630 (sleep) kernel bug at 21:19:05
+   - **Critical finding**: Sleep process hit an **invalid opcode** in kernel memory management code
+   - Invalid opcode occurred in `copy_page_range+0x1553/0x1b70` function
+   - Sleep process was **exiting** and cleaning up memory mappings when the bug occurred
+   - Call trace: `do_exit` → `mmput` → `__mmput` → `exit_mmap` → `unmap_vmas` → `unmap_page_range` → `copy_page_range`
+   - Sleep process exited with `preempt_count 1`, meaning it was in an atomic context
+   - This suggests memory corruption or kernel bug in page range copying during process exit
+   - **Important distinction**: This is a **kernel-level** invalid opcode (kernel bug), not an application-level SIGILL
+     - Cursor crashes show "trap invalid opcode" (application-level SIGILL)
+     - Sleep process shows "Oops: invalid opcode" (kernel-level bug)
+     - These are different types of bugs, though may be related
+
+3. **Cascade failure**: The invalid opcode led to "scheduling while atomic" bug at 21:19:07
+   - Sleep process attempted to schedule while in atomic context (from invalid opcode handling)
+   - This violated kernel scheduling rules and triggered "scheduling while atomic" bug
+   - RCU subsystem detected the stall and began reporting errors
+   - **Note**: The "scheduling while atomic" bug was a consequence, not the root cause
+
+4. **System lockup**: The kernel bug caused complete system unresponsiveness
+   - RCU stalls prevented proper CPU task scheduling
+   - System services could not complete shutdown procedures
+   - Required hard reboot to recover
+
+**Key Findings:**
+- **Cursor crash preceded system crash** - The application crash occurred first, but may not be directly related
+- **Kernel bug in sleep process**: Process 2630 (sleep) hit an **invalid opcode** during memory cleanup
+  - Invalid opcode in `copy_page_range` function (kernel memory management)
+  - Occurred during process exit cleanup (`exit_mmap` path)
+  - This is a **kernel-level bug**, not an application bug
+- **"Scheduling while atomic" was a symptom**: The actual bug was the invalid opcode
+  - Sleep process was in atomic context when invalid opcode occurred
+  - Kernel tried to handle the invalid opcode, which triggered scheduling while atomic
+- **RCU stalls**: Multiple RCU stalls suggest CPU scheduling subsystem failure
+- **Process 2630 (sleep)**: This process was exiting when it hit the kernel bug
+- **Timing**: Crash occurred very early in boot (~30 seconds after system start)
+- **Uniqueness**: This is the only instance of "scheduling while atomic" in all logs - suggests rare kernel bug
+
+**Potential Contributing Factors:**
+- **Kernel bug in `copy_page_range`**: Invalid opcode suggests kernel memory management bug
+  - May be related to kernel 6.12.68 version
+  - Could be triggered by specific memory layout or process state
+  - May be related to AMD CPU architecture (Ryzen 9 5900HS)
+- **Cursor crash timing**: Cursor crash occurred ~7 seconds before sleep process bug
+  - May have left kernel state inconsistent
+  - Could have triggered memory corruption affecting subsequent processes
+  - Or may be coincidental timing
+- **nouveau GPU driver error**: `[BL_GET level:0] (ret:-22)` occurs on every boot
+  - Common, non-critical error (backlight control)
+  - Unlikely related to this crash
+- **ACPI BIOS bugs**: May contribute to system instability
+- **Process exit path**: Bug occurred during process exit memory cleanup
+  - Suggests kernel bug in memory unmapping code path
+  - May be related to specific memory layout or page table state
+
+**Impact:**
+- Complete system lockup requiring hard reboot
+- Data loss risk (unsaved work)
+- System instability during early boot phase
+- Suggests deeper system-level issues beyond application crashes
+
+**Recommendations:**
+1. **Immediate**: Monitor for recurrence of this crash pattern
+   - Watch for "invalid opcode" errors in kernel logs
+   - Monitor for `copy_page_range` errors
+   - Track if Cursor crashes correlate with kernel bugs
+
+2. **Investigation**: 
+   - ✅ **COMPLETED**: Investigated Process 2630 (sleep) - found invalid opcode in `copy_page_range`
+   - ✅ **COMPLETED**: Checked kernel logs - this is the only instance of "scheduling while atomic"
+   - ✅ **COMPLETED**: Reviewed Cursor crash patterns - timing correlation but unclear causation
+   - **Next**: Research kernel 6.12.68 `copy_page_range` bugs or AMD CPU-related issues
+   - **Next**: Check if this is a known kernel bug (search kernel bug trackers)
+
+3. **Mitigation**:
+   - **Kernel-level**: This appears to be a kernel bug, not application issue
+   - Consider kernel parameter adjustments if pattern continues:
+     - `nohz=off` (disable nohz mode) - may help with RCU issues
+     - `rcupdate.rcu_cpu_stall_timeout=300` (increase RCU timeout)
+   - Consider testing with different kernel version if bug recurs
+   - **Application-level**: Delaying Cursor startup may help avoid timing issues
+   - Monitor nouveau GPU driver errors (though likely unrelated)
+
+4. **Bug Reporting**:
+   - If this recurs, consider reporting to kernel bug tracker
+   - Include: kernel version (6.12.68), CPU (AMD Ryzen 9 5900HS), full oops trace
+   - Focus on `copy_page_range` invalid opcode bug
+
+5. **Long-term**:
+   - Continue monitoring for kernel-level crashes
+   - Document any patterns in timing or triggers
+   - Consider kernel version changes if issues persist
+   - Monitor for AMD CPU microcode updates
+
+**Additional Context:**
+- **Kernel bug frequency**: Only 1 instance of "scheduling while atomic" in all logs (63 boots recorded)
+- **Kernel Oops/BUG count**: 14 total kernel warnings/errors across all boots
+- **Cursor crash frequency**: 128 Cursor-related crash/signal messages across all boots
+- **Invalid opcode patterns**: 
+  - 9 Cursor application-level "trap invalid opcode" (SIGILL) - application bugs
+  - 1 kernel-level "Oops: invalid opcode" (sleep process) - kernel bug
+  - The kernel bug is unique and rare
+
+**Status:** Active - Critical system crash requiring monitoring

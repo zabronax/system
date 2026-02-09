@@ -54,19 +54,29 @@
   gaps inner 8
   gaps outer 8
   
-  # Workspaces
-  bindsym {
-      $mod+1 workspace number 1
-      $mod+2 workspace number 2
-      $mod+3 workspace number 3
-  }
+  # Workspaces and move focused container to workspace
+  # Command Hub
+  bindsym $mod+1 workspace number 1
+  bindsym $mod+Shift+1 move container to workspace number 1
+  assign [app_id="org.wezfurlong.wezterm"] 1
   
-  # Move focused container to workspace
-  bindsym {
-      $mod+Shift+1 move container to workspace number 1
-      $mod+Shift+2 move container to workspace number 2
-      $mod+Shift+3 move container to workspace number 3
-  }
+  # Integrated Development Environment
+  bindsym $mod+2 workspace number 2
+  bindsym $mod+Shift+2 move container to workspace number 2
+  assign [app_id="cursor"] 2
+  
+  # Internet Browsing
+  bindsym $mod+3 workspace number 3
+  bindsym $mod+Shift+3 move container to workspace number 3
+  assign [app_id="firefox"] 3
+  
+  # Communication
+  bindsym $mod+4 workspace number 4
+  bindsym $mod+Shift+4 move container to workspace number 4
+  
+  # Misc
+  bindsym $mod+0 workspace number 0
+  bindsym $mod+Shift+0 move container to workspace number 0
   
   # Essential keybindings
   bindsym {
@@ -76,5 +86,20 @@
       ${if launcherCmd != null then ''$mod+d exec $launcher'' else ""}
       # Close focused window (Mod+Shift+Q)
       $mod+Shift+q kill
+  }
+  
+  # Status Bar
+  bar {
+      position top
+      
+      # When the status_command prints a new line to stdout, swaybar updates.
+      # The default just shows the current date and time.
+      status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+      
+      colors {
+          statusline ${base05}
+          background ${base00}
+          inactive_workspace ${base00 + "00"} ${base00 + "00"} ${base03}
+      }
   }
 ''
