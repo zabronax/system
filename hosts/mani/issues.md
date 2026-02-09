@@ -170,21 +170,31 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
 - ✅ Sleep Mode Configuration: Aligned with actual BIOS capabilities (s2idle)
 
 **Active Issues:**
+- 🔴 **Critical System Crash**: Complete system lockup requiring hard reboot (2026-02-09)
+  - Triggered by Cursor crash leading to kernel "scheduling while atomic" bug
+  - RCU stalls causing system unresponsiveness
 - ⚠️ Sleep/Hibernation: Fails to resume reliably (ACPI BIOS bugs)
 - ⚠️ ACPI BIOS Bugs: 16 non-fatal errors per boot (requires BIOS update)
 - ⚠️ Cursor Crashes: Multiple crash types observed (SIGILL, SIGTRAP, SIGSEGV)
   - SIGILL: CPU-level instruction execution issues (reduced but not eliminated)
   - SIGSEGV: Memory corruption/access violations (new pattern on Cursor 2.4.22)
   - SIGTRAP: GPU driver exceptions (nouveau driver graphics violations)
+  - **NEW**: SIGTRAP crashes may trigger kernel-level system crashes
 
 **Root Causes:**
+- **Kernel-level bugs** (Critical - "scheduling while atomic" bug triggered by application crashes)
 - ACPI BIOS bugs (firmware-level, require BIOS update)
 - CPU-level issues (SIGILL crashes suggest microcode or hardware problems)
 - Memory corruption/access issues (SIGSEGV crashes suggest different underlying problem)
 - GPU driver issues (SIGTRAP crashes caused by nouveau driver graphics exceptions)
 - Potential Cursor version compatibility issues (2.4.22 introduces SIGSEGV pattern)
+- **Application crashes triggering kernel bugs** (Critical - Cursor crashes may cause system lockups)
 
 **Next Steps:**
+- **PRIORITY**: Monitor for recurrence of critical system crash pattern
+  - Watch for "scheduling while atomic" kernel bugs
+  - Monitor RCU stall patterns
+  - Track if Cursor crashes trigger system crashes
 - Check for BIOS updates from ASUS (current: GA503RS.317, 02/27/2024)
 - Monitor Cursor crash patterns:
   - Track SIGILL vs SIGSEGV vs SIGTRAP frequency
@@ -202,3 +212,81 @@ Multiple ACPI BIOS errors appear during every boot (16 errors). These are BIOS-l
   - Temporarily downgrading to 2.4.21 to compare patterns
   - Investigating FHS wrapper memory mapping issues
   - Checking Electron/Chromium zygote process compatibility
+
+## Critical System Crash (Previous Boot - 2026-02-09)
+
+**Severity:** Critical  
+**Impact:** Complete system lockup requiring hard reboot  
+**Date:** 2026-02-09 (Previous boot, boot -1)
+
+**Timeline:**
+- **21:18:35** - System boot initiated
+- **21:18:36** - Standard ACPI BIOS errors (16 errors, as documented)
+- **21:18:40** - nouveau GPU driver error: `[BL_GET level:0] (ret:-22)`
+- **21:18:58** - **Cursor crash (SIGTRAP/int3)** - Process 2579 crashed with trap int3
+  - Stack trace shows crash in cursor binary at `0x6cfed13`
+  - Involved `libXcursor.so.1` module (X11 cursor library)
+  - Coredump generated
+- **21:19:07** - **Critical kernel crash** - "Fixing recursive fault but reboot is needed!"
+  - **BUG: scheduling while atomic** - Process 2630 (sleep) attempted to schedule while in atomic context
+  - **RCU stalls detected** - RCU (Read-Copy-Update) subsystem detected stalls
+  - Process 2630 blocked on level-0 rcu_node (CPUs 0-15)
+  - System became completely unresponsive
+- **21:19:26 onwards** - Multiple RCU stall warnings (every ~30-60 seconds)
+  - RCU stalls continued for several minutes
+  - System services began timing out (systemd-hostnamed, systemd-localed)
+  - System required hard reboot
+
+**Root Cause Analysis:**
+1. **Initial trigger**: Cursor application crash (SIGTRAP) at 21:18:58
+   - Crash occurred ~23 seconds after boot
+   - Involved X11 cursor library (`libXcursor.so.1`) in Wayland environment
+   - Similar to previously documented SIGTRAP crashes
+
+2. **Cascade failure**: The Cursor crash appears to have triggered a kernel-level failure
+   - Process 2630 (sleep) attempted to schedule while in atomic context
+   - This violated kernel scheduling rules and triggered "scheduling while atomic" bug
+   - RCU subsystem detected the stall and began reporting errors
+
+3. **System lockup**: The kernel bug caused complete system unresponsiveness
+   - RCU stalls prevented proper CPU task scheduling
+   - System services could not complete shutdown procedures
+   - Required hard reboot to recover
+
+**Key Findings:**
+- **Cursor crash preceded system crash** - The application crash appears to have triggered the kernel bug
+- **Kernel bug**: "scheduling while atomic" indicates a serious kernel-level issue
+- **RCU stalls**: Multiple RCU stalls suggest CPU scheduling subsystem failure
+- **Process 2630 (sleep)**: This process was involved in the kernel bug
+- **Timing**: Crash occurred very early in boot (~30 seconds after system start)
+
+**Potential Contributing Factors:**
+- Cursor crash may have left kernel state inconsistent
+- nouveau GPU driver error (`[BL_GET level:0] (ret:-22)`) may indicate GPU driver issues
+- ACPI BIOS bugs may contribute to system instability
+- Kernel 6.12.68 compatibility issues
+- Possible memory corruption from Cursor crash affecting kernel state
+
+**Impact:**
+- Complete system lockup requiring hard reboot
+- Data loss risk (unsaved work)
+- System instability during early boot phase
+- Suggests deeper system-level issues beyond application crashes
+
+**Recommendations:**
+1. **Immediate**: Monitor for recurrence of this crash pattern
+2. **Investigation**: 
+   - Check kernel logs for similar "scheduling while atomic" bugs
+   - Investigate Process 2630 (sleep) - what was it doing?
+   - Review Cursor crash patterns - are they triggering kernel bugs?
+3. **Mitigation**:
+   - Consider delaying Cursor startup until system is fully initialized
+   - Monitor nouveau GPU driver errors more closely
+   - Consider kernel parameter adjustments if pattern continues
+   - May need to report kernel bug if this recurs
+4. **Long-term**:
+   - Continue monitoring for kernel-level crashes
+   - Document any patterns in timing or triggers
+   - Consider kernel version changes if issues persist
+
+**Status:** Active - Critical system crash requiring monitoring
